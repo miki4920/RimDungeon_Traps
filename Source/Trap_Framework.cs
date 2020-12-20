@@ -1,12 +1,16 @@
 ﻿using System;
+using RimWorld;
+using Verse;
+using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
+using RimWorld.Planet;
 
-namespace RimDungeon_Traps
+namespace RimDungeon
 {
-	public class RimDungeon_Trap_Framework
-	{
-		public abstract class Dungeon_Trap_Framework : Building
+		public abstract class Trap_Framework : Building_Trap
 		{
-			public RimDungeon_Trap_Def TrapDef => base.def.GetModExtension<RimDungeon_Trap_Def>();
+			public Trap_Def TrapDef => base.def.GetModExtension<Trap_Def>();
 			private bool autoRearm;
 			public bool armed = true;
 			private List<Pawn> touchingPawns = new List<Pawn>();
@@ -35,14 +39,6 @@ namespace RimDungeon_Traps
 				Scribe_Values.Look<bool>(ref this.autoRearm, "autoRearm", false, false);
 				Scribe_Values.Look<bool>(ref this.armed, "armed", true, false);
 				Scribe_Collections.Look<Pawn>(ref this.touchingPawns, "testees", LookMode.Reference, Array.Empty<object>());
-			}
-			public override void SpawnSetup(Map map, bool respawningAfterLoad)
-			{
-				base.SpawnSetup(map, respawningAfterLoad);
-				if (!respawningAfterLoad)
-				{
-					this.autoRearm = (this.CanSetAutoRebuild && map.areaManager.Home[base.Position]);
-				}
 			}
 			public override void Tick()
 			{
@@ -81,7 +77,7 @@ namespace RimDungeon_Traps
 					}
 				}
 			}
-			protected virtual float SpringChance(Pawn p)
+			protected override float SpringChance(Pawn p)
 			{
 				float num = 1f;
 				if (!armed && this.TrapDef.rearmable)
@@ -114,10 +110,6 @@ namespace RimDungeon_Traps
 				num *= this.GetStatValue(StatDefOf.TrapSpringChance, true) * p.GetStatValue(StatDefOf.PawnTrapSpringChance, true);
 				return Mathf.Clamp01(num);
 			}
-			public bool KnowsOfTrap(Pawn p)
-			{
-				return (p.Faction != null && !p.Faction.HostileTo(base.Faction)) || (p.Faction == null && p.RaceProps.Animal && !p.InAggroMentalState) || (p.guest != null && p.guest.Released) || (!p.IsPrisoner && base.Faction != null && p.HostFaction == base.Faction) || (p.RaceProps.Humanlike && p.IsFormingCaravan()) || (p.IsPrisoner && p.guest.ShouldWaitInsteadOfEscaping && base.Faction == p.HostFaction) || (p.Faction == null && p.RaceProps.Humanlike);
-			}
 			public override ushort PathFindCostFor(Pawn p)
 			{
 				if (!this.KnowsOfTrap(p) && !TrapDef.slows)
@@ -133,10 +125,6 @@ namespace RimDungeon_Traps
 					return 0;
 				}
 				return (ushort)TrapDef.pathWalkCost;
-			}
-			public override bool IsDangerousFor(Pawn p)
-			{
-				return this.KnowsOfTrap(p);
 			}
 			public void Spring(Pawn p)
 			{
@@ -166,7 +154,6 @@ namespace RimDungeon_Traps
 					this.CheckAutoRebuild(map);
 				}
 			}
-			protected abstract void SpringSub(Pawn p);
 			private void CheckAutoRebuild(Map map)
 			{
 				if (this.autoRearm && this.CanSetAutoRebuild && map != null && GenConstruct.CanPlaceBlueprintAt(this.def, base.Position, base.Rotation, map, false, null, null, base.Stuff).Accepted)
@@ -230,12 +217,12 @@ namespace RimDungeon_Traps
 			}
 			public void AddRearmDesignation()
 			{
-				base.Map.designationManager.AddDesignation(new Designation(this, DefsOf.DesignationDefOf.RearmTrap));
+				base.Map.designationManager.AddDesignation(new Designation(this, DesignationDefOf.RearmTrap));
 			}
 
 			private bool CanBeDesignatedRearm()
 			{
-				return !armed && Map.designationManager.AllDesignationsOn(this).Where(i => i.def == DefsOf.DesignationDefOf.RearmTrap).FirstOrDefault() == null;
+				return !armed && Map.designationManager.AllDesignationsOn(this).Where(i => i.def == DesignationDefOf.RearmTrap).FirstOrDefault() == null;
 			}
 
 			public void Rearm()
@@ -244,4 +231,3 @@ namespace RimDungeon_Traps
 			}
 		}
 	}
-}

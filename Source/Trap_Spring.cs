@@ -4,9 +4,9 @@ using Verse;
 using Verse.Sound;
 
 
-namespace RimDungeon_Traps
+namespace RimDungeon
 {
-    class Dungeon_Trap : Dungeon_Trap_Framework
+    class Trap_Spring : Trap_Framework
     {
 		public override void SpawnSetup(Map map, bool respawningAfterLoad)
 		{
