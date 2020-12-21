@@ -1,0 +1,126 @@
+<Defs>
+	<ThingDef ParentName="BaseDungeonTrap">
+		<defName>Caltrops</defName>
+		<label>caltrops</label>
+		<description>Simple spiked trap, made of sharpened wood or metal. Cheap, but takes a long time to make. Takes a long time to traverse through. Due to having no trigger, the trap is about as likely to damage colonists as it is to damage enemies.</description>
+		<graphicData>
+			<texPath>Things/Building/Traps/Caltrops</texPath>
+		</graphicData>		
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsSecurity</li>
+		</thingCategories>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>8000</WorkToBuild>
+			<Flammability>0.5</Flammability>
+			<TrapMeleeDamage>3</TrapMeleeDamage>
+			<TrapSpringChance>0.5</TrapSpringChance>
+		</statBases>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Woody</li>
+		</stuffCategories>
+		<costStuffCount>25</costStuffCount>
+		<modExtensions>
+			<li Class="Rimdungeon.Traps.Dungeon_Trap_Def">
+				<numberOfAttacks>1</numberOfAttacks>
+				<pathWalkCost>50</pathWalkCost>
+				<sameFactionSpringChance>0.5</sameFactionSpringChance>
+				<wildAnimalSpringChance>0.5</wildAnimalSpringChance>
+				<noFactionSpringChance>0.5</noFactionSpringChance>
+				<slows>true</slows>
+			</li>
+		</modExtensions>
+		<building>
+			<trapDestroyOnSpring>false</trapDestroyOnSpring>
+			<trapDamageCategory>Sharp</trapDamageCategory>
+		</building>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseDungeonTrap">
+		<defName>Spikes</defName>
+		<label>spikes</label>
+		<description>Spiked hidden in the ground. When triggered, spikes thrust into the enemy, doing massive damage. Rearmable but is expensive and takes a long time to build. It triggers on non-colonist humans only.</description>
+		<graphicData>
+			<texPath>Things/Building/Traps/Spikes_Armed</texPath>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<WorkToBuild>12000</WorkToBuild>
+			<Flammability>1</Flammability>
+			<TrapMeleeDamage>75</TrapMeleeDamage>
+			<TrapSpringChance>1</TrapSpringChance>
+		</statBases>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Woody</li>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>200</costStuffCount>
+		<modExtensions>
+			<li Class="Rimdungeon.Traps.Dungeon_Trap_Def">
+				<numberOfAttacks>1</numberOfAttacks>
+				<rearmable>true</rearmable>
+				<pathWalkCost>10</pathWalkCost>
+				<sameFactionSpringChance>0</sameFactionSpringChance>
+				<wildAnimalSpringChance>0</wildAnimalSpringChance>
+				<noFactionSpringChance>1</noFactionSpringChance>
+				<armorPenetration>1</armorPenetration>
+			</li>
+		</modExtensions>
+		<building>
+			<trapDestroyOnSpring>false</trapDestroyOnSpring>
+			<trapDamageCategory>Sharp</trapDamageCategory>
+			<trapUnarmedGraphicData>
+				<texPath>Things/Building/Traps/Spikes_Unarmed</texPath>
+			</trapUnarmedGraphicData>
+		</building>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+		<placeWorkers>
+			<li>PlaceWorker_NeverAdjacentTrap</li>
+		</placeWorkers>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseDungeonTrap">
+		<defName>Oil_Trap</defName>
+		<label>oil trap</label>
+		<description>Wood Log soaked in oil and wrapped in clothing. Causes a small explosion of fire on trigger. Cheap, fast and unreliable. Colonists are unlikely to trigger it.</description>
+		<thingClass>Rimdungeon.Traps.Building_Trap_Explosive</thingClass>
+		<graphicData>
+			<texPath>Things/Building/Traps/Fire_Trap</texPath>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>20</MaxHitPoints>
+			<WorkToBuild>800</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<TrapSpringChance>0.5</TrapSpringChance>
+		</statBases>
+		<costList>
+			<WoodLog>10</WoodLog>
+		</costList>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		<costStuffCount>10</costStuffCount>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>0.5</explosiveRadius>
+				<explosiveDamageType>Flame</explosiveDamageType>
+				<wickTicks>3</wickTicks>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="Rimdungeon.Traps.Dungeon_Trap_Def">
+				<pathWalkCost>10</pathWalkCost>
+				<sameFactionSpringChance>0.1</sameFactionSpringChance>
+				<wildAnimalSpringChance>1</wildAnimalSpringChance>
+				<noFactionSpringChance>1</noFactionSpringChance>
+				<rebuildable>true</rebuildable>
+			</li>
+		</modExtensions>
+		<constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+	</ThingDef>
+</Defs>

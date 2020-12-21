@@ -1,8 +1,8 @@
 ﻿using Verse;
 
-namespace RimDungeon_Traps
+namespace RimDungeon
 {
-    public class RimDungeon_Trap_Def : DefModExtension
+    public class Trap_Def : DefModExtension
     {
         public int numberOfAttacks = 5;
         public float armorPenetration = 0.015f;

@@ -1,7 +1,7 @@
 ﻿using RimWorld;
 using Verse;
 
-namespace Rimdungeon.Traps.DefsOf
+namespace RimDungeon
 {
     [DefOf]
     public static class JobDefOf
