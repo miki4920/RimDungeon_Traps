@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using Verse;
 using Verse.AI;
 
-namespace Rimdungeon.Traps.AI
+namespace RimDungeon
 {
     public class WorkGiver_RearmTraps : WorkGiver_Scanner
     {
         public override IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn)
         {
-            foreach (Designation des in pawn.Map.designationManager.SpawnedDesignationsOfDef(DefsOf.DesignationDefOf.RearmTrap))
+            foreach (Designation des in pawn.Map.designationManager.SpawnedDesignationsOfDef(DesignationDefOf.RearmTrap))
             {
                 yield return des.target.Thing;
             }
@@ -32,7 +32,7 @@ namespace Rimdungeon.Traps.AI
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            if (pawn.Map.designationManager.DesignationOn(t, DefsOf.DesignationDefOf.RearmTrap) == null)
+            if (pawn.Map.designationManager.DesignationOn(t, DesignationDefOf.RearmTrap) == null)
             {
                 return false;
             }
@@ -67,7 +67,7 @@ namespace Rimdungeon.Traps.AI
                     }
                 }
             }
-            return new Job(DefsOf.JobDefOf.RearmTrapJob, t);
+            return new Job(JobDefOf.RearmTrapJob, t);
         }
     }
 }
