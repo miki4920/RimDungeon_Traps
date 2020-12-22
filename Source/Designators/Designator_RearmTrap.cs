@@ -5,7 +5,7 @@ using RimWorld;
 using Verse;
 using UnityEngine;
 
-namespace Rimdungeon.Traps.Designators
+namespace RimDungeon
 {
     class Designator_RearmTrap : Designator
     {
@@ -51,13 +51,13 @@ namespace Rimdungeon.Traps.Designators
 
         public override AcceptanceReport CanDesignateThing(Thing t)
         {
-            Dungeon_Trap_Framework trap = t as Dungeon_Trap_Framework;
-            return trap != null && !trap.armed && base.Map.designationManager.DesignationOn(trap, DefsOf.DesignationDefOf.RearmTrap) == null;
+            Trap_Framework trap = t as Trap_Framework;
+            return trap != null && !trap.armed && base.Map.designationManager.DesignationOn(trap, DesignationDefOf.RearmTrap) == null;
         }
 
         public override void DesignateThing(Thing t)
         {
-            base.Map.designationManager.AddDesignation(new Designation(t, DefsOf.DesignationDefOf.RearmTrap));
+            base.Map.designationManager.AddDesignation(new Designation(t, DesignationDefOf.RearmTrap));
         }
 
         private IEnumerable<Thing> RearmablesInCell(IntVec3 c)
