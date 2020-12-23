@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Verse;
 using Verse.AI;
 
-namespace Rimdungeon.Traps.AI
+namespace RimDungeon
 {
     public class JobDriver_RearmTrap : JobDriver
     {
@@ -20,7 +17,7 @@ namespace Rimdungeon.Traps.AI
         protected override IEnumerable<Toil> MakeNewToils()
         {
             this.FailOnDespawnedOrNull(TargetIndex.A);
-            this.FailOnThingMissingDesignation(TargetIndex.A, DefsOf.DesignationDefOf.RearmTrap);
+            this.FailOnThingMissingDesignation(TargetIndex.A, DesignationDefOf.RearmTrap);
             Toil gotoThing = new Toil();
             gotoThing.initAction = delegate ()
             {
@@ -35,12 +32,12 @@ namespace Rimdungeon.Traps.AI
                 initAction = delegate ()
                 {
                     Thing thing = this.job.targetA.Thing;
-                    Designation designation = base.Map.designationManager.DesignationOn(thing, DefsOf.DesignationDefOf.RearmTrap);
+                    Designation designation = base.Map.designationManager.DesignationOn(thing, DesignationDefOf.RearmTrap);
                     if (designation != null)
                     {
                         designation.Delete();
                     }
-                    Dungeon_Trap_Framework trap = thing as Dungeon_Trap_Framework;
+                    Trap_Framework trap = thing as Trap_Framework;
                     trap.Rearm();
                 },
                 defaultCompleteMode = ToilCompleteMode.Instant
