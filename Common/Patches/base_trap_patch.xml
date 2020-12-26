@@ -27,7 +27,7 @@
 		<xpath>Defs/ThingDef[defName="TrapSpike"]/building</xpath>
 		<value>
 			<trapUnarmedGraphicData>
-				<texPath>Things/Building/Traps/TrapSpike_Unarmed</texPath>
+				<texPath>Things/Building/Traps/TrapSpike_Trap_Unarmed</texPath>
 				<graphicClass>Graphic_Single</graphicClass>
 			</trapUnarmedGraphicData>
 		</value>

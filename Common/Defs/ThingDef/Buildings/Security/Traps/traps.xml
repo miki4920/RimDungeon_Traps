@@ -2,9 +2,9 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>Caltrops</defName>
 		<label>caltrops</label>
-		<description>Simple spiked trap, made of sharpened wood or metal. Cheap, but takes a long time to make. Takes a long time to traverse through. Due to having no trigger, the trap is about as likely to damage colonists as it is to damage enemies.</description>
+		<description>Simple spiked trap, made of sharpened wood or metal. Cheap, but takes a long time to make. Takes a long time to traverse through. Due to having no trigger, the trap is as likely to damage colonists as it is to damage enemies.</description>
 		<graphicData>
-			<texPath>Things/Building/Traps/Caltrops</texPath>
+			<texPath>Things/Building/Traps/Caltrops_Trap</texPath>
 		</graphicData>		
 		<minifiedDef>MinifiedThing</minifiedDef>
 		<thingCategories>
@@ -43,7 +43,7 @@
 		<label>spikes</label>
 		<description>Spiked hidden in the ground. When triggered, spikes thrust into the enemy, doing massive damage. Rearmable but is expensive and takes a long time to build. It triggers on non-colonist humans only.</description>
 		<graphicData>
-			<texPath>Things/Building/Traps/Spikes_Armed</texPath>
+			<texPath>Things/Building/Traps/Spikes_Trap_Armed</texPath>
 		</graphicData>
 		<statBases>
 			<MaxHitPoints>400</MaxHitPoints>
@@ -65,7 +65,6 @@
 				<pathWalkCost>10</pathWalkCost>
 				<sameFactionSpringChance>0</sameFactionSpringChance>
 				<wildAnimalSpringChance>0</wildAnimalSpringChance>
-				<noFactionSpringChance>1</noFactionSpringChance>
 				<armorPenetration>1</armorPenetration>
 			</li>
 		</modExtensions>
@@ -73,7 +72,7 @@
 			<trapDestroyOnSpring>false</trapDestroyOnSpring>
 			<trapDamageCategory>Sharp</trapDamageCategory>
 			<trapUnarmedGraphicData>
-				<texPath>Things/Building/Traps/Spikes_Unarmed</texPath>
+				<texPath>Things/Building/Traps/Spikes_Trap_Unarmed</texPath>
 				<graphicClass>Graphic_Single</graphicClass>
 			</trapUnarmedGraphicData>
 		</building>
@@ -116,11 +115,56 @@
 			<li Class="RimDungeon.Trap_Def">
 				<pathWalkCost>10</pathWalkCost>
 				<sameFactionSpringChance>0.1</sameFactionSpringChance>
-				<wildAnimalSpringChance>1</wildAnimalSpringChance>
-				<noFactionSpringChance>1</noFactionSpringChance>
+				<wildAnimalSpringChance>0.1</wildAnimalSpringChance>
 				<rebuildable>true</rebuildable>
 			</li>
 		</modExtensions>
 		<constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseDungeonTrap">
+		<defName>Noose</defName>
+		<label>noose</label>
+		<description>A noose trap. Does very little damage, but can immobilise target for a long time.</description>
+		<graphicData>
+			<texPath>Things/Building/Traps/Noose_Trap_Armed</texPath>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<WorkToBuild>12000</WorkToBuild>
+			<Flammability>1</Flammability>
+			<TrapMeleeDamage>75</TrapMeleeDamage>
+			<TrapSpringChance>1</TrapSpringChance>
+		</statBases>
+		<costList>
+			<WoodLog>100</WoodLog>
+		</costList>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		<costStuffCount>25</costStuffCount>
+		<modExtensions>
+			<li Class="RimDungeon.Trap_Def">
+				<numberOfAttacks>1</numberOfAttacks>
+				<rearmable>true</rearmable>
+				<pathWalkCost>10</pathWalkCost>
+				<sameFactionSpringChance>0.1</sameFactionSpringChance>
+				<wildAnimalSpringChance>1</wildAnimalSpringChance>
+				<armorPenetration>1</armorPenetration>
+			</li>
+		</modExtensions>
+		<building>
+			<trapDestroyOnSpring>false</trapDestroyOnSpring>
+			<trapDamageCategory>Sharp</trapDamageCategory>
+			<trapUnarmedGraphicData>
+				<texPath>Things/Building/Traps/Spikes_Unarmed</texPath>
+				<graphicClass>Graphic_Single</graphicClass>
+			</trapUnarmedGraphicData>
+		</building>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+		<placeWorkers>
+			<li>PlaceWorker_NeverAdjacentTrap</li>
+		</placeWorkers>
 	</ThingDef>
 </Defs>
