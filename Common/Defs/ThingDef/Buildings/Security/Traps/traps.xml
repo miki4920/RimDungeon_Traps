@@ -133,8 +133,8 @@
 			<MaxHitPoints>400</MaxHitPoints>
 			<WorkToBuild>12000</WorkToBuild>
 			<Flammability>1</Flammability>
-			<TrapMeleeDamage>75</TrapMeleeDamage>
-			<TrapSpringChance>1</TrapSpringChance>
+			<TrapMeleeDamage>20</TrapMeleeDamage>
+			<TrapSpringChance>0.1</TrapSpringChance>
 		</statBases>
 		<costList>
 			<WoodLog>100</WoodLog>
@@ -151,14 +151,15 @@
 				<pathWalkCost>10</pathWalkCost>
 				<sameFactionSpringChance>0.1</sameFactionSpringChance>
 				<wildAnimalSpringChance>1</wildAnimalSpringChance>
-				<armorPenetration>1</armorPenetration>
+				<armorPenetration>0.5</armorPenetration>
+				<hediffToAdd>TrappedInNoose</hediffToAdd>
 			</li>
 		</modExtensions>
 		<building>
 			<trapDestroyOnSpring>false</trapDestroyOnSpring>
 			<trapDamageCategory>Sharp</trapDamageCategory>
 			<trapUnarmedGraphicData>
-				<texPath>Things/Building/Traps/Spikes_Unarmed</texPath>
+				<texPath>Things/Building/Traps/Noose_Trap_Unarmed</texPath>
 				<graphicClass>Graphic_Single</graphicClass>
 			</trapUnarmedGraphicData>
 		</building>
