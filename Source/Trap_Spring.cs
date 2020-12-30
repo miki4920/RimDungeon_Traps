@@ -31,15 +31,15 @@ namespace RimDungeon
 				if(rand <= TrapDef.addHediffChance)
                 {
 					Hediff effectOnPawn = p.health?.hediffSet?.GetFirstHediffOfDef(TrapDef.hediffToAdd);
-					float randomSeverity = Rand.Range(0.15f, 0.30f);
+					float severity = 1;
 					if (effectOnPawn != null)
 					{
-						effectOnPawn.Severity += randomSeverity;
+						effectOnPawn.Severity += severity;
 					}
 					else
 					{
 						Hediff hediff = HediffMaker.MakeHediff(TrapDef.hediffToAdd, p);
-						hediff.Severity = randomSeverity;
+						hediff.Severity = severity;
 						p.health.AddHediff(hediff);
 					}
 				}

@@ -106,6 +106,10 @@ namespace RimDungeon
 						num = 0f;
 					}
 				}
+
+				else {
+					return 0f;
+				}
 				return Mathf.Clamp01(num);
 			}
 			public override ushort PathFindCostFor(Pawn p)
@@ -129,7 +133,7 @@ namespace RimDungeon
 				bool spawned = base.Spawned;
 				Map map = base.Map;
 				this.SpringSub(p);
-				armed = false;
+				Disarm();
 				if (this.def.building.trapDestroyOnSpring)
 				{
 					if (!base.Destroyed)
@@ -211,7 +215,29 @@ namespace RimDungeon
 						action = AddRearmDesignation
 					};
 				}
-				yield break;
+				if (DebugSettings.godMode && CanBeDesignatedRearm() && TrapDef.rearmable)
+				{
+				yield return new Command_Action
+				{
+					defaultLabel = "CommandRearmDebug".Translate(),
+					defaultDesc = "CommandRearmDescDebug".Translate(),
+					hotKey = KeyBindingDefOf.Misc4,
+					icon = TexCommand.RearmTrap,
+					action = Rearm
+					};
+				}
+				if (DebugSettings.godMode && armed && TrapDef.rearmable)
+				{
+					yield return new Command_Action
+					{
+						defaultLabel = "CommandDisarmDebug".Translate(),
+						defaultDesc = "CommandDisarmDescDebug".Translate(),
+						hotKey = KeyBindingDefOf.Misc4,
+						icon = TexCommand.RearmTrap,
+						action = Disarm
+					};
+				}
+			yield break;
 			}
 			public void AddRearmDesignation()
 			{
@@ -226,6 +252,11 @@ namespace RimDungeon
 			public void Rearm()
 			{
 				armed = true;
+			}
+
+			public void Disarm()
+			{
+				armed = false;
 			}
 		}
 	}

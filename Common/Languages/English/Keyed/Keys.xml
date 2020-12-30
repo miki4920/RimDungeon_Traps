@@ -5,6 +5,10 @@
   <CommandAutoRebuildDesc>Automatically rebuild the trap after it is destroyed.</CommandAutoRebuildDesc>
   <CommandRearm>Rearm Trap</CommandRearm>
   <CommandRearmDesc>Rearm a sprung trap so it can be triggered again.</CommandRearmDesc>
+  <CommandRearmDebug>DEBUG:Rearm Trap</CommandRearmDebug>
+  <CommandRearmDescDebug>Instantly rearm a sprung trap so it can be triggered again.</CommandRearmDescDebug>
+  <CommandDisarmDebug>DEBUG:Disarm Trap</CommandDisarmDebug>
+  <CommandDisarmDescDebug>Instantly disarms a trap.</CommandDisarmDescDebug>
   <TrapArmed>Armed</TrapArmed>
   <TrapNotArmed>Not armed</TrapNotArmed>
 </LanguageData>

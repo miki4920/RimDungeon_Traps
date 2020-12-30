@@ -1,0 +1,27 @@
+<Defs>
+	<HediffDef>
+    <defName>TrappedInNoose</defName>
+    <label>noose</label>
+    <labelNoun>noose</labelNoun>
+    <description>Noose around a leg. Immobilises a target for a short duration.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <battleStateLabel>blind</battleStateLabel>
+    <maxSeverity>1</maxSeverity>
+    <stages>
+      <li>
+	  <label>In Noose</label>
+	  <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <setMax>0</setMax>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_SelfHeal">
+        <healAmount>0.05</healAmount>
+      </li>
+    </comps>
+  </HediffDef>
+</Defs>
