@@ -41,7 +41,7 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>Spikes</defName>
 		<label>spikes</label>
-		<description>Spiked hidden in the ground. When triggered, spikes thrust into the enemy, doing massive damage. Rearmable but is expensive and takes a long time to build. It triggers on non-colonist humans only.</description>
+		<description>Spikes hidden in the ground. When triggered, spikes thrust into the enemy, doing massive damage. Rearmable but is expensive and takes a long time to build. It triggers on non-colonist humans only.</description>
 		<graphicData>
 			<texPath>Things/Building/Traps/Spikes_Trap_Armed</texPath>
 		</graphicData>
@@ -50,7 +50,7 @@
 			<WorkToBuild>12000</WorkToBuild>
 			<Flammability>1</Flammability>
 			<TrapMeleeDamage>75</TrapMeleeDamage>
-			<TrapSpringChance>1</TrapSpringChance>
+			<TrapSpringChance>0.75</TrapSpringChance>
 		</statBases>
 		<stuffCategories>
 			<li>Metallic</li>
@@ -150,8 +150,8 @@
 				<rearmable>true</rearmable>
 				<pathWalkCost>10</pathWalkCost>
 				<sameFactionSpringChance>0.1</sameFactionSpringChance>
-				<wildAnimalSpringChance>1</wildAnimalSpringChance>
-				<armorPenetration>0.5</armorPenetration>
+				<wildAnimalSpringChance>0.5</wildAnimalSpringChance>
+				<armorPenetration>0.1</armorPenetration>
 				<hediffToAdd>TrappedInNoose</hediffToAdd>
 			</li>
 		</modExtensions>
