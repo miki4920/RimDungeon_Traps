@@ -17,7 +17,6 @@ namespace RimDungeon
         public GraphicData trapUnarmedGraphicData;
 
         public bool slows = false;
-        public bool rebuildable = false;
 
         public float addHediffChance = 1.0f;
         public HediffDef hediffToAdd = null;
