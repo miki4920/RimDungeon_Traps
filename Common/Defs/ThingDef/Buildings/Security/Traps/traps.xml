@@ -14,14 +14,14 @@
 			<MaxHitPoints>100</MaxHitPoints>
 			<WorkToBuild>8000</WorkToBuild>
 			<Flammability>0.5</Flammability>
-			<TrapMeleeDamage>3</TrapMeleeDamage>
+			<TrapMeleeDamage>7</TrapMeleeDamage>
 			<TrapSpringChance>0.5</TrapSpringChance>
 		</statBases>
 		<stuffCategories>
 			<li>Metallic</li>
 			<li>Woody</li>
 		</stuffCategories>
-		<costStuffCount>25</costStuffCount>
+		<costStuffCount>50</costStuffCount>
 		<modExtensions>
 			<li Class="RimDungeon.Trap_Def">
 				<numberOfAttacks>1</numberOfAttacks>
@@ -29,13 +29,14 @@
 				<slows>true</slows>
 				<sameFactionSpringChance>0.5</sameFactionSpringChance>
 				<wildAnimalSpringChance>0.5</wildAnimalSpringChance>
+				<armorPenetration>0.01</armorPenetration>
 			</li>
 		</modExtensions>
 		<building>
 			<trapDestroyOnSpring>false</trapDestroyOnSpring>
 			<trapDamageCategory>Sharp</trapDamageCategory>
 		</building>
-		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+		<constructionSkillPrerequisite>3</constructionSkillPrerequisite>
 	</ThingDef>
 	
 	<ThingDef ParentName="BaseDungeonTrap">
