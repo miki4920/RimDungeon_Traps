@@ -31,7 +31,7 @@ namespace RimDungeon
 				if(rand <= TrapDef.addHediffChance)
                 {
 					Hediff effectOnPawn = p.health?.hediffSet?.GetFirstHediffOfDef(TrapDef.hediffToAdd);
-					float severity = 1;
+					float severity = TrapDef.hediffSeverity;
 					if (effectOnPawn != null)
 					{
 						effectOnPawn.Severity += severity;

@@ -43,7 +43,6 @@ namespace RimDungeon
         {
             if (Rand.Chance(this.SpringChance(p)))
             {
-                Log.Message(this.SpringChance(p).ToString());
                 Map map = base.Map;
                 this.Spring(p);
                 if (p.Faction == Faction.OfPlayer || p.HostFaction == Faction.OfPlayer)

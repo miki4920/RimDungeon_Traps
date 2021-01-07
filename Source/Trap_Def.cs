@@ -19,6 +19,7 @@ namespace RimDungeon
         public bool slows = false;
 
         public float addHediffChance = 1.0f;
+        public float hediffSeverity = 1.0f;
         public HediffDef hediffToAdd = null;
 
     }

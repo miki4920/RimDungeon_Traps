@@ -2,7 +2,7 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>Noose</defName>
 		<label>noose</label>
-		<description>A noose trap. Does very little damage, but can immobilise target for a long time.</description>
+		<description>A noose trap. Does very little damage, but can immobilise target for a long time. Humans are unlikely to trigger it.</description>
 		<graphicData>
 			<texPath>Things/Building/Traps/Noose_Trap_Armed</texPath>
 		</graphicData>
@@ -40,6 +40,56 @@
 				<graphicClass>Graphic_Single</graphicClass>
 			</trapUnarmedGraphicData>
 		</building>
+		<placeWorkers>
+			<li>PlaceWorker_NeverAdjacentTrap</li>
+		</placeWorkers>
+		<researchPrerequisites>
+			<li>AnimalTraps</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseDungeonTrap">
+		<defName>BearTrap</defName>
+		<label>bear trap</label>
+		<description>Whilst usually used against bears, this trap can be effectively used against a variety of animals, or even humans. It does a decent amount of piercing damage, and gives a long-term movement penalty but requires metal to make.</description>
+		<graphicData>
+			<texPath>Things/Building/Traps/Bear_Trap_Armed</texPath>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<WorkToBuild>16000</WorkToBuild>
+			<Flammability>0</Flammability>
+			<TrapMeleeDamage>25</TrapMeleeDamage>
+			<TrapSpringChance>0.25</TrapSpringChance>
+		</statBases>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>50</costStuffCount>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsSecurity</li>
+		</thingCategories>
+		<modExtensions>
+			<li Class="RimDungeon.Trap_Def">
+				<numberOfAttacks>1</numberOfAttacks>
+				<rearmable>true</rearmable>
+				<pathWalkCost>10</pathWalkCost>
+				<sameFactionSpringChance>0.25</sameFactionSpringChance>
+				<wildAnimalSpringChance>0.75</wildAnimalSpringChance>
+				<armorPenetration>0.3</armorPenetration>
+				<hediffToAdd>CrushedLegs</hediffToAdd>
+			</li>
+		</modExtensions>
+		<building>
+			<trapDestroyOnSpring>false</trapDestroyOnSpring>
+			<trapDamageCategory>Sharp</trapDamageCategory>
+			<trapUnarmedGraphicData>
+				<texPath>Things/Building/Traps/Bear_Trap_Unarmed</texPath>
+				<graphicClass>Graphic_Single</graphicClass>
+			</trapUnarmedGraphicData>
+		</building>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
 		<placeWorkers>
 			<li>PlaceWorker_NeverAdjacentTrap</li>
 		</placeWorkers>

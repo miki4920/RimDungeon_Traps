@@ -15,18 +15,18 @@
 		<label>animal traps</label>
 		<tab>RimDungeonTraps</tab>
 		<description>Allows creation of anti-animal traps. The Thrumbo shall be ours!</description>
-		<baseCost>100</baseCost>
+		<baseCost>200</baseCost>
 		<techLevel>Neolithic</techLevel>
 		<researchViewX>0.00</researchViewX>
 		<researchViewY>0.70</researchViewY>
 	</ResearchProjectDef>
 	
 	<ResearchProjectDef>
-		<defName>TriggerTraps</defName>
-		<label>trigger traps</label>
+		<defName>AdvancedTraps</defName>
+		<label>advanced traps</label>
 		<tab>RimDungeonTraps</tab>
-		<description>A much more advanced traps, with a trigger. Your colonists won't need to worry anymore!</description>
-		<baseCost>750</baseCost>
+		<description>A much more advanced traps, requiring a great deal of knowledge and skill to set up correctly.</description>
+		<baseCost>1000</baseCost>
 		<techLevel>Medieval</techLevel>
 		<researchViewX>1.00</researchViewX>
 		<researchViewY>0.35</researchViewY>
