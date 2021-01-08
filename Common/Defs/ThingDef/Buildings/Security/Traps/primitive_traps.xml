@@ -2,7 +2,7 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>Caltrops</defName>
 		<label>caltrops</label>
-		<description>Simple spiked trap, made of sharpened wood or metal. Cheap, but takes a long time to make. Takes a long time to traverse through. Due to having no trigger, the trap is as likely to damage colonists as it is to damage enemies.</description>
+		<description>A bundle of spiked stars spread across a tile. Whilst they are far from deadly, they are painful enough so that most creatures thread through them carefully, slowing them down significantly.</description>
 		<graphicData>
 			<texPath>Things/Building/Traps/Caltrops_Trap</texPath>
 		</graphicData>

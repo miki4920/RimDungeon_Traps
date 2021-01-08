@@ -120,8 +120,8 @@ namespace RimDungeon
         {
             bool spawned = base.Spawned;
             Map map = base.Map;
-            this.SpringSub(p);
             Disarm();
+            this.SpringSub(p);
             if (this.def.building.trapDestroyOnSpring)
             {
                 if (!base.Destroyed)
