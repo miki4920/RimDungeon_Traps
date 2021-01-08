@@ -17,8 +17,11 @@ Wood Log soaked in oil and wrapped in clothing. Causes a small explosion of fire
 ![Fast Enemy Oil Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Oil_Fast.gif)
 ![Slow Enemy Oil Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Oil_Slow.gif)
 
-## Spikes
-Spikes hidden in the ground. When triggered, spikes thrust into the enemy, doing massive damage. Rearmable but is expensive and takes a long time to build. It has a very low chance to trigger on non-enemies.
+## Animal Traps
+Those traps are focused more around killing and weakening animals. Whilst they can be used against humans, it's rather ineffective.
+### Bear Trap
+Whilst usually used against bears, this trap can be effectively used against a variety of animals, or even humans. It does a decent amount of piercing damage, and gives a long-term movement penalty but requires metal to make.
+![Bear Trap Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Bear_Trap.gif)
 
 
 ## Noose Trap
