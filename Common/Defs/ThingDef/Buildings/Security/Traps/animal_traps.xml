@@ -2,7 +2,7 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>Noose</defName>
 		<label>noose</label>
-		<description>A noose trap. Does very little damage, but can immobilise target for a long time. Humans are unlikely to trigger it.</description>
+		<description>A noose trap. Whilst damage might be enough to kill small animals, its main benefit is ability to immobilise target for a long time in a noose. Humans are unlikely to trigger it.</description>
 		<graphicData>
 			<texPath>Things/Building/Traps/Noose_Trap_Armed</texPath>
 		</graphicData>
