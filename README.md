@@ -12,9 +12,11 @@ A bundle of spiked stars spread across a tile. Whilst they are far from deadly, 
 
 ### Oil Trap
 Wood Log soaked in oil and wrapped in clothing. Causes a small explosion of fire on trigger. Cheap, unreliable and ineffective against fast moving targets. Devastating against slow creatures.
+
 No effect against fast enemies:
 ![Fast Enemy Oil Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Oil_Fast.gif)
-Whereas a slow one is quite heavily damaged when we consider cost of those traps:
+
+Whereas a slow one is quite heavily damaged:
 ![Slow Enemy Oil Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Oil_Slow.gif)
 
 ## Animal Traps
