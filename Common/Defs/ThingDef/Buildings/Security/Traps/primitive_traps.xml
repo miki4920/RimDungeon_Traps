@@ -44,7 +44,7 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>OilTrap</defName>
 		<label>oil trap</label>
-		<description>Wood Log soaked in oil and wrapped in clothing. Causes a small explosion of fire on trigger. Cheap, fast and unreliable. Colonists are unlikely to trigger it.</description>
+		<description>Wood Log soaked in oil and wrapped in clothing. Causes a small explosion of fire on trigger. Cheap, unreliable and ineffective against fast moving targets. Devastating against slow creatures.</description>
 		<thingClass>RimDungeon.Trap_Explosive</thingClass>
 		<graphicData>
 			<texPath>Things/Building/Traps/Fire_Trap</texPath>
@@ -67,7 +67,8 @@
 			<li Class="CompProperties_Explosive">
 				<explosiveRadius>0.5</explosiveRadius>
 				<explosiveDamageType>Flame</explosiveDamageType>
-				<wickTicks>3</wickTicks>
+				<damageAmountBase>75</damageAmountBase>
+				<wickTicks>15</wickTicks>
 			</li>
 		</comps>
 		<modExtensions>
