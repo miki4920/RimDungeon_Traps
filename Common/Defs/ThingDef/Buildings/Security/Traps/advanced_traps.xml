@@ -10,7 +10,7 @@
 			<MaxHitPoints>400</MaxHitPoints>
 			<WorkToBuild>12000</WorkToBuild>
 			<Flammability>1</Flammability>
-			<TrapMeleeDamage>75</TrapMeleeDamage>
+			<TrapMeleeDamage>50</TrapMeleeDamage>
 			<TrapSpringChance>0.75</TrapSpringChance>
 		</statBases>
 		<stuffCategories>

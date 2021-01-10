@@ -35,9 +35,9 @@ namespace RimDungeon
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look<bool>(ref this.autoRearm, "autoRearm", false, false);
+            Scribe_Values.Look<bool>(ref this.autoRearm, "autoRebuild", false, false);
             Scribe_Values.Look<bool>(ref this.armed, "armed", true, false);
-            Scribe_Collections.Look<Pawn>(ref this.touchingPawns, "testees", LookMode.Reference, Array.Empty<object>());
+            Scribe_Collections.Look<Pawn>(ref this.touchingPawns, "touchingPawns", LookMode.Reference, Array.Empty<object>());
         }
         private void CheckSpring(Pawn p)
         {
