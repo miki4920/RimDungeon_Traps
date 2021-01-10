@@ -10,8 +10,8 @@ namespace RimDungeon
         public float sameFactionSpringChance = 0.005f;
         public float wildAnimalSpringChance = 0.2f;
 
-        public int pathFindCost = 800;
-        public int pathWalkCost = 40;
+        public int pathFindCost = 8000;
+        public int pathWalkCost = 50;
 
         public bool rearmable = false;
         public GraphicData trapUnarmedGraphicData;

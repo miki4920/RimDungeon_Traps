@@ -19,7 +19,7 @@
 		<success>Normal</success>
 		<xpath>Defs/ThingDef[defName="TrapSpike"]/statBases/TrapMeleeDamage</xpath>
 		<value>
-			<TrapMeleeDamage>25</TrapMeleeDamage>
+			<TrapMeleeDamage>50</TrapMeleeDamage>
 		</value>
 	</Operation>
 	<Operation Class="PatchOperationAdd">
@@ -27,7 +27,7 @@
 		<xpath>Defs/ThingDef[defName="TrapSpike"]/building</xpath>
 		<value>
 			<trapUnarmedGraphicData>
-				<texPath>Things/Building/Traps/TrapSpike_Trap_Unarmed</texPath>
+				<texPath>Things/Building/Traps/TrapSpike_Unarmed</texPath>
 				<graphicClass>Graphic_Single</graphicClass>
 			</trapUnarmedGraphicData>
 		</value>
@@ -37,9 +37,8 @@
 		<xpath>Defs/ThingDef[defName="TrapSpike"]</xpath>
 		<value>
 			<li Class="RimDungeon.Trap_Def">
-				<numberOfAttacks>1</numberOfAttacks>
+				<numberOfAttacks>2</numberOfAttacks>
 				<rearmable>true</rearmable>
-				<pathWalkCost>10</pathWalkCost>
 			</li>
 		</value>
 	</Operation>
