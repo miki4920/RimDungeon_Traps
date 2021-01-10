@@ -32,6 +32,15 @@
 			</trapUnarmedGraphicData>
 		</value>
 	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<success>Normal</success>
+		<xpath>Defs/ThingDef[defName="TrapSpike"]</xpath>
+		<value>
+			<researchPrerequisites>
+				<li>AdvancedTraps</li>
+			</researchPrerequisites>
+		</value>
+	</Operation>
 	<Operation Class="PatchOperationAddModExtension">
 		<success>Normal</success>
 		<xpath>Defs/ThingDef[defName="TrapSpike"]</xpath>
