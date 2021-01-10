@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,10 @@ namespace RimDungeon
                 }
                 return base.Graphic;
             }
+        }
+        public new bool KnowsOfTrap(Pawn p)
+        {
+            return (p.Faction != null && !p.Faction.HostileTo(base.Faction)) ||  (p.guest != null && p.guest.Released) || (!p.IsPrisoner && base.Faction != null && p.HostFaction == base.Faction) || (p.RaceProps.Humanlike && p.IsFormingCaravan()) || (p.IsPrisoner && p.guest.ShouldWaitInsteadOfEscaping && base.Faction == p.HostFaction) || (p.Faction == null && p.RaceProps.Humanlike);
         }
         public override void ExposeData()
         {
