@@ -35,7 +35,7 @@ namespace RimDungeon
         }
         public new bool KnowsOfTrap(Pawn p)
         {
-            return (p.Faction != null && !p.Faction.HostileTo(base.Faction)) ||  (p.guest != null && p.guest.Released) || (!p.IsPrisoner && base.Faction != null && p.HostFaction == base.Faction) || (p.RaceProps.Humanlike && p.IsFormingCaravan()) || (p.IsPrisoner && p.guest.ShouldWaitInsteadOfEscaping && base.Faction == p.HostFaction) || (p.Faction == null && p.RaceProps.Humanlike);
+            return (p.Faction != null && !p.Faction.HostileTo(base.Faction)) ||  (p.guest != null && p.guest.Released) || (!p.IsPrisoner && base.Faction != null && p.HostFaction == base.Faction) || (p.RaceProps.Humanlike && p.IsFormingCaravan()) || (p.IsPrisoner && p.guest.ShouldWaitInsteadOfEscaping && base.Faction == p.HostFaction) || (p.Faction == null && p.RaceProps.Humanlike) || (p.HostFaction == base.Faction);
         }
         public override void ExposeData()
         {
