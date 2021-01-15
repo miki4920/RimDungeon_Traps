@@ -14,7 +14,7 @@
 			<MaxHitPoints>100</MaxHitPoints>
 			<WorkToBuild>4000</WorkToBuild>
 			<Flammability>0.5</Flammability>
-			<TrapMeleeDamage>7</TrapMeleeDamage>
+			<TrapMeleeDamage>15</TrapMeleeDamage>
 			<TrapSpringChance>0.5</TrapSpringChance>
 		</statBases>
 		<stuffCategories>
@@ -26,8 +26,8 @@
 			<li Class="RimDungeon.Trap_Def">
 				<numberOfAttacks>1</numberOfAttacks>
 				<slows>true</slows>
-				<sameFactionSpringChance>0.5</sameFactionSpringChance>
-				<wildAnimalSpringChance>0.5</wildAnimalSpringChance>
+				<sameFactionSpringChance>0.25</sameFactionSpringChance>
+				<wildAnimalSpringChance>0.25</wildAnimalSpringChance>
 				<armorPenetration>0.01</armorPenetration>
 			</li>
 		</modExtensions>
