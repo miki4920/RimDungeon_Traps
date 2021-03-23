@@ -44,3 +44,6 @@ Spikes hidden in the ground. When triggered, spikes thrust into the enemy, doing
 WARNING: This is a extremely deadly poison trap, disguised as a plant. The poison works on touch, is single use, but is guaranteed to kill any affected creature within a very short time period.
 ![Poison_Trap_Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Poison_Trap.gif)
 
+### Column Trap
+A faulty column, rigged to fall apart when an enemy touches it. The column can also be destroyed manually.
+![Column_Trap_Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Column_Trap.gif)
