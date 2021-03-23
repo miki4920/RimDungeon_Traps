@@ -14,8 +14,8 @@
 			<MaxHitPoints>100</MaxHitPoints>
 			<WorkToBuild>4000</WorkToBuild>
 			<Flammability>0.5</Flammability>
-			<TrapMeleeDamage>15</TrapMeleeDamage>
-			<TrapSpringChance>0.5</TrapSpringChance>
+			<TrapMeleeDamage>20</TrapMeleeDamage>
+			<TrapSpringChance>0.25</TrapSpringChance>
 		</statBases>
 		<stuffCategories>
 			<li>Metallic</li>
@@ -26,8 +26,8 @@
 			<li Class="RimDungeon.Trap_Def">
 				<numberOfAttacks>1</numberOfAttacks>
 				<slows>true</slows>
-				<sameFactionSpringChance>0.25</sameFactionSpringChance>
-				<wildAnimalSpringChance>0.25</wildAnimalSpringChance>
+				<sameFactionSpringChance>0.1</sameFactionSpringChance>
+				<wildAnimalSpringChance>0.15</wildAnimalSpringChance>
 				<armorPenetration>0.01</armorPenetration>
 			</li>
 		</modExtensions>
@@ -43,7 +43,7 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>OilTrap</defName>
 		<label>oil trap</label>
-		<description>Wood Log soaked in oil and wrapped in clothing. Causes a small explosion of fire on trigger. Cheap, unreliable and ineffective against fast moving targets. Devastating against slow creatures.</description>
+		<description>Wood Log soaked in oil and wrapped in clothing. It causes a small explosion when sprung. Cheap, unreliable and ineffective against fast-moving targets. The trap is efficient at slowing down the advance of enemies or destroying slow-moving targets.</description>
 		<thingClass>RimDungeon.Trap_Explosive</thingClass>
 		<graphicData>
 			<texPath>Things/Building/Traps/Fire_Trap</texPath>

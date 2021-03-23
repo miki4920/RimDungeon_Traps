@@ -2,7 +2,7 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>Noose</defName>
 		<label>noose</label>
-		<description>A noose trap. Whilst damage might be enough to kill small animals, its main benefit is ability to immobilise target for a long time in a noose. Humans are unlikely to trigger it.</description>
+		<description>Whilst damage might be enough to kill small creatures, the main benefit is the ability to immobilise the target for a long time. Humans are unlikely to trigger it.</description>
 		<graphicData>
 			<texPath>Things/Building/Traps/Noose_Trap_Armed</texPath>
 		</graphicData>
@@ -50,7 +50,7 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>BearTrap</defName>
 		<label>bear trap</label>
-		<description>Whilst usually used against bears, this trap can be effectively used against a variety of animals, or even humans. It does a decent amount of piercing damage, and gives a long-term movement penalty but requires metal to make.</description>
+		<description>This trap is effective when used against animals or even humans. It does a decent amount of piercing damage and gives a long-term movement penalty.</description>
 		<graphicData>
 			<texPath>Things/Building/Traps/Bear_Trap_Armed</texPath>
 		</graphicData>

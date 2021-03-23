@@ -239,6 +239,21 @@ namespace RimDungeon
                     }
                 };
             }
+            if (TrapDef.manualSpring)
+            {
+                yield return new Command_Action
+                {
+
+                    defaultLabel = "CommandManualSpring".Translate(),
+                    defaultDesc = "CommandManualSpringDesc".Translate(),
+                    hotKey = KeyBindingDefOf.Misc4,
+                    icon = TexCommand.RearmTrap,
+                    action = delegate()
+                    {
+                        Spring(null);
+                    }
+                };
+            }
 
             yield break;
         }

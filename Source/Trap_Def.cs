@@ -14,6 +14,7 @@ namespace RimDungeon
         public int pathWalkCost = 50;
 
         public bool rearmable = false;
+        public bool manualSpring = false;
         public GraphicData trapUnarmedGraphicData;
 
         public bool slows = false;

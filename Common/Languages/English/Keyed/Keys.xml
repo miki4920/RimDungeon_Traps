@@ -9,6 +9,8 @@
   <CommandRearmDescDebug>Instantly rearm a sprung trap so it can be triggered again.</CommandRearmDescDebug>
   <CommandDisarmDebug>DEBUG:Disarm Trap</CommandDisarmDebug>
   <CommandDisarmDescDebug>Instantly disarms a trap.</CommandDisarmDescDebug>
+  <CommandManualSpring>Spring Trap</CommandManualSpring>
+  <CommandManualSpringDesc>Manually Springs The Trap</CommandManualSpringDesc>
   <TrapArmed>Armed</TrapArmed>
   <TrapNotArmed>Not armed</TrapNotArmed>
 </LanguageData>
