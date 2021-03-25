@@ -1,0 +1,43 @@
+<Defs>
+	<ThingDef ParentName="BaseDungeonTrap">
+		<defName>SmokeTrap</defName>
+		<label>smoke trap</label>
+		<description>Wood Log soaked in oil and wrapped in clothing. It causes a small explosion when sprung. Cheap, unreliable and ineffective against fast-moving targets. The trap is efficient at slowing down the advance of enemies or destroying slow-moving targets.</description>
+		<thingClass>RimDungeon.Trap_Explosive</thingClass>
+		<graphicData>
+			<texPath>Things/Building/Traps/Fire_Trap</texPath>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>20</MaxHitPoints>
+			<WorkToBuild>800</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<TrapSpringChance>0.25</TrapSpringChance>
+		</statBases>
+		<costList>
+			<WoodLog>10</WoodLog>
+		</costList>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		<costStuffCount>10</costStuffCount>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>10</explosiveRadius>
+				<explosiveDamageType>Smoke</explosiveDamageType>
+				<wickTicks>15</wickTicks>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="RimDungeon.Trap_Def">
+				<sameFactionSpringChance>0.1</sameFactionSpringChance>
+				<wildAnimalSpringChance>0.1</wildAnimalSpringChance>
+				<manualSpring>true</manualSpring>
+			</li>
+		</modExtensions>
+		<constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+		<researchPrerequisites>
+			<li>PrimitiveTraps</li>
+		</researchPrerequisites>
+	</ThingDef>
+</Defs>
