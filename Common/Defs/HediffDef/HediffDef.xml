@@ -1,7 +1,8 @@
 <Defs>
+	
 	<HediffDef>
     <defName>TrappedInNoose</defName>
-    <label>noose</label>
+    <label>trapped in noose</label>
     <labelNoun>noose</labelNoun>
     <description>Noose around a leg. Immobilises a target for a short duration.</description>
     <hediffClass>HediffWithComps</hediffClass>
@@ -25,6 +26,13 @@
       </li>
     </comps>
   </HediffDef>
+  
+  <RimDungeon.Hediff_Trap_Def>
+	<defName>TrappedInNoose</defName>
+	<hediffToAdd>TrappedInNoose</hediffToAdd>
+	<hediffSeverity>1.0</hediffSeverity>
+	<hediffChance>1.0</hediffChance>
+  </RimDungeon.Hediff_Trap_Def>
   
   <HediffDef>
     <defName>CrushedLegs</defName>
@@ -63,11 +71,18 @@
     </comps>
   </HediffDef>
   
+  <RimDungeon.Hediff_Trap_Def>
+	<defName>CrushedLegs</defName>
+	<hediffToAdd>CrushedLegs</hediffToAdd>
+	<hediffSeverity>1.0</hediffSeverity>
+	<hediffChance>1.0</hediffChance>
+  </RimDungeon.Hediff_Trap_Def>
+  
   <HediffDef>
-    <defName>Poison</defName>
-    <label>poison</label>
+    <defName>LethalPoison</defName>
+    <label>leathal poison</label>
     <labelNoun>poisoning</labelNoun>
-    <description>A creature has been poisoned. It's life has became long, and extremely painful.</description>
+    <description>A creature has been lethally poisoned. It's life has became short, and extremely painful.</description>
     <hediffClass>HediffWithComps</hediffClass>
 	<lethalSeverity>1</lethalSeverity>
     <stages>
@@ -101,4 +116,11 @@
       </li>
     </comps>
   </HediffDef>
+  
+  <RimDungeon.Hediff_Trap_Def>
+	<defName>LethalPoison</defName>
+	<hediffToAdd>LethalPoison</hediffToAdd>
+	<hediffSeverity>0.5</hediffSeverity>
+	<hediffChance>1.0</hediffChance>
+  </RimDungeon.Hediff_Trap_Def>
 </Defs>

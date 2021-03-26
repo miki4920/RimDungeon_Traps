@@ -19,9 +19,20 @@ namespace RimDungeon
 
         public bool slows = false;
 
-        public float addHediffChance = 1.0f;
-        public float hediffSeverity = 1.0f;
-        public HediffDef hediffToAdd = null;
+        public Hediff_Trap_Def hediff = null;
+        public Gas_Trap_Def gas = null;
 
+    }
+    public class Hediff_Trap_Def : Def
+    {
+        public HediffDef hediffToAdd = null;
+        public float hediffSeverity = 1.0f;
+        public float hediffChance = 1.0f;
+    }
+    public class Gas_Trap_Def : Def
+    {
+        public ThingDef gasDef= null;
+        public DamageDef damageDef = null;
+        public float radius = 0f;
     }
 }

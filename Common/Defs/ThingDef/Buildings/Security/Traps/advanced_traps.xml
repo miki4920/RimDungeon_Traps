@@ -72,63 +72,12 @@
 				<sameFactionSpringChance>1</sameFactionSpringChance>
 				<wildAnimalSpringChance>1</wildAnimalSpringChance>
 				<armorPenetration>1</armorPenetration>
-				<hediffToAdd>Poison</hediffToAdd>
-				<hediffSeverity>0.5</hediffSeverity>
+				<hediff>LethalPoison</hediff>
 			</li>
 		</modExtensions>
 		<building>
 			<trapDestroyOnSpring>true</trapDestroyOnSpring>
 			<trapDamageCategory>Sharp</trapDamageCategory>
-		</building>
-		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
-		<placeWorkers>
-			<li>PlaceWorker_NeverAdjacentTrap</li>
-		</placeWorkers>
-		<researchPrerequisites>
-			<li>AdvancedTraps</li>
-		</researchPrerequisites>
-	</ThingDef>
-	
-	<ThingDef ParentName="BaseDungeonTrap">
-		<defName>ColumnTrap</defName>
-		<label>column trap</label>
-		<description>A faulty column, rigged to fall apart when an enemy touches it. The column can also be destroyed manually.</description>
-		<graphicData>
-			<texPath>Things/Building/Traps/Column_Trap</texPath>
-		</graphicData>
-		<statBases>
-			<MaxHitPoints>160</MaxHitPoints>
-		    <WorkToBuild>750</WorkToBuild>
-		    <Mass>10</Mass>
-		    <Flammability>1.0</Flammability>
-		    <Beauty>5</Beauty>
-			<TrapMeleeDamage>0</TrapMeleeDamage>
-			<TrapSpringChance>0.75</TrapSpringChance>
-		</statBases>
-		<stuffCategories>
-			<li>Metallic</li>
-			<li>Woody</li>
-			<li>Stony</li>
-		</stuffCategories>
-		<costStuffCount>100</costStuffCount>
-		<modExtensions>
-			<li Class="RimDungeon.Trap_Def">
-				<numberOfAttacks>1</numberOfAttacks>
-				<rearmable>false</rearmable>
-				<manualSpring>true</manualSpring>
-				<sameFactionSpringChance>0.1</sameFactionSpringChance>
-				<wildAnimalSpringChance>0</wildAnimalSpringChance>
-			</li>
-		</modExtensions>
-		<holdsRoof>true</holdsRoof>
-		<specialDisplayRadius>6.9</specialDisplayRadius>
-		<building>
-			<trapDestroyOnSpring>true</trapDestroyOnSpring>
-			<trapDamageCategory>Sharp</trapDamageCategory>
-			<trapUnarmedGraphicData>
-				<texPath>Things/Building/Traps/Spikes_Trap_Unarmed</texPath>
-				<graphicClass>Graphic_Single</graphicClass>
-			</trapUnarmedGraphicData>
 		</building>
 		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
 		<placeWorkers>

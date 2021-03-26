@@ -3,7 +3,6 @@
 		<defName>SmokeTrap</defName>
 		<label>smoke trap</label>
 		<description>Wood Log soaked in oil and wrapped in clothing. It causes a small explosion when sprung. Cheap, unreliable and ineffective against fast-moving targets. The trap is efficient at slowing down the advance of enemies or destroying slow-moving targets.</description>
-		<thingClass>RimDungeon.Trap_Explosive</thingClass>
 		<graphicData>
 			<texPath>Things/Building/Traps/Fire_Trap</texPath>
 		</graphicData>
@@ -21,23 +20,71 @@
 			<li>Leathery</li>
 		</stuffCategories>
 		<costStuffCount>10</costStuffCount>
-		<comps>
-			<li Class="CompProperties_Explosive">
-				<explosiveRadius>10</explosiveRadius>
-				<explosiveDamageType>Smoke</explosiveDamageType>
-				<wickTicks>15</wickTicks>
-			</li>
-		</comps>
 		<modExtensions>
 			<li Class="RimDungeon.Trap_Def">
 				<sameFactionSpringChance>0.1</sameFactionSpringChance>
 				<wildAnimalSpringChance>0.1</wildAnimalSpringChance>
 				<manualSpring>true</manualSpring>
+				<gas>Smoke</gas>
 			</li>
 		</modExtensions>
+		<specialDisplayRadius>2.0</specialDisplayRadius>
+		<building>
+			<trapDestroyOnSpring>true</trapDestroyOnSpring>
+		</building>
 		<constructionSkillPrerequisite>3</constructionSkillPrerequisite>
 		<researchPrerequisites>
 			<li>PrimitiveTraps</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseDungeonTrap">
+		<defName>ColumnTrap</defName>
+		<label>column trap</label>
+		<description>A faulty column, rigged to fall apart when an enemy touches it. The column can also be destroyed manually.</description>
+		<graphicData>
+			<texPath>Things/Building/Traps/Column_Trap</texPath>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>160</MaxHitPoints>
+			<WorkToBuild>750</WorkToBuild>
+			<Mass>10</Mass>
+			<Flammability>1.0</Flammability>
+			<Beauty>5</Beauty>
+			<TrapMeleeDamage>0</TrapMeleeDamage>
+			<TrapSpringChance>0.75</TrapSpringChance>
+		</statBases>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Woody</li>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>100</costStuffCount>
+		<modExtensions>
+			<li Class="RimDungeon.Trap_Def">
+				<numberOfAttacks>1</numberOfAttacks>
+				<rearmable>false</rearmable>
+				<manualSpring>true</manualSpring>
+				<sameFactionSpringChance>0.1</sameFactionSpringChance>
+				<wildAnimalSpringChance>0</wildAnimalSpringChance>
+			</li>
+		</modExtensions>
+		<holdsRoof>true</holdsRoof>
+		<specialDisplayRadius>6.9</specialDisplayRadius>
+		<building>
+			<trapDestroyOnSpring>true</trapDestroyOnSpring>
+			<trapDamageCategory>Sharp</trapDamageCategory>
+			<trapUnarmedGraphicData>
+				<texPath>Things/Building/Traps/Spikes_Trap_Unarmed</texPath>
+				<graphicClass>Graphic_Single</graphicClass>
+			</trapUnarmedGraphicData>
+		</building>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+		<placeWorkers>
+			<li>PlaceWorker_NeverAdjacentTrap</li>
+		</placeWorkers>
+		<researchPrerequisites>
+			<li>AdvancedTraps</li>
 		</researchPrerequisites>
 	</ThingDef>
 </Defs>

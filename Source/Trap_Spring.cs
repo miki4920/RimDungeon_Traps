@@ -19,26 +19,44 @@ namespace RimDungeon
 		protected override void SpringSub(Pawn p)
 		{
 			SoundDefOf.TrapSpring.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
-			if (p == null)
-			{
-				return;
+			CompExplosive explosive = base.GetComp<CompExplosive>();
+			if(explosive != null)
+            {
+				SpringExplosiveTrap();
 			}
+			else if(TrapDef.gas != null)
+            {
+				SpringGasTrap();
+            }
+			else
+            {
+				if (p == null)
+				{
+					return;
+				}
+				SpringTrap(p);
+			}
+			
+		}
+		protected void SpringTrap(Pawn p)
+        {
 			float num = this.GetStatValue(StatDefOf.TrapMeleeDamage, true) * DamageRandomFactorRange.RandomInRange / this.TrapDef.numberOfAttacks;
 			float armorPenetration = num * TrapDef.armorPenetration;
 			int num2 = 0;
-			if (TrapDef.hediffToAdd != null) {
+			if (TrapDef.hediff.hediffToAdd != null)
+			{
 				float rand = Rand.Value;
-				if(rand <= TrapDef.addHediffChance)
-                {
-					Hediff effectOnPawn = p.health?.hediffSet?.GetFirstHediffOfDef(TrapDef.hediffToAdd);
-					float severity = TrapDef.hediffSeverity;
+				if (rand <= TrapDef.hediff.hediffChance)
+				{
+					Hediff effectOnPawn = p.health?.hediffSet?.GetFirstHediffOfDef(TrapDef.hediff.hediffToAdd);
+					float severity = TrapDef.hediff.hediffSeverity;
 					if (effectOnPawn != null)
 					{
 						effectOnPawn.Severity += severity;
 					}
 					else
 					{
-						Hediff hediff = HediffMaker.MakeHediff(TrapDef.hediffToAdd, p);
+						Hediff hediff = HediffMaker.MakeHediff(TrapDef.hediff.hediffToAdd, p);
 						hediff.Severity = severity;
 						p.health.AddHediff(hediff);
 					}
@@ -56,6 +74,15 @@ namespace RimDungeon
 				}
 				num2++;
 			}
+		}
+
+		protected void SpringExplosiveTrap()
+        {
+			base.GetComp<CompExplosive>().StartWick(null);
+		}
+		protected void SpringGasTrap()
+        {
+			GenExplosion.DoExplosion(base.Position, base.Map, TrapDef.gas.radius, TrapDef.gas.damageDef, this, 0, 0f, TrapDef.gas.damageDef.soundExplosion, null, null, null, TrapDef.gas.gasDef, 1f, 1, false, null, 0f, 1, 0f, false, null, null);
 		}
 		private static readonly FloatRange DamageRandomFactorRange = new FloatRange(0.8f, 1.2f);
 	}

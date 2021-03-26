@@ -48,7 +48,6 @@
     <Compile Include="AI\JobDriver_RearmTrap.cs" />
     <Compile Include="Trap_Spring.cs" />
     <Compile Include="Trap_Def.cs" />
-    <Compile Include="Trap_Explosive.cs" />
     <Compile Include="Trap_Framework.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AI\WorkGiver_RearmTrap.cs" />

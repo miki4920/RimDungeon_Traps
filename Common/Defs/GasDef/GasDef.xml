@@ -1,0 +1,25 @@
+<Defs>
+	<ThingDef ParentName="BaseGas">
+    <defName>Smoke</defName>
+    <label>smoke</label>
+    <graphicData>
+      <texPath>Things/Gas/Puff</texPath>
+      <drawSize>2.2</drawSize>
+      <color>(0.9,0.9,0.9,1.0)</color>
+    </graphicData>
+    <gas>
+      <expireSeconds>120~200</expireSeconds>
+      <blockTurretTracking>true</blockTurretTracking>
+      <accuracyPenalty>0.7</accuracyPenalty>
+      <rotationSpeed>10</rotationSpeed>
+    </gas>
+  </ThingDef>
+	
+	<RimDungeon.Gas_Trap_Def>
+		<defName>Smoke</defName>
+		<label>smoke</label>
+		<gasDef>Smoke</gasDef>
+		<damageDef>Smoke</damageDef>
+		<radius>2.0</radius>
+	</RimDungeon.Gas_Trap_Def>
+</Defs>

@@ -28,7 +28,7 @@
 				<sameFactionSpringChance>0.1</sameFactionSpringChance>
 				<wildAnimalSpringChance>0.5</wildAnimalSpringChance>
 				<armorPenetration>0.1</armorPenetration>
-				<hediffToAdd>TrappedInNoose</hediffToAdd>
+				<hediff>TrappedInNoose</hediff>
 			</li>
 		</modExtensions>
 		<building>
@@ -76,7 +76,7 @@
 				<sameFactionSpringChance>0.25</sameFactionSpringChance>
 				<wildAnimalSpringChance>0.75</wildAnimalSpringChance>
 				<armorPenetration>0.3</armorPenetration>
-				<hediffToAdd>CrushedLegs</hediffToAdd>
+				<hediff>CrushedLegs</hediff>
 			</li>
 		</modExtensions>
 		<building>
