@@ -45,7 +45,7 @@
 		<label>oil trap</label>
 		<description>Wood Log soaked in oil and wrapped in clothing. It causes a small explosion when sprung. Cheap, unreliable and ineffective against fast-moving targets. The trap is efficient at slowing down the advance of enemies or destroying slow-moving targets.</description>
 		<graphicData>
-			<texPath>Things/Building/Traps/Fire_Trap</texPath>
+			<texPath>Things/Building/Traps/Oil_Trap</texPath>
 		</graphicData>
 		<statBases>
 			<MaxHitPoints>20</MaxHitPoints>
