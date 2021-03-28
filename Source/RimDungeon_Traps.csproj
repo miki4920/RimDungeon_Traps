@@ -42,6 +42,7 @@
     <None Include="..\Common\Patches\**" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Trap_Gas.cs" />
     <Compile Include="DefsOf\DesignationDefOf.cs" />
     <Compile Include="Designators\Designator_RearmTrap.cs" />
     <Compile Include="DefsOf\JobDefOf.cs" />

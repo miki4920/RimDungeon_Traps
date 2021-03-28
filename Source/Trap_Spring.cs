@@ -24,7 +24,7 @@ namespace RimDungeon
             {
 				SpringExplosiveTrap();
 			}
-			else if(TrapDef.gas != null)
+			else if(this.def.HasModExtension<Gas_Trap_Def>())
             {
 				SpringGasTrap();
             }
@@ -43,20 +43,21 @@ namespace RimDungeon
 			float num = this.GetStatValue(StatDefOf.TrapMeleeDamage, true) * DamageRandomFactorRange.RandomInRange / this.TrapDef.numberOfAttacks;
 			float armorPenetration = num * TrapDef.armorPenetration;
 			int num2 = 0;
-			if (TrapDef.hediff.hediffToAdd != null)
+			if (this.def.HasModExtension<Hediff_Trap_Def>())
 			{
+				Hediff_Trap_Def hediff_Trap = this.def.GetModExtension<Hediff_Trap_Def>();
 				float rand = Rand.Value;
-				if (rand <= TrapDef.hediff.hediffChance)
+				if (rand <= hediff_Trap.hediffChance)
 				{
-					Hediff effectOnPawn = p.health?.hediffSet?.GetFirstHediffOfDef(TrapDef.hediff.hediffToAdd);
-					float severity = TrapDef.hediff.hediffSeverity;
+					Hediff effectOnPawn = p.health?.hediffSet?.GetFirstHediffOfDef(hediff_Trap.hediff);
+					float severity = hediff_Trap.hediffSeverity;
 					if (effectOnPawn != null)
 					{
 						effectOnPawn.Severity += severity;
 					}
 					else
 					{
-						Hediff hediff = HediffMaker.MakeHediff(TrapDef.hediff.hediffToAdd, p);
+						Hediff hediff = HediffMaker.MakeHediff(hediff_Trap.hediff, p);
 						hediff.Severity = severity;
 						p.health.AddHediff(hediff);
 					}
@@ -82,7 +83,8 @@ namespace RimDungeon
 		}
 		protected void SpringGasTrap()
         {
-			GenExplosion.DoExplosion(base.Position, base.Map, TrapDef.gas.radius, TrapDef.gas.damageDef, this, 0, 0f, TrapDef.gas.damageDef.soundExplosion, null, null, null, TrapDef.gas.gasDef, 1f, 1, false, null, 0f, 1, 0f, false, null, null);
+			Gas_Trap_Def gas_Trap = this.def.GetModExtension<Gas_Trap_Def>();
+			GenExplosion.DoExplosion(base.Position, base.Map, gas_Trap.radius, gas_Trap.damageDef, this, 0, 0f, gas_Trap.damageDef.soundExplosion, null, null, null, gas_Trap.gas, 1f, 1, false, null, 0f, 1, 0f, false, null, null);
 		}
 		private static readonly FloatRange DamageRandomFactorRange = new FloatRange(0.8f, 1.2f);
 	}

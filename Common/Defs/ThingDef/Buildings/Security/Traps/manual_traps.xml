@@ -25,7 +25,11 @@
 				<sameFactionSpringChance>0.1</sameFactionSpringChance>
 				<wildAnimalSpringChance>0.1</wildAnimalSpringChance>
 				<manualSpring>true</manualSpring>
+			</li>
+			<li Class="RimDungeon.Gas_Trap_Def">
 				<gas>Smoke</gas>
+				<damageDef>Smoke</damageDef>
+				<radius>2.0</radius>
 			</li>
 		</modExtensions>
 		<specialDisplayRadius>2.0</specialDisplayRadius>

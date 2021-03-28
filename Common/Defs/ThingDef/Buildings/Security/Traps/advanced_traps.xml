@@ -72,7 +72,11 @@
 				<sameFactionSpringChance>1</sameFactionSpringChance>
 				<wildAnimalSpringChance>1</wildAnimalSpringChance>
 				<armorPenetration>1</armorPenetration>
+			</li>
+			<li Class="RimDungeon.Hediff_Trap_Def">
 				<hediff>LethalPoison</hediff>
+				<hediffSeverity>0.5</hediffSeverity>
+				<hediffChance>1.0</hediffChance>
 			</li>
 		</modExtensions>
 		<building>

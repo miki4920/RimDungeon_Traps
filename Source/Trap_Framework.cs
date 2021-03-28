@@ -11,11 +11,11 @@ namespace RimDungeon
     public abstract class Trap_Framework : Building_Trap
     {
         public Trap_Def TrapDef => base.def.GetModExtension<Trap_Def>();
-        private bool autoRearm;
+        public bool autoRearm;
         public bool armed = true;
-        private List<Pawn> touchingPawns = new List<Pawn>();
+        public List<Pawn> touchingPawns = new List<Pawn>();
 
-        private bool CanSetAutoRebuild
+        public bool CanSetAutoRebuild
         {
             get
             {
@@ -44,7 +44,7 @@ namespace RimDungeon
             Scribe_Values.Look<bool>(ref this.armed, "armed", true, false);
             Scribe_Collections.Look<Pawn>(ref this.touchingPawns, "touchingPawns", LookMode.Reference, Array.Empty<object>());
         }
-        private void CheckSpring(Pawn p)
+        public void CheckSpring(Pawn p)
         {
             if (Rand.Chance(this.SpringChance(p)))
             {
@@ -149,7 +149,7 @@ namespace RimDungeon
                 this.CheckAutoRebuild(map);
             }
         }
-        private void CheckAutoRebuild(Map map)
+        public void CheckAutoRebuild(Map map)
         {
             if (this.autoRearm && this.CanSetAutoRebuild && map != null && GenConstruct.CanPlaceBlueprintAt(this.def, base.Position, base.Rotation, map, false, null, null, base.Stuff).Accepted)
             {
@@ -262,7 +262,7 @@ namespace RimDungeon
             base.Map.designationManager.AddDesignation(new Designation(this, DesignationDefOf.RearmTrap));
         }
 
-        private bool CanBeDesignatedRearm()
+        public bool CanBeDesignatedRearm()
         {
             return !armed && Map.designationManager.AllDesignationsOn(this).Where(i => i.def == DesignationDefOf.RearmTrap).FirstOrDefault() == null;
         }

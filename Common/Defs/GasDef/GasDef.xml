@@ -14,12 +14,4 @@
       <rotationSpeed>10</rotationSpeed>
     </gas>
   </ThingDef>
-	
-	<RimDungeon.Gas_Trap_Def>
-		<defName>Smoke</defName>
-		<label>smoke</label>
-		<gasDef>Smoke</gasDef>
-		<damageDef>Smoke</damageDef>
-		<radius>2.0</radius>
-	</RimDungeon.Gas_Trap_Def>
 </Defs>

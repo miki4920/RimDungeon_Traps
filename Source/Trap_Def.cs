@@ -14,24 +14,21 @@ namespace RimDungeon
         public int pathWalkCost = 50;
 
         public bool rearmable = false;
-        public bool manualSpring = false;
+        public bool manualSpring = false;   
         public GraphicData trapUnarmedGraphicData;
 
         public bool slows = false;
 
-        public Hediff_Trap_Def hediff = null;
-        public Gas_Trap_Def gas = null;
-
     }
-    public class Hediff_Trap_Def : Def
+    public class Hediff_Trap_Def : DefModExtension
     {
-        public HediffDef hediffToAdd = null;
+        public HediffDef hediff = null;
         public float hediffSeverity = 1.0f;
         public float hediffChance = 1.0f;
     }
-    public class Gas_Trap_Def : Def
+    public class Gas_Trap_Def : DefModExtension
     {
-        public ThingDef gasDef= null;
+        public ThingDef gas = null;
         public DamageDef damageDef = null;
         public float radius = 0f;
     }

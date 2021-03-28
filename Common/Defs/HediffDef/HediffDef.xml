@@ -1,5 +1,4 @@
 <Defs>
-	
 	<HediffDef>
     <defName>TrappedInNoose</defName>
     <label>trapped in noose</label>
@@ -26,13 +25,6 @@
       </li>
     </comps>
   </HediffDef>
-  
-  <RimDungeon.Hediff_Trap_Def>
-	<defName>TrappedInNoose</defName>
-	<hediffToAdd>TrappedInNoose</hediffToAdd>
-	<hediffSeverity>1.0</hediffSeverity>
-	<hediffChance>1.0</hediffChance>
-  </RimDungeon.Hediff_Trap_Def>
   
   <HediffDef>
     <defName>CrushedLegs</defName>
@@ -70,13 +62,6 @@
       </li>
     </comps>
   </HediffDef>
-  
-  <RimDungeon.Hediff_Trap_Def>
-	<defName>CrushedLegs</defName>
-	<hediffToAdd>CrushedLegs</hediffToAdd>
-	<hediffSeverity>1.0</hediffSeverity>
-	<hediffChance>1.0</hediffChance>
-  </RimDungeon.Hediff_Trap_Def>
   
   <HediffDef>
     <defName>LethalPoison</defName>
@@ -116,11 +101,4 @@
       </li>
     </comps>
   </HediffDef>
-  
-  <RimDungeon.Hediff_Trap_Def>
-	<defName>LethalPoison</defName>
-	<hediffToAdd>LethalPoison</hediffToAdd>
-	<hediffSeverity>0.5</hediffSeverity>
-	<hediffChance>1.0</hediffChance>
-  </RimDungeon.Hediff_Trap_Def>
 </Defs>
