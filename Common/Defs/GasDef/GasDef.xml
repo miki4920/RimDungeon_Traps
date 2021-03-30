@@ -38,5 +38,6 @@
 				<hediffChance>1.0</hediffChance>
 			</li>
 		</modExtensions>
+		<pathCost>1000</pathCost>
 	</ThingDef>
 </Defs>

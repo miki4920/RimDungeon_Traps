@@ -10,8 +10,20 @@ using RimDungeon;
 namespace RimDungeon
 {
     class Trap_Gas : Gas
-    {
+	{
 		public Hediff_Trap_Def HediffDef => base.def.GetModExtension<Hediff_Trap_Def>();
+		public override void SpawnSetup(Map map, bool respawningAfterLoad)
+		{
+			for (; ; )
+			{
+				Thing gas = base.Position.GetGas(map);
+				if (gas == null)
+				{
+					break;
+				}
+			}
+			base.SpawnSetup(map, respawningAfterLoad);
+		}
 		public override void Tick()
 		{
 			base.Tick();
@@ -60,7 +72,12 @@ namespace RimDungeon
 			}
 			pawn.health.AddHediff(hediff, null, null, null);
 		}
-		private List<Pawn> touchingPawns = new List<Pawn>();
+        public override ushort PathFindCostFor(Pawn p)
+        {
+            return base.PathFindCostFor(p);
+        }
+
+        private List<Pawn> touchingPawns = new List<Pawn>();
 	}
 	
 }
