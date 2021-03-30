@@ -20,7 +20,7 @@ namespace RimDungeon
 		}
 		public void ApplyHediff()
 		{
-			if (HediffDef == null)
+			if (HediffDef == null || !this.Spawned)
 			{
 				return;
 			}
