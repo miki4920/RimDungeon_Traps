@@ -72,11 +72,6 @@ namespace RimDungeon
 			}
 			pawn.health.AddHediff(hediff, null, null, null);
 		}
-        public override ushort PathFindCostFor(Pawn p)
-        {
-            return base.PathFindCostFor(p);
-        }
-
         private List<Pawn> touchingPawns = new List<Pawn>();
 	}
 	
