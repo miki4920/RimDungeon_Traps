@@ -12,22 +12,10 @@ namespace RimDungeon
     class Trap_Gas : Gas
 	{
 		public Hediff_Trap_Def HediffDef => base.def.GetModExtension<Hediff_Trap_Def>();
-		public override void SpawnSetup(Map map, bool respawningAfterLoad)
-		{
-			for (; ; )
-			{
-				Thing gas = base.Position.GetGas(map);
-				if (gas == null)
-				{
-					break;
-				}
-			}
-			base.SpawnSetup(map, respawningAfterLoad);
-		}
 		public override void Tick()
 		{
 			base.Tick();
-			this.ApplyHediff();
+			ApplyHediff();
 
 		}
 		public void ApplyHediff()
@@ -39,13 +27,12 @@ namespace RimDungeon
 			List<Thing> thingList = base.Position.GetThingList(base.Map);
 			for (int i = 0; i < thingList.Count; i++)
 			{
-				Pawn pawn = thingList[i] as Pawn;
-				if (pawn != null && !this.touchingPawns.Contains(pawn))
-				{
-					this.touchingPawns.Add(pawn);
-					this.AddHediffToPawn(pawn, HediffDef.hediff, HediffDef.hediffChance, HediffDef.hediffSeverity);
-				}
-			}
+                if (thingList[i] is Pawn pawn && !this.touchingPawns.Contains(pawn))
+                {
+                    this.touchingPawns.Add(pawn);
+                    this.AddHediffToPawn(pawn, HediffDef.hediff, HediffDef.hediffChance, HediffDef.hediffSeverity);
+                }
+            }
 			for (int j = 0; j < this.touchingPawns.Count; j++)
 			{
 				Pawn pawn2 = this.touchingPawns[j];
