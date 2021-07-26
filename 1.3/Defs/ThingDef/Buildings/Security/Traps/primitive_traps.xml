@@ -1,0 +1,83 @@
+<Defs>
+	<ThingDef ParentName="BaseDungeonTrap">
+		<defName>Caltrops</defName>
+		<label>caltrops</label>
+		<description>A bundle of spiked stars spread across a tile. Whilst they are far from deadly, they are painful enough so that most creatures thread through them carefully, slowing them down significantly.</description>
+		<graphicData>
+			<texPath>Things/Building/Traps/Caltrops_Trap</texPath>
+		</graphicData>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsSecurity</li>
+		</thingCategories>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>4000</WorkToBuild>
+			<Flammability>0.5</Flammability>
+			<TrapMeleeDamage>20</TrapMeleeDamage>
+			<TrapSpringChance>0.25</TrapSpringChance>
+		</statBases>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Woody</li>
+		</stuffCategories>
+		<costStuffCount>50</costStuffCount>
+		<modExtensions>
+			<li Class="RimDungeon.Trap_Def">
+				<numberOfAttacks>1</numberOfAttacks>
+				<slows>true</slows>
+				<sameFactionSpringChance>0.1</sameFactionSpringChance>
+				<wildAnimalSpringChance>0.15</wildAnimalSpringChance>
+				<armorPenetration>0.01</armorPenetration>
+			</li>
+		</modExtensions>
+		<building>
+			<trapDestroyOnSpring>false</trapDestroyOnSpring>
+			<trapDamageCategory>Sharp</trapDamageCategory>
+		</building>
+		<researchPrerequisites>
+			<li>PrimitiveTraps</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseDungeonTrap">
+		<defName>OilTrap</defName>
+		<label>oil trap</label>
+		<description>Wood Log soaked in oil and wrapped in clothing. It causes a small explosion when sprung. Cheap, unreliable and ineffective against fast-moving targets. The trap is efficient at slowing down the advance of enemies or destroying slow-moving targets.</description>
+		<graphicData>
+			<texPath>Things/Building/Traps/Oil_Trap</texPath>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>20</MaxHitPoints>
+			<WorkToBuild>800</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<TrapSpringChance>0.25</TrapSpringChance>
+		</statBases>
+		<costList>
+			<WoodLog>10</WoodLog>
+		</costList>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		<costStuffCount>10</costStuffCount>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>0.5</explosiveRadius>
+				<explosiveDamageType>Flame</explosiveDamageType>
+				<damageAmountBase>75</damageAmountBase>
+				<wickTicks>15</wickTicks>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="RimDungeon.Trap_Def">
+				<sameFactionSpringChance>0.1</sameFactionSpringChance>
+				<wildAnimalSpringChance>0.1</wildAnimalSpringChance>
+			</li>
+		</modExtensions>
+		<constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+		<researchPrerequisites>
+			<li>PrimitiveTraps</li>
+		</researchPrerequisites>
+	</ThingDef>
+</Defs>
