@@ -27,7 +27,7 @@
 				<manualSpring>true</manualSpring>
 			</li>
 			<li Class="RimDungeon.Gas_Trap_Def">
-				<gas>Poison</gas>
+				<gas>Mustard</gas>
 				<damageDef>Smoke</damageDef>
 				<radius>2.0</radius>
 			</li>

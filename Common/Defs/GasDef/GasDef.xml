@@ -17,6 +17,31 @@
   </ThingDef>
 
 	<ThingDef ParentName="BaseGas">
+		<defName>Mustard</defName>
+		<label>mustard</label>
+		<thingClass>RimDungeon.Trap_Gas</thingClass>
+		<graphicData>
+			<texPath>Things/Gas/Puff</texPath>
+			<drawSize>2.2</drawSize>
+			<color>(0.9,0.9,0.9,1.0)</color>
+		</graphicData>
+		<gas>
+			<expireSeconds>120~200</expireSeconds>
+			<blockTurretTracking>true</blockTurretTracking>
+			<accuracyPenalty>0.7</accuracyPenalty>
+			<rotationSpeed>10</rotationSpeed>
+		</gas>
+		<modExtensions>
+			<li Class="RimDungeon.Hediff_Trap_Def">
+				<hediff>Anesthetic</hediff>
+				<hediffSeverity>0.1</hediffSeverity>
+				<hediffChance>1</hediffChance>
+			</li>
+		</modExtensions>
+		<pathCost>1000</pathCost>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseGas">
 		<defName>Poison</defName>
 		<label>poison</label>
 		<thingClass>RimDungeon.Trap_Gas</thingClass>

@@ -69,7 +69,14 @@
     <labelNoun>poisoning</labelNoun>
     <description>A creature has been lethally poisoned. It's life has became short, and extremely painful.</description>
     <hediffClass>HediffWithComps</hediffClass>
+    <tendable>true</tendable>
 	<lethalSeverity>1</lethalSeverity>
+	<comps>
+		<li Class="HediffCompProperties_TendDuration">
+        <baseTendDurationHours>48</baseTendDurationHours>
+        <severityPerDayTended>-100000.0</severityPerDayTended>
+      </li>
+	</comps>
     <stages>
       <li>
 		<painOffset>0.5</painOffset>
@@ -95,10 +102,5 @@
         </capMods>
       </li>
     </stages>
-    <comps>
-      <li Class="HediffCompProperties_SelfHeal">
-        <healAmount>-0.01</healAmount>
-      </li>
-    </comps>
   </HediffDef>
 </Defs>
