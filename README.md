@@ -47,3 +47,19 @@ WARNING: This is a extremely deadly poison trap, disguised as a plant. The poiso
 ### Column Trap
 A faulty column, rigged to fall apart when an enemy touches it. The column can also be destroyed manually.
 ![Column_Trap_Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Column_Trap.gif)
+
+### Smoke Gas Trap
+A Trap filled with chemicals to create smoke upon activation. Can be activated remotely to help both attacking and defending forces.
+![Smoke_Trap_Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Smoke_Trap.gif)
+
+### Sleeping Gas Trap
+A Trap filled with chemicals to create sleeping gas upon activation. Useful in defending choke points or in dealing with infestations.
+![Sleep_Trap_Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Sleep_Trap.gif)
+
+### Insect Gas Trap
+A Trap filled with chemicals to create insect-killing gas upon activation. Huge area of effect and has no effect on colonists.
+![Sleep_Trap_Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Insect_Trap.gif)
+
+### Wall Gas Trap
+A Trap filled with super-heavy gas. Moving through it is impossible. Perfect for quickly walling an area in an emergency.
+![Wall_Trap_Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Wall_Trap.gif)
