@@ -11,7 +11,7 @@ namespace RimDungeon
 {
     class Trap_Gas : Gas
 	{
-		public Hediff_Trap_Def HediffDef => base.def.GetModExtension<Hediff_Trap_Def>();
+		public Hediff_Trap_Def hediffDef => base.def.GetModExtension<Hediff_Trap_Def>();
 		public override void Tick()
 		{
 			base.Tick();
@@ -20,27 +20,25 @@ namespace RimDungeon
 		}
 		public void ApplyHediff()
 		{
-			if (HediffDef == null || !this.Spawned)
+			if (hediffDef == null || !this.Spawned)
 			{
 				return;
 			}
 			List<Thing> thingList = base.Position.GetThingList(base.Map);
 			for (int i = 0; i < thingList.Count; i++)
 			{
-                if (thingList[i] is Pawn pawn && !this.touchingPawns.Contains(pawn))
+                if (thingList[i] is Pawn pawn)
                 {
-                    this.touchingPawns.Add(pawn);
-                    this.AddHediffToPawn(pawn, HediffDef.hediff, HediffDef.hediffChance, HediffDef.hediffSeverity);
+					if (!hediffDef.insectOnly) {
+						this.AddHediffToPawn(pawn, hediffDef.hediff, hediffDef.hediffChance, hediffDef.hediffSeverity);
+					}
+					else if(hediffDef.insectOnly && pawn.RaceProps.FleshType == FleshTypeDefOf.Insectoid)
+                    {
+						this.AddHediffToPawn(pawn, hediffDef.hediff, hediffDef.hediffChance, hediffDef.hediffSeverity);
+					}
+                    
                 }
             }
-			for (int j = 0; j < this.touchingPawns.Count; j++)
-			{
-				Pawn pawn2 = this.touchingPawns[j];
-				if (!pawn2.Spawned || pawn2.Position != base.Position)
-				{
-					this.touchingPawns.Remove(pawn2);
-				}
-			}
 		}
 
 		public void AddHediffToPawn(Pawn pawn, HediffDef hediffToAdd, float chanceToAddHediff, float severityToAdd)
@@ -51,15 +49,21 @@ namespace RimDungeon
 			}
 			float statValue = pawn.GetStatValue(StatDefOf.ToxicSensitivity, true);
 			Hediff hediff = HediffMaker.MakeHediff(hediffToAdd, pawn, null);
-			hediff.Severity = severityToAdd * statValue;
+			if (hediffDef.insectOnly)
+            {
+				hediff.Severity = severityToAdd;
+			}
+			else
+            {
+				hediff.Severity = severityToAdd * statValue;
+            }
 			if (pawn.health.hediffSet.HasHediff(hediffToAdd, false))
 			{
-				pawn.health.hediffSet.GetFirstHediffOfDef(hediffToAdd, false).Severity += severityToAdd * statValue;
+				pawn.health.hediffSet.GetFirstHediffOfDef(hediffToAdd, false).Severity += hediff.Severity;
 				return;
 			}
 			pawn.health.AddHediff(hediff, null, null, null);
 		}
-        private List<Pawn> touchingPawns = new List<Pawn>();
 	}
 	
 }

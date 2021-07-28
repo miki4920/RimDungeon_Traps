@@ -26,10 +26,25 @@
 		<label>advanced traps</label>
 		<tab>RimDungeonTraps</tab>
 		<description>A much more advanced traps, requiring a great deal of knowledge and skill to set up correctly.</description>
-		<baseCost>1000</baseCost>
+		<baseCost>500</baseCost>
 		<techLevel>Medieval</techLevel>
 		<researchViewX>1.00</researchViewX>
-		<researchViewY>0.35</researchViewY>
+		<researchViewY>0.0</researchViewY>
+		<prerequisites>
+			<li>PrimitiveTraps</li>
+			<li>AnimalTraps</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef>
+		<defName>GasTraps</defName>
+		<label>gas traps</label>
+		<tab>RimDungeonTraps</tab>
+		<description>Gas-based traps, requiring a degree of chemical knowledge to set up correctly.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>1.00</researchViewX>
+		<researchViewY>0.70</researchViewY>
 		<prerequisites>
 			<li>PrimitiveTraps</li>
 			<li>AnimalTraps</li>

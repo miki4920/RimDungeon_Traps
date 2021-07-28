@@ -25,6 +25,7 @@ namespace RimDungeon
         public HediffDef hediff = null;
         public float hediffSeverity = 1.0f;
         public float hediffChance = 1.0f;
+        public bool insectOnly = false;
     }
     public class Gas_Trap_Def : DefModExtension
     {

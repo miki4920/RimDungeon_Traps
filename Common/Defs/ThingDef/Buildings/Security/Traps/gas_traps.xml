@@ -1,0 +1,128 @@
+<Defs>
+	<ThingDef Name="BaseDungeonGasTrap" ParentName="BaseDungeonTrap" Abstract="True">
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsSecurity</li>
+		</thingCategories>
+		<statBases>
+			<MaxHitPoints>20</MaxHitPoints>
+			<WorkToBuild>50</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<TrapSpringChance>0</TrapSpringChance>
+		</statBases>
+		<building>
+			<trapDestroyOnSpring>true</trapDestroyOnSpring>
+		</building>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+		<researchPrerequisites>
+			<li>GasTraps</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseDungeonGasTrap">
+		<defName>SmokeTrap</defName>
+		<label>smoke trap</label>
+		<description>A Trap filled with chemicals to create smoke upon activation. Can be activated remotely to help both attacking and defending forces.</description>
+		<graphicData>
+			<texPath>Things/Building/Traps/Smoke_Trap</texPath>
+		</graphicData>
+		<costList>
+			<Steel>10</Steel>
+			<Chemfuel>20</Chemfuel>
+		</costList>
+		<modExtensions>
+			<li Class="RimDungeon.Trap_Def">
+				<sameFactionSpringChance>0</sameFactionSpringChance>
+				<wildAnimalSpringChance>0</wildAnimalSpringChance>
+				<manualSpring>true</manualSpring>
+			</li>
+			<li Class="RimDungeon.Gas_Trap_Def">
+				<gas>Smoke</gas>
+				<damageDef>Smoke</damageDef>
+				<radius>3.0</radius>
+			</li>
+		</modExtensions>
+		<specialDisplayRadius>3.0</specialDisplayRadius>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseDungeonGasTrap">
+		<defName>SleepTrap</defName>
+		<label>sleep trap</label>
+		<description>A Trap filled with chemicals to create sleeping gas upon activation. Useful in defending choke points or in dealing with infestations.</description>
+		<graphicData>
+			<texPath>Things/Building/Traps/Sleep_Trap</texPath>
+		</graphicData>
+		<costList>
+			<Steel>10</Steel>
+			<Chemfuel>50</Chemfuel>
+			<MedicineIndustrial>5</MedicineIndustrial>
+		</costList>
+		<modExtensions>
+			<li Class="RimDungeon.Trap_Def">
+				<sameFactionSpringChance>0</sameFactionSpringChance>
+				<wildAnimalSpringChance>0</wildAnimalSpringChance>
+				<manualSpring>true</manualSpring>
+			</li>
+			<li Class="RimDungeon.Gas_Trap_Def">
+				<gas>SleepingGas</gas>
+				<damageDef>Smoke</damageDef>
+				<radius>3.0</radius>
+			</li>
+		</modExtensions>
+		<specialDisplayRadius>3.0</specialDisplayRadius>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseDungeonGasTrap">
+		<defName>InsectTrap</defName>
+		<label>insect trap</label>
+		<description>A Trap filled with chemicals to create insect-killing gas upon activation. Huge area of effect and has no effect on colonists.</description>
+		<graphicData>
+			<texPath>Things/Building/Traps/Insect_Trap</texPath>
+		</graphicData>
+		<costList>
+			<Steel>10</Steel>
+			<Chemfuel>50</Chemfuel>
+			<InsectJelly>20</InsectJelly>
+		</costList>
+		<modExtensions>
+			<li Class="RimDungeon.Trap_Def">
+				<sameFactionSpringChance>0</sameFactionSpringChance>
+				<wildAnimalSpringChance>0</wildAnimalSpringChance>
+				<manualSpring>true</manualSpring>
+			</li>
+			<li Class="RimDungeon.Gas_Trap_Def">
+				<gas>InsectGas</gas>
+				<damageDef>Smoke</damageDef>
+				<radius>10.0</radius>
+			</li>
+		</modExtensions>
+		<specialDisplayRadius>10.0</specialDisplayRadius>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseDungeonGasTrap">
+		<defName>WallTrap</defName>
+		<label>wall gas trap</label>
+		<description>A Trap filled with super-heavy gas. Moving through it is impossible. Perfect for quickly walling an area in an emergency.</description>
+		<graphicData>
+			<texPath>Things/Building/Traps/Wall_Trap</texPath>
+		</graphicData>
+		<costList>
+			<Steel>10</Steel>
+			<Plasteel>10</Plasteel>
+			<Chemfuel>20</Chemfuel>
+		</costList>
+		<modExtensions>
+			<li Class="RimDungeon.Trap_Def">
+				<sameFactionSpringChance>0</sameFactionSpringChance>
+				<wildAnimalSpringChance>0</wildAnimalSpringChance>
+				<manualSpring>true</manualSpring>
+			</li>
+			<li Class="RimDungeon.Gas_Trap_Def">
+				<gas>WallGas</gas>
+				<damageDef>Smoke</damageDef>
+				<radius>1.5</radius>
+			</li>
+		</modExtensions>
+		<specialDisplayRadius>1.5</specialDisplayRadius>
+	</ThingDef>
+</Defs>

@@ -1,68 +1,85 @@
 <Defs>
 	<ThingDef ParentName="BaseGas">
-    <defName>Smoke</defName>
-    <label>smoke</label>
+	<defName>Smoke</defName>
+	<label>smoke</label>
 	<thingClass>RimDungeon.Trap_Gas</thingClass>	
-    <graphicData>
-      <texPath>Things/Gas/Puff</texPath>
-      <drawSize>2.2</drawSize>
-      <color>(0.9,0.9,0.9,1.0)</color>
-    </graphicData>
-    <gas>
-      <expireSeconds>120~200</expireSeconds>
-      <blockTurretTracking>true</blockTurretTracking>
-      <accuracyPenalty>0.7</accuracyPenalty>
-      <rotationSpeed>10</rotationSpeed>
-    </gas>
-  </ThingDef>
-
-	<ThingDef ParentName="BaseGas">
-		<defName>Mustard</defName>
-		<label>mustard</label>
-		<thingClass>RimDungeon.Trap_Gas</thingClass>
-		<graphicData>
-			<texPath>Things/Gas/Puff</texPath>
-			<drawSize>2.2</drawSize>
-			<color>(0.9,0.9,0.9,1.0)</color>
-		</graphicData>
-		<gas>
-			<expireSeconds>120~200</expireSeconds>
-			<blockTurretTracking>true</blockTurretTracking>
-			<accuracyPenalty>0.7</accuracyPenalty>
-			<rotationSpeed>10</rotationSpeed>
-		</gas>
-		<modExtensions>
-			<li Class="RimDungeon.Hediff_Trap_Def">
-				<hediff>Anesthetic</hediff>
-				<hediffSeverity>0.1</hediffSeverity>
-				<hediffChance>1</hediffChance>
-			</li>
-		</modExtensions>
-		<pathCost>1000</pathCost>
+	<graphicData>
+	  <texPath>Things/Gas/Puff</texPath>
+	  <drawSize>2.2</drawSize>
+	  <color>(0.9,0.9,0.9,1.0)</color>
+	</graphicData>
+	<gas>
+	  <expireSeconds>450~550</expireSeconds>
+	  <blockTurretTracking>true</blockTurretTracking>
+	  <accuracyPenalty>0.7</accuracyPenalty>
+	  <rotationSpeed>10</rotationSpeed>
+	</gas>
 	</ThingDef>
-
+	
 	<ThingDef ParentName="BaseGas">
-		<defName>Poison</defName>
-		<label>poison</label>
+		<defName>SleepingGas</defName>
+		<label>sleeping gas</label>
 		<thingClass>RimDungeon.Trap_Gas</thingClass>
 		<graphicData>
 			<texPath>Things/Gas/Puff</texPath>
 			<drawSize>2.2</drawSize>
-			<color>(0.9,0.9,0.9,1.0)</color>
+			<color>(1.0,1.0,0.70,1.0)</color>
 		</graphicData>
 		<gas>
-			<expireSeconds>120~200</expireSeconds>
-			<blockTurretTracking>true</blockTurretTracking>
-			<accuracyPenalty>0.7</accuracyPenalty>
+			<expireSeconds>100~120</expireSeconds>
+			<blockTurretTracking>false</blockTurretTracking>
+			<accuracyPenalty>0</accuracyPenalty>
 			<rotationSpeed>10</rotationSpeed>
 		</gas>
 		<modExtensions>
 			<li Class="RimDungeon.Hediff_Trap_Def">
-				<hediff>LethalPoison</hediff>
-				<hediffSeverity>0.5</hediffSeverity>
+				<hediff>SleepingGas</hediff>
+				<hediffSeverity>0.0003</hediffSeverity>
 				<hediffChance>1.0</hediffChance>
 			</li>
 		</modExtensions>
-		<pathCost>1000</pathCost>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseGas">
+		<defName>InsectGas</defName>
+		<label>insect gas</label>
+		<thingClass>RimDungeon.Trap_Gas</thingClass>
+		<graphicData>
+			<texPath>Things/Gas/Puff</texPath>
+			<drawSize>2.2</drawSize>
+			<color>(0.2,0.8,0.2,1.0)</color>
+		</graphicData>
+		<gas>
+			<expireSeconds>1000~1200</expireSeconds>
+			<blockTurretTracking>false</blockTurretTracking>
+			<accuracyPenalty>0</accuracyPenalty>
+			<rotationSpeed>10</rotationSpeed>
+		</gas>
+		<modExtensions>
+			<li Class="RimDungeon.Hediff_Trap_Def">
+				<hediff>InsectGas</hediff>
+				<hediffSeverity>0.00002</hediffSeverity>
+				<hediffChance>1.0</hediffChance>
+				<insectOnly>true</insectOnly>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseGas">
+		<defName>WallGas</defName>
+		<label>wall gas</label>
+		<thingClass>RimDungeon.Trap_Gas</thingClass>
+		<graphicData>
+			<texPath>Things/Gas/Puff</texPath>
+			<drawSize>2.2</drawSize>
+			<color>(0.2,0.2,0.2,1.0)</color>
+		</graphicData>
+		<gas>
+			<expireSeconds>100~120</expireSeconds>
+			<blockTurretTracking>true</blockTurretTracking>
+			<accuracyPenalty>1</accuracyPenalty>
+			<rotationSpeed>1</rotationSpeed>
+		</gas>
+		<pathCost>10000</pathCost>
 	</ThingDef>
 </Defs>
