@@ -40,29 +40,16 @@ namespace RimDungeon
 		}
 		protected void SpringTrap(Pawn p)
         {
+			if (this.def.HasModExtension<Hediff_Trap_Def>())
+			{
+				Hediff_Trap_Def hediff = this.def.GetModExtension<Hediff_Trap_Def>();
+				Trap_Hediff.ApplyHediff(hediff, p);
+				
+			}
+
 			float num = this.GetStatValue(StatDefOf.TrapMeleeDamage, true) * DamageRandomFactorRange.RandomInRange / this.TrapDef.numberOfAttacks;
 			float armorPenetration = num * TrapDef.armorPenetration;
 			int num2 = 0;
-			if (this.def.HasModExtension<Hediff_Trap_Def>())
-			{
-				Hediff_Trap_Def hediff_Trap = this.def.GetModExtension<Hediff_Trap_Def>();
-				float rand = Rand.Value;
-				if (rand <= hediff_Trap.hediffChance)
-				{
-					Hediff effectOnPawn = p.health?.hediffSet?.GetFirstHediffOfDef(hediff_Trap.hediff);
-					float severity = hediff_Trap.hediffSeverity;
-					if (effectOnPawn != null)
-					{
-						effectOnPawn.Severity += severity;
-					}
-					else
-					{
-						Hediff hediff = HediffMaker.MakeHediff(hediff_Trap.hediff, p);
-						hediff.Severity = severity;
-						p.health.AddHediff(hediff);
-					}
-				}
-			}
 			while ((float)num2 < this.TrapDef.numberOfAttacks)
 			{
 				DamageInfo dinfo = new DamageInfo(DamageDefOf.Stab, num, armorPenetration, -1f, this, null, null, DamageInfo.SourceCategory.ThingOrUnknown, null, true, true);

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Verse;
 using RimWorld;
 using RimDungeon;
@@ -14,7 +10,7 @@ namespace RimDungeon
 		public Hediff_Trap_Def hediffDef => base.def.GetModExtension<Hediff_Trap_Def>();
 		public override void Tick()
 		{
-			base.Tick();
+			base.Tick();	
 			ApplyHediff();
 
 		}
@@ -29,40 +25,9 @@ namespace RimDungeon
 			{
                 if (thingList[i] is Pawn pawn)
                 {
-					if (!hediffDef.insectOnly) {
-						this.AddHediffToPawn(pawn, hediffDef.hediff, hediffDef.hediffChance, hediffDef.hediffSeverity);
-					}
-					else if(hediffDef.insectOnly && pawn.RaceProps.Insect)
-                    {
-						this.AddHediffToPawn(pawn, hediffDef.hediff, hediffDef.hediffChance, hediffDef.hediffSeverity);
-					}
-                    
+					Trap_Hediff.ApplyHediff(hediffDef, pawn);   
                 }
             }
-		}
-
-		public void AddHediffToPawn(Pawn pawn, HediffDef hediffToAdd, float chanceToAddHediff, float severityToAdd)
-		{
-			if (!Rand.Chance(chanceToAddHediff) || severityToAdd <= 0f)
-			{
-				return;
-			}
-			float statValue = pawn.GetStatValue(StatDefOf.ToxicSensitivity, true);
-			Hediff hediff = HediffMaker.MakeHediff(hediffToAdd, pawn, null);
-			if (hediffDef.insectOnly)
-            {
-				hediff.Severity = severityToAdd;
-			}
-			else
-            {
-				hediff.Severity = severityToAdd * statValue;
-            }
-			if (pawn.health.hediffSet.HasHediff(hediffToAdd, false))
-			{
-				pawn.health.hediffSet.GetFirstHediffOfDef(hediffToAdd, false).Severity += hediff.Severity;
-				return;
-			}
-			pawn.health.AddHediff(hediff, null, null, null);
 		}
 	}
 	

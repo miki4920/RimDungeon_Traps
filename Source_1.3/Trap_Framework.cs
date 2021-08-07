@@ -107,18 +107,10 @@ namespace RimDungeon
         }
         public override ushort PathFindCostFor(Pawn p)
         {
-            if (!this.KnowsOfTrap(p) && !TrapDef.slows)
-            {
-                return 0;
-            }
             return (ushort)TrapDef.pathFindCost;
         }
         public override ushort PathWalkCostFor(Pawn p)
         {
-            if (!this.KnowsOfTrap(p) && !TrapDef.slows)
-            {
-                return 0;
-            }
             return (ushort)TrapDef.pathWalkCost;
         }
         public new void Spring(Pawn p)
