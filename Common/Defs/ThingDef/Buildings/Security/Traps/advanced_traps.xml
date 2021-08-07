@@ -37,9 +37,6 @@
 			</trapUnarmedGraphicData>
 		</building>
 		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
-		<placeWorkers>
-			<li>PlaceWorker_NeverAdjacentTrap</li>
-		</placeWorkers>
 		<researchPrerequisites>
 			<li>AdvancedTraps</li>
 		</researchPrerequisites>
@@ -48,9 +45,9 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>PoisonTrap</defName>
 		<label>poison trap</label>
-		<description>WARNING: This single-use poison trap works on touch and is guaranteed to kill any creature affected creature within a short period.</description>
+		<description>WARNING: This single-use poison trap works on touch and is guaranteed to kill any affected creature within a short period.</description>
 		<graphicData>
-			<texPath>Things/Building/Traps/Poison_Trap</texPath>
+			<texPath>Things/Building/Traps/Poison_Trap_Armed</texPath>
 		</graphicData>
 		<statBases>
 			<MaxHitPoints>400</MaxHitPoints>
@@ -69,24 +66,37 @@
 		<modExtensions>
 			<li Class="RimDungeon.Trap_Def">
 				<numberOfAttacks>1</numberOfAttacks>
+				<rearmable>true</rearmable>
 				<sameFactionSpringChance>1</sameFactionSpringChance>
 				<wildAnimalSpringChance>1</wildAnimalSpringChance>
 				<armorPenetration>1</armorPenetration>
 			</li>
 			<li Class="RimDungeon.Hediff_Trap_Def">
 				<hediff>LethalPoison</hediff>
-				<hediffSeverity>0.5</hediffSeverity>
-				<hediffChance>1.0</hediffChance>
+				<severity>0.5</severity>
+				<chance>1.0</chance>
+				<affectsLiving>true</affectsLiving>
 			</li>
 		</modExtensions>
 		<building>
-			<trapDestroyOnSpring>true</trapDestroyOnSpring>
+			<trapDestroyOnSpring>false</trapDestroyOnSpring>
 			<trapDamageCategory>Sharp</trapDamageCategory>
+			<trapUnarmedGraphicData>
+				<texPath>Things/Building/Traps/Poison_Trap</texPath>
+				<graphicClass>Graphic_Single</graphicClass>
+			</trapUnarmedGraphicData>
+			<fixedStorageSettings>
+				<filter>
+					<categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+			</fixedStorageSettings>
 		</building>
+		<inspectorTabs>
+			<li>ITab_Storage</li>
+		</inspectorTabs>
 		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
-		<placeWorkers>
-			<li>PlaceWorker_NeverAdjacentTrap</li>
-		</placeWorkers>
 		<researchPrerequisites>
 			<li>AdvancedTraps</li>
 		</researchPrerequisites>

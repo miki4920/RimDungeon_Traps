@@ -34,8 +34,9 @@
 		<modExtensions>
 			<li Class="RimDungeon.Hediff_Trap_Def">
 				<hediff>SleepingGas</hediff>
-				<hediffSeverity>0.0003</hediffSeverity>
-				<hediffChance>1.0</hediffChance>
+				<severity>0.0003</severity>
+				<chance>1.0</chance>
+				<affectsLiving>true</affectsLiving>
 			</li>
 		</modExtensions>
 	</ThingDef>
@@ -58,9 +59,9 @@
 		<modExtensions>
 			<li Class="RimDungeon.Hediff_Trap_Def">
 				<hediff>InsectGas</hediff>
-				<hediffSeverity>0.00002</hediffSeverity>
-				<hediffChance>1.0</hediffChance>
-				<insectOnly>true</insectOnly>
+				<severity>0.00004</severity>
+				<chance>1.0</chance>
+				<affectsInsect>true</affectsInsect>
 			</li>
 		</modExtensions>
 	</ThingDef>

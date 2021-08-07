@@ -31,8 +31,9 @@
 			</li>
 			<li Class="RimDungeon.Hediff_Trap_Def">
 				<hediff>TrappedInNoose</hediff>
-				<hediffSeverity>1.0</hediffSeverity>
-				<hediffChance>1.0</hediffChance>
+				<severity>1.0</severity>
+				<chance>1.0</chance>
+				<affectsAll>true</affectsAll>
 			</li>
 		</modExtensions>
 		<building>
@@ -83,8 +84,9 @@
 			</li>
 			<li Class="RimDungeon.Hediff_Trap_Def">
 				<hediff>CrushedLegs</hediff>
-				<hediffSeverity>1.0</hediffSeverity>
-				<hediffChance>1.0</hediffChance>
+				<severity>1.0</severity>
+				<chance>1.0</chance>
+				<affectsAll>true</affectsAll>
 			</li>
 		</modExtensions>
 		<building>

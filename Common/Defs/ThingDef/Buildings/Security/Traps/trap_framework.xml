@@ -20,7 +20,7 @@
 		</statBases>
 		<designationCategory>Security</designationCategory>
 		<building>
-			<isTrap>true</isTrap>
+			<isTrap>false</isTrap>
 			<expandHomeArea>false</expandHomeArea>
 			<ai_chillDestination>false</ai_chillDestination>
 		</building>

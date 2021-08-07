@@ -25,10 +25,10 @@
 		<modExtensions>
 			<li Class="RimDungeon.Trap_Def">
 				<numberOfAttacks>1</numberOfAttacks>
-				<slows>true</slows>
 				<sameFactionSpringChance>0.1</sameFactionSpringChance>
 				<wildAnimalSpringChance>0.15</wildAnimalSpringChance>
 				<armorPenetration>0.01</armorPenetration>
+				<pathWalkCost>80</pathWalkCost>
 			</li>
 		</modExtensions>
 		<building>

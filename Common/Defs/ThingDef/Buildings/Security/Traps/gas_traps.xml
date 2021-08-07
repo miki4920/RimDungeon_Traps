@@ -32,17 +32,15 @@
 		</costList>
 		<modExtensions>
 			<li Class="RimDungeon.Trap_Def">
-				<sameFactionSpringChance>0</sameFactionSpringChance>
-				<wildAnimalSpringChance>0</wildAnimalSpringChance>
 				<manualSpring>true</manualSpring>
 			</li>
 			<li Class="RimDungeon.Gas_Trap_Def">
 				<gas>Smoke</gas>
 				<damageDef>Smoke</damageDef>
-				<radius>3.0</radius>
+				<radius>2.9</radius>
 			</li>
 		</modExtensions>
-		<specialDisplayRadius>3.0</specialDisplayRadius>
+		<specialDisplayRadius>2.9</specialDisplayRadius>
 	</ThingDef>
 	
 	<ThingDef ParentName="BaseDungeonGasTrap">
@@ -59,17 +57,15 @@
 		</costList>
 		<modExtensions>
 			<li Class="RimDungeon.Trap_Def">
-				<sameFactionSpringChance>0</sameFactionSpringChance>
-				<wildAnimalSpringChance>0</wildAnimalSpringChance>
 				<manualSpring>true</manualSpring>
 			</li>
 			<li Class="RimDungeon.Gas_Trap_Def">
 				<gas>SleepingGas</gas>
 				<damageDef>Smoke</damageDef>
-				<radius>3.0</radius>
+				<radius>2.9</radius>
 			</li>
 		</modExtensions>
-		<specialDisplayRadius>3.0</specialDisplayRadius>
+		<specialDisplayRadius>2.9</specialDisplayRadius>
 	</ThingDef>
 	
 	<ThingDef ParentName="BaseDungeonGasTrap">
@@ -86,17 +82,15 @@
 		</costList>
 		<modExtensions>
 			<li Class="RimDungeon.Trap_Def">
-				<sameFactionSpringChance>0</sameFactionSpringChance>
-				<wildAnimalSpringChance>0</wildAnimalSpringChance>
 				<manualSpring>true</manualSpring>
 			</li>
 			<li Class="RimDungeon.Gas_Trap_Def">
 				<gas>InsectGas</gas>
 				<damageDef>Smoke</damageDef>
-				<radius>10.0</radius>
+				<radius>9.5</radius>
 			</li>
 		</modExtensions>
-		<specialDisplayRadius>10.0</specialDisplayRadius>
+		<specialDisplayRadius>9.5</specialDisplayRadius>
 	</ThingDef>
 	
 	<ThingDef ParentName="BaseDungeonGasTrap">
@@ -113,16 +107,14 @@
 		</costList>
 		<modExtensions>
 			<li Class="RimDungeon.Trap_Def">
-				<sameFactionSpringChance>0</sameFactionSpringChance>
-				<wildAnimalSpringChance>0</wildAnimalSpringChance>
 				<manualSpring>true</manualSpring>
 			</li>
 			<li Class="RimDungeon.Gas_Trap_Def">
 				<gas>WallGas</gas>
 				<damageDef>Smoke</damageDef>
-				<radius>1.5</radius>
+				<radius>1.9</radius>
 			</li>
 		</modExtensions>
-		<specialDisplayRadius>1.5</specialDisplayRadius>
+		<specialDisplayRadius>1.9</specialDisplayRadius>
 	</ThingDef>
 </Defs>
