@@ -82,19 +82,22 @@
 			<trapDestroyOnSpring>false</trapDestroyOnSpring>
 			<trapDamageCategory>Sharp</trapDamageCategory>
 			<trapUnarmedGraphicData>
-				<texPath>Things/Building/Traps/Poison_Trap</texPath>
+				<texPath>Things/Building/Traps/Poison_Trap_Unarmed</texPath>
 				<graphicClass>Graphic_Single</graphicClass>
 			</trapUnarmedGraphicData>
 			<fixedStorageSettings>
 				<filter>
 					<categories>
-						<li>Medicine</li>
+						<li>MortarShells</li>
 					</categories>
 				</filter>
 			</fixedStorageSettings>
 		</building>
+		<comps>
+			<li Class="CompProperties_ChangeableProjectile"/>
+		</comps>
 		<inspectorTabs>
-			<li>ITab_Storage</li>
+			<li>ITab_Shells</li>
 		</inspectorTabs>
 		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
 		<researchPrerequisites>

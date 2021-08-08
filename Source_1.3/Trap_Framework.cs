@@ -11,17 +11,27 @@ namespace RimDungeon
     public abstract class Trap_Framework : Building_Trap
     {
         public Trap_Def TrapDef => base.def.GetModExtension<Trap_Def>();
+        public bool autoRebuild;
         public bool autoRearm;
-        public bool armed = true;
+        public bool armed;
         public List<Pawn> touchingPawns = new List<Pawn>();
 
         public bool CanSetAutoRebuild
         {
             get
             {
-                return base.Faction == Faction.OfPlayer && this.def.blueprintDef != null && this.def.IsResearchFinished;
+                return base.Faction == Faction.OfPlayer && this.def.blueprintDef != null && this.def.IsResearchFinished && this.def.building.trapDestroyOnSpring; ;
             }
         }
+
+        public bool CanSetAutoRearm
+        {
+            get
+            {
+                return base.Faction == Faction.OfPlayer && this.def.IsResearchFinished && !this.def.building.trapDestroyOnSpring;
+            }
+        }
+
         public override Graphic Graphic
         {
             get
@@ -40,7 +50,8 @@ namespace RimDungeon
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look<bool>(ref this.autoRearm, "autoRebuild", false, false);
+            Scribe_Values.Look<bool>(ref this.autoRebuild, "autoRebuild", false, false);
+            Scribe_Values.Look<bool>(ref this.autoRebuild, "autoRearm", false, false);
             Scribe_Values.Look<bool>(ref this.armed, "armed", true, false);
             Scribe_Collections.Look<Pawn>(ref this.touchingPawns, "touchingPawns", LookMode.Reference, Array.Empty<object>());
         }
@@ -58,6 +69,7 @@ namespace RimDungeon
         }
         public override void Tick()
         {
+            base.Draw();
             if (base.Spawned)
             {
                 List<Thing> thingList = base.Position.GetThingList(base.Map);
@@ -81,7 +93,6 @@ namespace RimDungeon
             }
             base.Tick();
         }
-
         protected override float SpringChance(Pawn p)
         {
             float num = 0f;
@@ -130,6 +141,10 @@ namespace RimDungeon
                     this.CheckAutoRebuild(map);
                 }
             }
+            else
+            {
+                this.CheckAutoRearm(this, map);
+            }
         }
         public override void Kill(DamageInfo? dinfo = null, Hediff exactCulprit = null)
         {
@@ -143,9 +158,17 @@ namespace RimDungeon
         }
         public void CheckAutoRebuild(Map map)
         {
-            if (this.autoRearm && this.CanSetAutoRebuild && map != null && GenConstruct.CanPlaceBlueprintAt(this.def, base.Position, base.Rotation, map, false, null, null, base.Stuff).Accepted)
+            if (this.autoRebuild && this.CanSetAutoRebuild && map != null && GenConstruct.CanPlaceBlueprintAt(this.def, base.Position, base.Rotation, map, false, null, null, base.Stuff).Accepted)
             {
                 GenConstruct.PlaceBlueprintForBuild(this.def, base.Position, map, base.Rotation, Faction.OfPlayer, base.Stuff);
+            }
+        }
+
+        public void CheckAutoRearm(Thing trap, Map map)
+        {
+            if (this.autoRearm && this.CanSetAutoRearm)
+            {
+                map.designationManager.AddDesignation(new Designation(trap, DesignationDefOf.RearmTrap));
             }
         }
 
@@ -164,6 +187,19 @@ namespace RimDungeon
             {
                 text += "TrapNotArmed".Translate();
             }
+            CompChangeableProjectile compChangeableProjectile = this.TryGetComp<CompChangeableProjectile>();
+            if (compChangeableProjectile != null)
+            {
+                text += "\n";
+                if (compChangeableProjectile.Loaded)
+                {
+                    text += "ShellLoaded".Translate(compChangeableProjectile.LoadedShell.LabelCap, compChangeableProjectile.LoadedShell);
+                }
+                else
+                {
+                    text += "ShellNotLoaded".Translate();
+                }
+            }
             return text;
         }
 
@@ -179,6 +215,21 @@ namespace RimDungeon
             IEnumerator<Gizmo> enumerator = null;
             if (TrapDef.rearmable)
             {
+                if (this.CanSetAutoRearm)
+                {
+                    yield return new Command_Toggle
+                    {
+                        defaultLabel = "CommandAutoRebuild".Translate(),
+                        defaultDesc = "CommandAutoRebuildDesc".Translate(),
+                        hotKey = KeyBindingDefOf.Misc3,
+                        icon = TexCommand.RearmTrap,
+                        isActive = (() => this.autoRearm),
+                        toggleAction = delegate ()
+                        {
+                            this.autoRebuild = !this.autoRearm;
+                        }
+                    };
+                }
                 if (!armed && CanBeDesignatedRearm())
                 {
                     yield return new Command_Action
@@ -224,10 +275,10 @@ namespace RimDungeon
                     defaultDesc = "CommandAutoRebuildDesc".Translate(),
                     hotKey = KeyBindingDefOf.Misc3,
                     icon = TexCommand.RearmTrap,
-                    isActive = (() => this.autoRearm),
+                    isActive = (() => this.autoRebuild),
                     toggleAction = delegate ()
                     {
-                        this.autoRearm = !this.autoRearm;
+                        this.autoRebuild = !this.autoRebuild;
                     }
                 };
             }
@@ -267,6 +318,22 @@ namespace RimDungeon
         public void Disarm()
         {
             armed = false;
+            if(this.CanExtractShell)
+            {
+                this.ExtractShell();
+            }
+        }
+        public bool CanExtractShell
+        {
+            get
+            {
+                CompChangeableProjectile compChangeableProjectile = this.TryGetComp<CompChangeableProjectile>();
+                return compChangeableProjectile != null && compChangeableProjectile.Loaded;
+            }
+        }
+        public void ExtractShell()
+        {
+            GenPlace.TryPlaceThing(this.TryGetComp<CompChangeableProjectile>().RemoveShell(), base.Position, base.Map, ThingPlaceMode.Near, null, null, default(Rot4));
         }
     }
 }

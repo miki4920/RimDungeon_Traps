@@ -36,7 +36,6 @@ namespace RimDungeon
 				}
 				SpringTrap(p);
 			}
-			
 		}
 		protected void SpringTrap(Pawn p)
         {
@@ -63,7 +62,6 @@ namespace RimDungeon
 				num2++;
 			}
 		}
-
 		protected void SpringExplosiveTrap()
         {
 			base.GetComp<CompExplosive>().StartWick(null);
