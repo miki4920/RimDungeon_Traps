@@ -19,14 +19,23 @@ namespace RimDungeon
 		protected override void SpringSub(Pawn p)
 		{
 			SoundDefOf.TrapSpring.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
-			CompExplosive explosive = base.GetComp<CompExplosive>();
-			if(explosive != null)
+			if(base.def.HasComp(typeof(CompExplosive)))
             {
-				SpringExplosiveTrap();
+				SpringExplosiveTrap(base.GetComp<CompExplosive>());
 			}
+			else if(this.def.HasComp(typeof(CompChangeableProjectile)))
+            {
+				CompChangeableProjectile comp = this.GetComp<CompChangeableProjectile>();
+				ThingWithComps projectile = (ThingWithComps) ThingMaker.MakeThing(comp.LoadedShell, null);
+				if (projectile.def.HasModExtension<Gas_Trap_Def>())
+                {
+					SpringGasTrap(projectile.def);
+                }
+				SpringTrap(projectile.def, p);
+            }
 			else if(this.def.HasModExtension<Gas_Trap_Def>())
             {
-				SpringGasTrap();
+				SpringGasTrap(this.def);
             }
 			else
             {
@@ -34,14 +43,26 @@ namespace RimDungeon
 				{
 					return;
 				}
-				SpringTrap(p);
+				SpringTrap(this.def, p);
 			}
 		}
-		protected void SpringTrap(Pawn p)
+		protected void SpringExplosiveTrap(CompExplosive explosive)
+		{
+			explosive.StartWick(null);
+		}
+
+		protected void SpringGasTrap(ThingDef def)
+		{
+			Gas_Trap_Def gas_Trap = def.GetModExtension<Gas_Trap_Def>();
+			GenExplosion.DoExplosion(base.Position, base.Map, gas_Trap.radius, gas_Trap.damageDef, this, 0, 0f, gas_Trap.damageDef.soundExplosion, null, null, null, gas_Trap.gas, 1f, 1, false, null, 0f, 1, 0f, false, null, null);
+		}
+		private static readonly FloatRange DamageRandomFactorRange = new FloatRange(0.8f, 1.2f);
+
+		protected void SpringTrap(ThingDef def, Pawn p)
         {
-			if (this.def.HasModExtension<Hediff_Trap_Def>())
+			if (def.HasModExtension<Hediff_Trap_Def>())
 			{
-				Hediff_Trap_Def hediff = this.def.GetModExtension<Hediff_Trap_Def>();
+				Hediff_Trap_Def hediff = def.GetModExtension<Hediff_Trap_Def>();
 				Trap_Hediff.ApplyHediff(hediff, p);
 				
 			}
@@ -62,15 +83,5 @@ namespace RimDungeon
 				num2++;
 			}
 		}
-		protected void SpringExplosiveTrap()
-        {
-			base.GetComp<CompExplosive>().StartWick(null);
-		}
-		protected void SpringGasTrap()
-        {
-			Gas_Trap_Def gas_Trap = this.def.GetModExtension<Gas_Trap_Def>();
-			GenExplosion.DoExplosion(base.Position, base.Map, gas_Trap.radius, gas_Trap.damageDef, this, 0, 0f, gas_Trap.damageDef.soundExplosion, null, null, null, gas_Trap.gas, 1f, 1, false, null, 0f, 1, 0f, false, null, null);
-		}
-		private static readonly FloatRange DamageRandomFactorRange = new FloatRange(0.8f, 1.2f);
 	}
 }

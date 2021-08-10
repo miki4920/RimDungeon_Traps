@@ -1,0 +1,65 @@
+<Defs>
+	<ThingDef Name="PoisonBase" ParentName="ResourceBase" Abstract="True">
+		<soundInteract>Standard_Drop</soundInteract>
+		<soundDrop>Standard_Drop</soundDrop>
+		<tickerType>Normal</tickerType>
+		<stackLimit>25</stackLimit>
+		<techLevel>Medieval</techLevel>
+		<statBases>
+		  <MaxHitPoints>25</MaxHitPoints>
+		  <MarketValue>25</MarketValue>
+		  <Mass>1.25</Mass>
+		  <Flammability>0</Flammability>
+		  <DeteriorationRate>1.5</DeteriorationRate>
+		</statBases>
+		<thingCategories>
+		  <li>Poisons</li>
+		</thingCategories>
+		<tradeTags>
+		  <li>MortarShell</li>
+		</tradeTags>
+	</ThingDef>
+
+	<ThingDef Name="MakeablePoisonBase"
+        		ParentName="PoisonBase"
+        		Abstract="True">
+		<recipeMaker>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cook</effectWorking>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<workAmount>100</workAmount>
+			<targetCountAdjustment>5</targetCountAdjustment>
+			<workSkill>Crafting</workSkill>
+			<recipeUsers>
+				<li>DrugLab</li>
+			</recipeUsers>
+			<skillRequirements>
+				<Crafting>5</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+	</ThingDef>
+	
+	<ThingDef ParentName="MakeablePoisonBase">
+		<defName>SleepPoison</defName>
+		<label>Sleep poison</label>
+		<description>A shell that generates a cloud of smoke when detonated, obscuring incoming shots and preventing turrets from locking on. Can be fired from mortars or installed as a trap. Explodes when damaged.</description>
+		<graphicData>
+			<texPath>Things/Item/Resource/Shell/Shell_Smoke</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<modExtensions>
+			<li Class="RimDungeon.Hediff_Trap_Def">
+				<hediff>SleepingGas</hediff>
+				<severity>1.0</severity>
+				<chance>1.0</chance>
+				<affectsLiving>true</affectsLiving>
+			</li>
+		</modExtensions>
+		<costList>
+			<Steel>25</Steel>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>Mortars</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+</Defs>

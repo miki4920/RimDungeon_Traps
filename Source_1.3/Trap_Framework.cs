@@ -11,16 +11,25 @@ namespace RimDungeon
     public abstract class Trap_Framework : Building_Trap
     {
         public Trap_Def TrapDef => base.def.GetModExtension<Trap_Def>();
+        public bool armed;
+
         public bool autoRebuild;
         public bool autoRearm;
-        public bool armed;
+
         public List<Pawn> touchingPawns = new List<Pawn>();
 
+        public bool DestroyOnSpring
+        {
+            get
+            {
+                return TrapDef.rearmable || base.def.HasComp(typeof(CompExplosive));
+            }
+        }
         public bool CanSetAutoRebuild
         {
             get
             {
-                return base.Faction == Faction.OfPlayer && this.def.blueprintDef != null && this.def.IsResearchFinished && this.def.building.trapDestroyOnSpring; ;
+                return base.Faction == Faction.OfPlayer && this.def.blueprintDef != null && DestroyOnSpring;
             }
         }
 
@@ -28,7 +37,7 @@ namespace RimDungeon
         {
             get
             {
-                return base.Faction == Faction.OfPlayer && this.def.IsResearchFinished && !this.def.building.trapDestroyOnSpring;
+                return base.Faction == Faction.OfPlayer && TrapDef.rearmable;
             }
         }
 
@@ -43,18 +52,27 @@ namespace RimDungeon
                 return base.Graphic;
             }
         }
+
+        public override void PostMake()
+        {
+            base.PostMake();
+            armed = !base.def.HasComp(typeof(CompChangeableProjectile));
+        }
+
         public new bool KnowsOfTrap(Pawn p)
         {
             return (p.Faction != null && !p.Faction.HostileTo(base.Faction)) ||  (p.guest != null && p.guest.Released) || (!p.IsPrisoner && base.Faction != null && p.HostFaction == base.Faction) || (p.RaceProps.Humanlike && p.IsFormingCaravan()) || (p.IsPrisoner && p.guest.ShouldWaitInsteadOfEscaping && base.Faction == p.HostFaction) || (p.Faction == null && p.RaceProps.Humanlike) || (p.HostFaction == base.Faction);
         }
+
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look<bool>(ref this.autoRebuild, "autoRebuild", false, false);
-            Scribe_Values.Look<bool>(ref this.autoRebuild, "autoRearm", false, false);
             Scribe_Values.Look<bool>(ref this.armed, "armed", true, false);
+            Scribe_Values.Look<bool>(ref this.autoRebuild, "autoRebuild", false, false);
+            Scribe_Values.Look<bool>(ref this.autoRearm, "autoRearm", false, false);
             Scribe_Collections.Look<Pawn>(ref this.touchingPawns, "touchingPawns", LookMode.Reference, Array.Empty<object>());
         }
+
         public void CheckSpring(Pawn p)
         {
             if (Rand.Chance(this.SpringChance(p)))
@@ -130,7 +148,7 @@ namespace RimDungeon
             Map map = base.Map;
             Disarm();
             this.SpringSub(p);
-            if (this.def.building.trapDestroyOnSpring)
+            if (!TrapDef.rearmable)
             {
                 if (!base.Destroyed)
                 {
@@ -160,7 +178,7 @@ namespace RimDungeon
         {
             if (this.autoRebuild && this.CanSetAutoRebuild && map != null && GenConstruct.CanPlaceBlueprintAt(this.def, base.Position, base.Rotation, map, false, null, null, base.Stuff).Accepted)
             {
-                GenConstruct.PlaceBlueprintForBuild(this.def, base.Position, map, base.Rotation, Faction.OfPlayer, base.Stuff);
+                GenConstruct.PlaceBlueprintForBuild_NewTemp(this.def, base.Position, map, base.Rotation, Faction.OfPlayer, base.Stuff);
             }
         }
 
@@ -212,7 +230,6 @@ namespace RimDungeon
                     yield return gizmo;
                 }              
             }
-            IEnumerator<Gizmo> enumerator = null;
             if (TrapDef.rearmable)
             {
                 if (this.CanSetAutoRearm)
@@ -297,7 +314,6 @@ namespace RimDungeon
                     }
                 };
             }
-
             yield break;
         }
         public void AddRearmDesignation()
@@ -318,10 +334,6 @@ namespace RimDungeon
         public void Disarm()
         {
             armed = false;
-            if(this.CanExtractShell)
-            {
-                this.ExtractShell();
-            }
         }
         public bool CanExtractShell
         {
