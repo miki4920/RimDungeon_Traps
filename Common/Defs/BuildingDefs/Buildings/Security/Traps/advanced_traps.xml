@@ -71,12 +71,6 @@
 				<wildAnimalSpringChance>1</wildAnimalSpringChance>
 				<armorPenetration>1</armorPenetration>
 			</li>
-			<li Class="RimDungeon.Hediff_Trap_Def">
-				<hediff>LethalPoison</hediff>
-				<severity>0.5</severity>
-				<chance>1.0</chance>
-				<affectsLiving>true</affectsLiving>
-			</li>
 		</modExtensions>
 		<building>
 			<trapDestroyOnSpring>false</trapDestroyOnSpring>
