@@ -54,8 +54,9 @@ namespace RimDungeon
             if (compChangeableProjectile != null && !compChangeableProjectile.Loaded)
             {
                 StorageSettings allowedShellsSettings = pawn.IsColonist ? trap.TryGetComp<CompChangeableProjectile>().allowedShellsSettings : null;
+                ThingFilter thingFilter = allowedShellsSettings.filter;
                 Predicate<Thing> validator = (Thing t) => !t.IsForbidden(pawn) && pawn.CanReserve(t, 10, 1, null, false) && (allowedShellsSettings == null || allowedShellsSettings.AllowedToAccept(t));
-                Thing shell = GenClosest.ClosestThingReachable(trap.Position, trap.Map, ThingRequest.ForGroup(ThingRequestGroup.Shell), PathEndMode.OnCell, TraverseParms.For(pawn, Danger.Deadly, TraverseMode.ByPawn, false, false, false), 40f, validator, null, 0, -1, false, RegionType.Set_Passable, false);
+                Thing shell = GenClosest.ClosestThingReachable(trap.Position, trap.Map, thingFilter.BestThingRequest, PathEndMode.OnCell, TraverseParms.For(pawn, Danger.Deadly, TraverseMode.ByPawn, false, false, false), 40f, validator, null, 0, -1, false, RegionType.Set_Passable, false);
                 if (shell == null)
                 {
                     return false;

@@ -42,6 +42,8 @@
     <None Include="..\Common\Patches\**" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comps\CompArmedEmitter.cs" />
+    <Compile Include="Comps\CompProperties_ArmedEmitter.cs" />
     <Compile Include="Trap_Hediff.cs" />
     <Compile Include="Trap_Gas.cs" />
     <Compile Include="DefsOf\DesignationDefOf.cs" />

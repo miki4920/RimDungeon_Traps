@@ -31,8 +31,12 @@ namespace RimDungeon
                 {
 					SpringGasTrap(projectile.def);
                 }
-				SpringTrap(projectile.def, p);
-            }
+				else
+                {
+					SpringTrap(projectile.def, p);
+				}
+				comp.RemoveShell();
+			}
 			else if(this.def.HasModExtension<Gas_Trap_Def>())
             {
 				SpringGasTrap(this.def);

@@ -243,7 +243,7 @@ namespace RimDungeon
                         isActive = (() => this.autoRearm),
                         toggleAction = delegate ()
                         {
-                            this.autoRebuild = !this.autoRearm;
+                            this.autoRearm = !this.autoRearm;
                         }
                     };
                 }
@@ -299,7 +299,7 @@ namespace RimDungeon
                     }
                 };
             }
-            if (TrapDef.manualSpring)
+            if (TrapDef.manualSpring && (!TrapDef.rearmable || (TrapDef.rearmable && armed)))
             {
                 yield return new Command_Action
                 {
