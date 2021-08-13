@@ -44,8 +44,8 @@
 		<label>Smoke gas tank</label>
 		<description>A shell that generates a cloud of smoke when detonated, obscuring incoming shots and preventing turrets from locking on. Can be fired from mortars or installed as a trap. Explodes when damaged.</description>
 		<graphicData>
-			<texPath>Things/Item/Resource/Shell/Shell_Smoke</texPath>
-			<graphicClass>Graphic_StackCount</graphicClass>
+			<texPath>Things/GasTanks/GasTankSmoke</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<modExtensions>
 			<li Class="RimDungeon.Gas_Trap_Def">
@@ -68,7 +68,7 @@
 		<description>A shell that generates a cloud of smoke when detonated, obscuring incoming shots and preventing turrets from locking on. Can be fired from mortars or installed as a trap. Explodes when damaged.</description>
 		<graphicData>
 			<texPath>Things/Item/Resource/Shell/Shell_Smoke</texPath>
-			<graphicClass>Graphic_StackCount</graphicClass>
+			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<modExtensions>
 			<li Class="RimDungeon.Gas_Trap_Def">
@@ -90,8 +90,8 @@
 		<label>Insect Gas Tank</label>
 		<description>A shell that generates a cloud of smoke when detonated, obscuring incoming shots and preventing turrets from locking on. Can be fired from mortars or installed as a trap. Explodes when damaged.</description>
 		<graphicData>
-			<texPath>Things/Item/Resource/Shell/Shell_Smoke</texPath>
-			<graphicClass>Graphic_StackCount</graphicClass>
+			<texPath>Things/GasTanks/GasTankInsect</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<modExtensions>
 			<li Class="RimDungeon.Gas_Trap_Def">
@@ -114,7 +114,7 @@
 		<description>A shell that generates a cloud of smoke when detonated, obscuring incoming shots and preventing turrets from locking on. Can be fired from mortars or installed as a trap. Explodes when damaged.</description>
 		<graphicData>
 			<texPath>Things/Item/Resource/Shell/Shell_Smoke</texPath>
-			<graphicClass>Graphic_StackCount</graphicClass>
+			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<modExtensions>
 			<li Class="RimDungeon.Gas_Trap_Def">
