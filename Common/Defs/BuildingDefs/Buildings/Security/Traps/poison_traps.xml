@@ -1,22 +1,21 @@
 <Defs>
 	<ThingDef ParentName="BaseDungeonTrap">
-		<defName>Spikes</defName>
-		<label>spikes</label>
-		<description>Hidden spikes in the ground. When triggered, they thrust into the enemy, doing massive damage. Rearmable but expensive and time-consuming to build. It is unlikely to spring on colonists or animals.</description>
+		<defName>PoisonTrap</defName>
+		<label>poison trap</label>
+		<description>A trap consisting of a pressure-activated needle and a bottle of poison. Upon filling, it can deliver any substance straight into the body of its victim. Rearmable and reusable.</description>
 		<graphicData>
-			<texPath>Things/Building/Traps/Spikes_Trap_Armed</texPath>
+			<texPath>Things/Building/Traps/Poison_Trap_Armed</texPath>
 		</graphicData>
 		<statBases>
 			<MaxHitPoints>400</MaxHitPoints>
 			<WorkToBuild>12000</WorkToBuild>
 			<Flammability>1</Flammability>
-			<TrapMeleeDamage>50</TrapMeleeDamage>
-			<TrapSpringChance>0.75</TrapSpringChance>
+			<TrapMeleeDamage>1</TrapMeleeDamage>
+			<TrapSpringChance>0.9</TrapSpringChance>
 		</statBases>
 		<stuffCategories>
-			<li>Metallic</li>
 			<li>Woody</li>
-			<li>Stony</li>
+			<li>Metallic</li>
 		</stuffCategories>
 		<costStuffCount>200</costStuffCount>
 		<modExtensions>
@@ -32,13 +31,26 @@
 			<trapDestroyOnSpring>false</trapDestroyOnSpring>
 			<trapDamageCategory>Sharp</trapDamageCategory>
 			<trapUnarmedGraphicData>
-				<texPath>Things/Building/Traps/Spikes_Trap_Unarmed</texPath>
+				<texPath>Things/Building/Traps/Poison_Trap_Unarmed</texPath>
 				<graphicClass>Graphic_Single</graphicClass>
 			</trapUnarmedGraphicData>
+			<fixedStorageSettings>
+				<filter>
+					<categories>
+						<li>Poisons</li>
+					</categories>
+				</filter>
+			</fixedStorageSettings>
 		</building>
+		<comps>
+			<li Class="CompProperties_ChangeableProjectile"/>
+		</comps>
+		<inspectorTabs>
+			<li>ITab_Shells</li>
+		</inspectorTabs>
 		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
 		<researchPrerequisites>
-			<li>AdvancedTraps</li>
+			<li>PoisonTraps</li>
 		</researchPrerequisites>
 	</ThingDef>
 </Defs>

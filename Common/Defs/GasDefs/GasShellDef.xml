@@ -36,13 +36,14 @@
 			<skillRequirements>
 				<Crafting>5</Crafting>
 			</skillRequirements>
+			<researchPrerequisite>GasTraps</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 	
 	<ThingDef ParentName="MakeableGasTankBase">
 		<defName>SmokeGasTank</defName>
-		<label>Smoke gas tank</label>
-		<description>A shell that generates a cloud of smoke when detonated, obscuring incoming shots and preventing turrets from locking on. Can be fired from mortars or installed as a trap. Explodes when damaged.</description>
+		<label>Smoke Gas Tank</label>
+		<description>A container filled with gas that generates a cloud of long-lasting smoke when detonated, obscuring incoming shots and preventing turrets from locking on.</description>
 		<graphicData>
 			<texPath>Things/GasTanks/GasTankSmoke</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -56,18 +57,16 @@
 		</modExtensions>
 		<costList>
 			<Steel>25</Steel>
+			<Chemfuel>10</Chemfuel>
 		</costList>
-		<recipeMaker>
-			<researchPrerequisite>Mortars</researchPrerequisite>
-		</recipeMaker>
 	</ThingDef>
 	
 	<ThingDef ParentName="MakeableGasTankBase">
 		<defName>SleepGasTank</defName>
-		<label>Sleep gas tank</label>
-		<description>A shell that generates a cloud of smoke when detonated, obscuring incoming shots and preventing turrets from locking on. Can be fired from mortars or installed as a trap. Explodes when damaged.</description>
+		<label>Sleep Gas Tank</label>
+		<description>A container filled with gas that generates a cloud of gas designed to put living creatures to sleep when detonated. Especially effective against large groups of enemies. The gas does not affect insects.</description>
 		<graphicData>
-			<texPath>Things/Item/Resource/Shell/Shell_Smoke</texPath>
+			<texPath>Things/GasTanks/GasTankSmoke</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<modExtensions>
@@ -79,16 +78,14 @@
 		</modExtensions>
 		<costList>
 			<Steel>25</Steel>
+			<MedicineIndustrial>5</MedicineIndustrial>
 		</costList>
-		<recipeMaker>
-			<researchPrerequisite>Mortars</researchPrerequisite>
-		</recipeMaker>
 	</ThingDef>
 	
 	<ThingDef ParentName="MakeableGasTankBase">
 		<defName>InsectGasTank</defName>
 		<label>Insect Gas Tank</label>
-		<description>A shell that generates a cloud of smoke when detonated, obscuring incoming shots and preventing turrets from locking on. Can be fired from mortars or installed as a trap. Explodes when damaged.</description>
+		<description>A container filled with deadly, anti-insect gas. Upon detonation, it spreads in a huge area, slowly killing off all insectoid creatures. Whilst extremely effective, it requires Insect Jelly as its key component.</description>
 		<graphicData>
 			<texPath>Things/GasTanks/GasTankInsect</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -102,18 +99,16 @@
 		</modExtensions>
 		<costList>
 			<Steel>25</Steel>
+			<InsectJelly>20</InsectJelly>
 		</costList>
-		<recipeMaker>
-			<researchPrerequisite>Mortars</researchPrerequisite>
-		</recipeMaker>
 	</ThingDef>
 	
 	<ThingDef ParentName="MakeableGasTankBase">
 		<defName>WallGasTank</defName>
-		<label>Wall gas tank</label>
-		<description>A shell that generates a cloud of smoke when detonated, obscuring incoming shots and preventing turrets from locking on. Can be fired from mortars or installed as a trap. Explodes when damaged.</description>
+		<label>Wall Gas Tank</label>
+		<description>A container filled with gas mixed with powdered plasteel. Upon detonation, it creates a super dense cloud that prevents all creatures from moving through it. Effective at sealing breaches or blocking pathways.</description>
 		<graphicData>
-			<texPath>Things/Item/Resource/Shell/Shell_Smoke</texPath>
+			<texPath>Things/GasTanks/GasTankSmoke</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<modExtensions>
@@ -125,9 +120,7 @@
 		</modExtensions>
 		<costList>
 			<Steel>25</Steel>
+			<Plasteel>10</Plasteel>
 		</costList>
-		<recipeMaker>
-			<researchPrerequisite>Mortars</researchPrerequisite>
-		</recipeMaker>
 	</ThingDef>
 </Defs>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
   <CommandAutoRebuild>Rebuild Trap</CommandAutoRebuild>
   <CommandAutoRebuildDesc>Automatically rebuild the trap after it is destroyed.</CommandAutoRebuildDesc>
+  <CommandAutoRearm>Autorearm Trap</CommandAutoRearm>
+  <CommandAutoRearmDesc>Automatically designates trap to be rearmed after it is sprung.</CommandAutoRearmDesc>
   <CommandRearm>Rearm Trap</CommandRearm>
   <CommandRearmDesc>Rearm a sprung trap so it can be triggered again.</CommandRearmDesc>
   <CommandRearmDebug>DEBUG:Rearm Trap</CommandRearmDebug>

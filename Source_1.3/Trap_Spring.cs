@@ -22,6 +22,7 @@ namespace RimDungeon
 			if(base.def.HasComp(typeof(CompExplosive)))
             {
 				SpringExplosiveTrap(base.GetComp<CompExplosive>());
+				return;
 			}
 			else if(this.def.HasComp(typeof(CompChangeableProjectile)))
             {
@@ -36,11 +37,13 @@ namespace RimDungeon
 					SpringTrap(projectile.def, p);
 				}
 				comp.RemoveShell();
+				return;
 			}
 			else if(this.def.HasModExtension<Gas_Trap_Def>())
             {
 				SpringGasTrap(this.def);
-            }
+				return;
+			}
 			else
             {
 				if (p == null)
@@ -48,6 +51,7 @@ namespace RimDungeon
 					return;
 				}
 				SpringTrap(this.def, p);
+				return;
 			}
 		}
 		protected void SpringExplosiveTrap(CompExplosive explosive)

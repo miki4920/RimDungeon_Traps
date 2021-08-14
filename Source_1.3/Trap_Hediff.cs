@@ -34,6 +34,7 @@ namespace RimDungeon
                 p.health.hediffSet.GetFirstHediffOfDef(hediff.hediff, false).Severity += severity;
                 return;
             }
+            hediffToAdd.Severity = severity;
             p.health.AddHediff(hediffToAdd, null, null, null);
 
         }

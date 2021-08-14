@@ -22,7 +22,7 @@ namespace RimDungeon
         {
             get
             {
-                return TrapDef.rearmable || base.def.HasComp(typeof(CompExplosive));
+                return !(TrapDef.rearmable || base.def.HasComp(typeof(CompExplosive)));
             }
         }
         public bool CanSetAutoRebuild
@@ -146,9 +146,8 @@ namespace RimDungeon
         {
             bool spawned = base.Spawned;
             Map map = base.Map;
-            Disarm();
             this.SpringSub(p);
-            if (!TrapDef.rearmable)
+            if (DestroyOnSpring)
             {
                 if (!base.Destroyed)
                 {
@@ -161,6 +160,7 @@ namespace RimDungeon
             }
             else
             {
+                Disarm();
                 this.CheckAutoRearm(this, map);
             }
         }
@@ -236,8 +236,8 @@ namespace RimDungeon
                 {
                     yield return new Command_Toggle
                     {
-                        defaultLabel = "CommandAutoRebuild".Translate(),
-                        defaultDesc = "CommandAutoRebuildDesc".Translate(),
+                        defaultLabel = "CommandAutoRearm".Translate(),
+                        defaultDesc = "CommandAutoRearmDesc".Translate(),
                         hotKey = KeyBindingDefOf.Misc3,
                         icon = TexCommand.RearmTrap,
                         isActive = (() => this.autoRearm),
@@ -314,6 +314,20 @@ namespace RimDungeon
                     }
                 };
             }
+            if (this.CanExtractShell)
+            {
+                yield return new Command_Action
+                {
+                    defaultLabel = "CommandExtractShell".Translate(),
+                    defaultDesc = "CommandExtractShellDesc".Translate(),
+                    icon = this.GetComp<CompChangeableProjectile>().LoadedShell.uiIcon,
+                    iconDrawScale = GenUI.IconDrawScale(this.GetComp<CompChangeableProjectile>().LoadedShell),
+                    action = delegate ()
+                    {
+                        this.ExtractShell();
+                    }
+                };
+            }
             yield break;
         }
         public void AddRearmDesignation()
@@ -346,6 +360,18 @@ namespace RimDungeon
         public void ExtractShell()
         {
             GenPlace.TryPlaceThing(this.TryGetComp<CompChangeableProjectile>().RemoveShell(), base.Position, base.Map, ThingPlaceMode.Near, null, null, default(Rot4));
+            armed = false;
+        }
+
+        public override void DrawExtraSelectionOverlays()
+        {
+            if(this.def.HasComp(typeof(CompChangeableProjectile)))
+            {
+                CompChangeableProjectile compChangeableProjectile = this.GetComp<CompChangeableProjectile>();
+                if(compChangeableProjectile.Loaded && compChangeableProjectile.LoadedShell.HasModExtension<Gas_Trap_Def>()) {
+                    GenDraw.DrawRadiusRing(this.Position, compChangeableProjectile.LoadedShell.GetModExtension<Gas_Trap_Def>().radius);
+                }
+            }
         }
     }
 }

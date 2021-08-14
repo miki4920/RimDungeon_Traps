@@ -2,7 +2,7 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>GasTrap</defName>
 		<label>gas trap</label>
-		<description>A Trap that can be filled with gas emiting chemicals.</description>
+		<description>A Trap that can be filled with gas emitting chemicals. Whilst each gas tank is single-use, the trap can be rearmed and reused.</description>
 		<graphicData>
 			<texPath>Things/Building/Traps/Gas_Trap</texPath>
 		</graphicData>
