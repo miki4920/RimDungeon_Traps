@@ -3,7 +3,7 @@
 		<soundInteract>Standard_Drop</soundInteract>
 		<soundDrop>Standard_Drop</soundDrop>
 		<tickerType>Normal</tickerType>
-		<stackLimit>25</stackLimit>
+		<stackLimit>10</stackLimit>
 		<techLevel>Medieval</techLevel>
 		<statBases>
 		  <MaxHitPoints>25</MaxHitPoints>
@@ -15,41 +15,40 @@
 		<thingCategories>
 		  <li>Poisons</li>
 		</thingCategories>
-		<tradeTags>
-		  <li>MortarShell</li>
-		</tradeTags>
 	</ThingDef>
 
 	<ThingDef Name="MakeablePoisonBase"
         		ParentName="PoisonBase"
         		Abstract="True">
 		<recipeMaker>
-			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+			<workSkill>Intellectual</workSkill>
 			<effectWorking>Cook</effectWorking>
-			<soundWorking>Recipe_Machining</soundWorking>
+			<soundWorking>Recipe_Brewing</soundWorking>
 			<workAmount>100</workAmount>
 			<targetCountAdjustment>5</targetCountAdjustment>
-			<workSkill>Crafting</workSkill>
 			<recipeUsers>
 				<li>DrugLab</li>
 			</recipeUsers>
 			<skillRequirements>
-				<Crafting>5</Crafting>
+				<Crafting>3</Crafting>
+				<Intellectual>3</Intellectual>
 			</skillRequirements>
+			<researchPrerequisite>Mortars</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 	
 	<ThingDef ParentName="MakeablePoisonBase">
 		<defName>SleepPoison</defName>
 		<label>Sleep poison</label>
-		<description>A shell that generates a cloud of smoke when detonated, obscuring incoming shots and preventing turrets from locking on. Can be fired from mortars or installed as a trap. Explodes when damaged.</description>
+		<description>A concentrated extract of Valerian. This poison puts target to sleep immidately. Takes a long time to wear off. Medical Treatment can speed up that process.</description>
 		<graphicData>
-			<texPath>Things/Item/Resource/Shell/Shell_Smoke</texPath>
-			<graphicClass>Graphic_StackCount</graphicClass>
+			<texPath>Things/PoisonBottles/PoisonBottleSleep</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<modExtensions>
 			<li Class="RimDungeon.Hediff_Trap_Def">
-				<hediff>SleepingGas</hediff>
+				<hediff>Sleep</hediff>
 				<severity>1.0</severity>
 				<chance>1.0</chance>
 				<affectsLiving>true</affectsLiving>
@@ -58,8 +57,90 @@
 		<costList>
 			<Steel>25</Steel>
 		</costList>
-		<recipeMaker>
-			<researchPrerequisite>Mortars</researchPrerequisite>
-		</recipeMaker>
+
+	</ThingDef>
+	
+	<ThingDef ParentName="MakeablePoisonBase">
+		<defName>Insecticide</defName>
+		<label>Insecticide</label>
+		<description>A concentrated form of Nicotine. Poison contains just enough of it to significantly damage insects without hurting humans.</description>
+		<graphicData>
+			<texPath>Things/PoisonBottles/PoisonBottleInsect</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<modExtensions>
+			<li Class="RimDungeon.Hediff_Trap_Def">
+				<hediff>Insecticide</hediff>
+				<severity>1.0</severity>
+				<chance>1.0</chance>
+				<affectsInsect>true</affectsInsect>
+			</li>
+		</modExtensions>
+		<costList>
+			<Steel>25</Steel>
+		</costList>
+	</ThingDef>
+	
+	<ThingDef ParentName="MakeablePoisonBase">
+		<defName>RagePoison</defName>
+		<label>Rage poison</label>
+		<description>A potent chemical extracted from local psychedelic drugs. Whilst under its effect, the creatures experiences strong hallucinations and considers all creatures as enemies.</description>
+		<graphicData>
+			<texPath>Things/PoisonBottles/PoisonBottleRage</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<modExtensions>
+			<li Class="RimDungeon.Hediff_Trap_Def">
+				<hediff>Rage</hediff>
+				<severity>1.0</severity>
+				<chance>1.0</chance>
+				<affectsLiving>true</affectsLiving>
+			</li>
+		</modExtensions>
+		<costList>
+			<Steel>25</Steel>
+		</costList>
+	</ThingDef>
+	
+	<ThingDef ParentName="MakeablePoisonBase">
+		<defName>EnfeeblePoison</defName>
+		<label>Enfeeble poison</label>
+		<description>A muscle targetting poison. Whilst under its effect, the creature is significantly slower and less effective at combat.</description>
+		<graphicData>
+			<texPath>Things/PoisonBottles/PoisonBottleEnfeeble</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<modExtensions>
+			<li Class="RimDungeon.Hediff_Trap_Def">
+				<hediff>Enfeeble</hediff>
+				<severity>1.0</severity>
+				<chance>1.0</chance>
+				<affectsLiving>true</affectsLiving>
+			</li>
+		</modExtensions>
+		<costList>
+			<Steel>25</Steel>
+		</costList>
+	</ThingDef>
+	
+	<ThingDef ParentName="MakeablePoisonBase">
+		<defName>Neurotoxin</defName>
+		<label>Neurotoxin</label>
+		<description>This poison damages brain upon injection. It slowly damages it till the person dies. Due to its instability, it cannot be used in a gas form.</description>
+		<graphicData>
+			<texPath>Things/PoisonBottles/PoisonBottleNeurotoxin</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<modExtensions>
+			<li Class="RimDungeon.Hediff_Trap_Def">
+				<hediff>Neurotoxin</hediff>
+				<severity>1.0</severity>
+				<chance>1.0</chance>
+				<affectsLiving>true</affectsLiving>
+			</li>
+		</modExtensions>
+		<costList>
+			<Steel>25</Steel>
+		</costList>
 	</ThingDef>
 </Defs>
