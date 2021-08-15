@@ -3,7 +3,7 @@
 		<soundInteract>Standard_Drop</soundInteract>
 		<soundDrop>Standard_Drop</soundDrop>
 		<tickerType>Normal</tickerType>
-		<stackLimit>25</stackLimit>
+		<stackLimit>10</stackLimit>
 		<techLevel>Industrial</techLevel>
 		<statBases>
 		  <MaxHitPoints>25</MaxHitPoints>
@@ -15,9 +15,6 @@
 		<thingCategories>
 		  <li>GasTanks</li>
 		</thingCategories>
-		<tradeTags>
-		  <li>MortarShell</li>
-		</tradeTags>
 	</ThingDef>
 
 	<ThingDef Name="MakeableGasTankBase"
@@ -66,7 +63,7 @@
 		<label>Sleep Gas Tank</label>
 		<description>A container filled with gas that generates a cloud of gas designed to put living creatures to sleep when detonated. Especially effective against large groups of enemies. The gas does not affect insects.</description>
 		<graphicData>
-			<texPath>Things/GasTanks/GasTankSmoke</texPath>
+			<texPath>Things/GasTanks/GasTankSleep</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<modExtensions>
@@ -108,7 +105,7 @@
 		<label>Wall Gas Tank</label>
 		<description>A container filled with gas mixed with powdered plasteel. Upon detonation, it creates a super dense cloud that prevents all creatures from moving through it. Effective at sealing breaches or blocking pathways.</description>
 		<graphicData>
-			<texPath>Things/GasTanks/GasTankSmoke</texPath>
+			<texPath>Things/GasTanks/GasTankRage</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<modExtensions>
@@ -116,6 +113,48 @@
 				<gas>WallGas</gas>
 				<damageDef>Smoke</damageDef>
 				<radius>1.9</radius>
+			</li>
+		</modExtensions>
+		<costList>
+			<Steel>25</Steel>
+			<Plasteel>10</Plasteel>
+		</costList>
+	</ThingDef>
+	
+	<ThingDef ParentName="MakeableGasTankBase">
+		<defName>RageGasTank</defName>
+		<label>Rage Gas Tank</label>
+		<description>A container filled with gas mixed with psychedelic drug. Upon detonation, it causes all creatures in the area to go berserk.</description>
+		<graphicData>
+			<texPath>Things/GasTanks/GasTankWall</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<modExtensions>
+			<li Class="RimDungeon.Gas_Trap_Def">
+				<gas>RageGas</gas>
+				<damageDef>Smoke</damageDef>
+				<radius>2.9</radius>
+			</li>
+		</modExtensions>
+		<costList>
+			<Steel>25</Steel>
+			<Plasteel>10</Plasteel>
+		</costList>
+	</ThingDef>
+	
+	<ThingDef ParentName="MakeableGasTankBase">
+		<defName>EnfeebleGasTank</defName>
+		<label>Enfeeble Gas Tank</label>
+		<description>A container filled with gas mixed with muscle-targetting drug. Upon detonation, it significantly decreases creature's ability to move and fight.</description>
+		<graphicData>
+			<texPath>Things/GasTanks/GasTankEnfeeble</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<modExtensions>
+			<li Class="RimDungeon.Gas_Trap_Def">
+				<gas>RageGas</gas>
+				<damageDef>Smoke</damageDef>
+				<radius>2.9</radius>
 			</li>
 		</modExtensions>
 		<costList>
