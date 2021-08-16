@@ -157,6 +157,12 @@
 		<hediffClass>HediffWithComps</hediffClass>
 		<maxSeverity>0.99</maxSeverity>
 		<lethalSeverity>1</lethalSeverity>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<baseTendDurationHours>48</baseTendDurationHours>
+				<severityPerDayTended>-6.0</severityPerDayTended>
+			</li>
+		</comps>
 		<stages>
 			<li>
 				<minSeverity>0.1</minSeverity>
@@ -218,14 +224,14 @@
 				<minSeverity>0.99</minSeverity>
 				<label>maximum</label>
 				<capMods>
-				<li>
-					<capacity>Moving</capacity>
-					<offset>-0.5</offset>
-				</li>
-				<li>
-					<capacity>Manipulation</capacity>
-					<offset>-0.5</offset>
-				</li>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>-0.5</offset>
+					</li>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>-0.5</offset>
+					</li>
 				</capMods>
 			</li>
 		</stages>
@@ -238,56 +244,108 @@
 		<hediffClass>HediffWithComps</hediffClass>
 		<maxSeverity>0.99</maxSeverity>
 		<lethalSeverity>1</lethalSeverity>
+				<comps>
+      <li Class="HediffCompProperties_Immunizable">
+        <severityPerDayNotImmune>-6.0</severityPerDayNotImmune>
+      </li>
+    </comps>
 		<stages>
 			<li>
-				<minSeverity>0.1</minSeverity>
 				<label>initial</label>
-				<hediffGivers>
-					<li Class="HediffGiver_Random">
-						<hediff>ChemicalDamageModerate</hediff>
-						<mtbDays>0.5</mtbDays>
-						<partsToAffect>
-							<li>Brain</li>
-						</partsToAffect>
-					</li>
-				</hediffGivers>
+				<becomeVisible>false</becomeVisible>
 			</li>
 			<li>
-				<minSeverity>0.25</minSeverity>
+				<label>initial</label>
+				<minSeverity>0.04</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.05</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
 				<label>minor</label>
-				<hediffGivers>
-					<li Class="HediffGiver_Random">
-						<hediff>ChemicalDamageModerate</hediff>
-						<mtbDays>0.25</mtbDays>
-						<partsToAffect>
-							<li>Brain</li>
-						</partsToAffect>
+				<minSeverity>0.2</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.10</offset>
 					</li>
-				</hediffGivers>
+				</capMods>
 			</li>
 			<li>
-				<minSeverity>0.5</minSeverity>
-				<label>major</label>
+				<label>moderate</label>
+				<minSeverity>0.40</minSeverity>
+				<vomitMtbDays>0.05</vomitMtbDays>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.15</offset>
+					</li>
+				</capMods>
 				<hediffGivers>
 					<li Class="HediffGiver_Random">
-						<hediff>ChemicalDamageModerate</hediff>
+						<hediff>Dementia</hediff>
 						<mtbDays>0.1</mtbDays>
 						<partsToAffect>
 							<li>Brain</li>
 						</partsToAffect>
 					</li>
+					<li Class="HediffGiver_Random">
+						<hediff>Carcinoma</hediff>
+						<mtbDays>0.1</mtbDays>
+						<canAffectAnyLivePart>true</canAffectAnyLivePart>
+					</li>
 				</hediffGivers>
 			</li>
 			<li>
-				<minSeverity>0.75</minSeverity>
-				<label>extreme</label>
+				<label>serious</label>
+				<minSeverity>0.60</minSeverity>
+				<vomitMtbDays>0.05</vomitMtbDays>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.25</offset>
+					</li>
+				</capMods>
 				<hediffGivers>
 					<li Class="HediffGiver_Random">
-						<hediff>ChemicalDamageModerate</hediff>
+						<hediff>Dementia</hediff>
 						<mtbDays>0.05</mtbDays>
 						<partsToAffect>
 							<li>Brain</li>
 						</partsToAffect>
+					</li>
+					<li Class="HediffGiver_Random">
+						<hediff>Carcinoma</hediff>
+						<mtbDays>0.05</mtbDays>
+						<canAffectAnyLivePart>true</canAffectAnyLivePart>
+					</li>
+				</hediffGivers>
+			</li>
+			<li>
+				<label>extreme</label>
+				<minSeverity>0.80</minSeverity>
+				<vomitMtbDays>0.01</vomitMtbDays>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.10</setMax>
+					</li>
+				</capMods>
+				<hediffGivers>
+					<li Class="HediffGiver_Random">
+						<hediff>Dementia</hediff>
+						<mtbDays>0.01</mtbDays>
+						<partsToAffect>
+							<li>Brain</li>
+						</partsToAffect>
+					</li>
+					<li Class="HediffGiver_Random">
+						<hediff>Carcinoma</hediff>
+						<mtbDays>0.01</mtbDays>
+						<canAffectAnyLivePart>true</canAffectAnyLivePart>
 					</li>
 				</hediffGivers>
 			</li>
