@@ -14,7 +14,8 @@ namespace RimDungeon
         public int pathWalkCost = 20;
 
         public bool rearmable = false;
-        public bool manualSpring = false;  
+        public bool manualSpring = false;
+        public bool animalTrap = false;
     }
     public class Hediff_Trap_Def : DefModExtension
     {

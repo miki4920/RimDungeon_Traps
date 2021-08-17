@@ -61,7 +61,16 @@ namespace RimDungeon
 
         public new bool KnowsOfTrap(Pawn p)
         {
-            return (p.Faction != null && !p.Faction.HostileTo(base.Faction)) ||  (p.guest != null && p.guest.Released) || (!p.IsPrisoner && base.Faction != null && p.HostFaction == base.Faction) || (p.RaceProps.Humanlike && p.IsFormingCaravan()) || (p.IsPrisoner && p.guest.ShouldWaitInsteadOfEscaping && base.Faction == p.HostFaction) || (p.Faction == null && p.RaceProps.Humanlike) || (p.HostFaction == base.Faction);
+            if (p.Faction == null && (p.RaceProps.Animal || p.RaceProps.Insect) && TrapDef.animalTrap)
+            {
+                return false;
+            }
+            if(TrapDef.rearmable && !this.armed)
+            {
+                return true;
+            }
+            Log.Message("Weird");
+            return (p.Faction != null && !p.Faction.HostileTo(base.Faction)) || (p.Faction == null && p.RaceProps.Animal && !p.InAggroMentalState) || (p.guest != null && p.guest.Released) || (!p.IsPrisoner && base.Faction != null && p.HostFaction == base.Faction) || (p.RaceProps.Humanlike && p.IsFormingCaravan()) || (p.IsPrisoner && p.guest.ShouldWaitInsteadOfEscaping && base.Faction == p.HostFaction) || (p.Faction == null && p.RaceProps.Humanlike);
         }
 
         public override void ExposeData()
@@ -114,19 +123,19 @@ namespace RimDungeon
         protected override float SpringChance(Pawn p)
         {
             float num = 0f;
-            if (!armed && this.TrapDef.rearmable) {}
-            else if (this.KnowsOfTrap(p))
+            if (!armed && this.TrapDef.rearmable) {
+                return 0f;
+            }
+
+            if (p.Faction == null && p.RaceProps.Animal)
             {
-                if (p.Faction == null)
-                {
 
-                    num = TrapDef.wildAnimalSpringChance;
+                num = TrapDef.wildAnimalSpringChance;
 
-                }
-                else if (p.Faction == base.Faction)
-                {
-                    num = TrapDef.sameFactionSpringChance;
-                }
+            }
+            else if (p.Faction == base.Faction || !p.Faction.HostileTo(base.Faction))
+            {
+                num = TrapDef.sameFactionSpringChance;
             }
             else
             {
@@ -136,6 +145,11 @@ namespace RimDungeon
         }
         public override ushort PathFindCostFor(Pawn p)
         {
+            Log.Message(p.ToString() + this.KnowsOfTrap(p));
+            if (!this.KnowsOfTrap(p))
+            {
+                return 0;
+            }
             return (ushort)TrapDef.pathFindCost;
         }
         public override ushort PathWalkCostFor(Pawn p)

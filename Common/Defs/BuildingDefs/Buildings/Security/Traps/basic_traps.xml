@@ -106,6 +106,7 @@
 			<li Class="RimDungeon.Trap_Def">
 				<numberOfAttacks>1</numberOfAttacks>
 				<rearmable>true</rearmable>
+				<animalTrap>true</animalTrap>
 				<sameFactionSpringChance>0</sameFactionSpringChance>
 				<wildAnimalSpringChance>0.9</wildAnimalSpringChance>
 				<armorPenetration>0.1</armorPenetration>
@@ -159,6 +160,7 @@
 			<li Class="RimDungeon.Trap_Def">
 				<numberOfAttacks>1</numberOfAttacks>
 				<rearmable>true</rearmable>
+				<animalTrap>true</animalTrap>
 				<sameFactionSpringChance>0.1</sameFactionSpringChance>
 				<wildAnimalSpringChance>0.9</wildAnimalSpringChance>
 				<armorPenetration>0.3</armorPenetration>
