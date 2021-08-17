@@ -6,6 +6,10 @@
 		<graphicData>
 			<texPath>Things/Building/Traps/Poison_Trap_Armed</texPath>
 		</graphicData>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsSecurity</li>
+		</thingCategories>
 		<statBases>
 			<MaxHitPoints>400</MaxHitPoints>
 			<WorkToBuild>12000</WorkToBuild>
@@ -17,7 +21,7 @@
 			<li>Woody</li>
 			<li>Metallic</li>
 		</stuffCategories>
-		<costStuffCount>200</costStuffCount>
+		<costStuffCount>150</costStuffCount>
 		<modExtensions>
 			<li Class="RimDungeon.Trap_Def">
 				<numberOfAttacks>1</numberOfAttacks>

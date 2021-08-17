@@ -1,11 +1,27 @@
 <Patch>
 	<Operation Class="PatchOperationReplace">
 		<success>Normal</success>
+		<xpath>Defs/ThingDef[defName="TrapSpike"]/building/isTrap</xpath>
+		<value>
+			<isTrap>
+				false
+			</isTrap>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<success>Normal</success>
 		<xpath>Defs/ThingDef[defName="TrapSpike"]/building/trapDestroyOnSpring</xpath>
 		<value>
 			<trapDestroyOnSpring>
 				false
 			</trapDestroyOnSpring>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<success>Normal</success>
+		<xpath>Defs/ThingDef[defName="TrapSpike"]/description</xpath>
+		<value>
+			<description>Two spikes under tension, connected to a touch-activated trigger. When the victim disturbs the trigger, the spikes spring forth and strike the victim. Animals can sense these when calm.</description>
 		</value>
 	</Operation>
 	<Operation Class="PatchOperationReplace">
@@ -19,7 +35,7 @@
 		<success>Normal</success>
 		<xpath>Defs/ThingDef[defName="TrapSpike"]/statBases/TrapMeleeDamage</xpath>
 		<value>
-			<TrapMeleeDamage>50</TrapMeleeDamage>
+			<TrapMeleeDamage>40</TrapMeleeDamage>
 		</value>
 	</Operation>
 	<Operation Class="PatchOperationAdd">
@@ -48,6 +64,9 @@
 			<li Class="RimDungeon.Trap_Def">
 				<numberOfAttacks>2</numberOfAttacks>
 				<rearmable>true</rearmable>
+				<sameFactionSpringChance>0.05</sameFactionSpringChance>
+				<wildAnimalSpringChance>0.05</wildAnimalSpringChance>
+				<armorPenetration>0.5</armorPenetration>
 			</li>
 		</value>
 	</Operation>
