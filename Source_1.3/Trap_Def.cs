@@ -7,8 +7,8 @@ namespace RimDungeon
         public int numberOfAttacks = 5;
         public float armorPenetration = 0.015f;
 
-        public float sameFactionSpringChance = 0f;
-        public float wildAnimalSpringChance = 0f;
+        public float sameFactionSpringChance = 0.01f;
+        public float wildAnimalSpringChance = 0.01f;
 
         public int pathFindCost = 8000;
         public int pathWalkCost = 20;

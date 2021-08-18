@@ -8,7 +8,7 @@ using Verse;
 
 namespace RimDungeon
 {
-    public abstract class Trap_Framework : Building_Trap
+    public abstract class Trap_Framework : Building
     {
         public Trap_Def TrapDef => base.def.GetModExtension<Trap_Def>();
         public bool armed;
@@ -18,18 +18,11 @@ namespace RimDungeon
 
         public List<Pawn> touchingPawns = new List<Pawn>();
 
-        public bool DestroyOnSpring
-        {
-            get
-            {
-                return !(TrapDef.rearmable || base.def.HasComp(typeof(CompExplosive)));
-            }
-        }
         public bool CanSetAutoRebuild
         {
             get
             {
-                return base.Faction == Faction.OfPlayer && this.def.blueprintDef != null && DestroyOnSpring;
+                return base.Faction == Faction.OfPlayer && this.def.blueprintDef != null && this.def.building.trapDestroyOnSpring;
             }
         }
 
@@ -59,7 +52,7 @@ namespace RimDungeon
             armed = !base.def.HasComp(typeof(CompChangeableProjectile));
         }
 
-        public new bool KnowsOfTrap(Pawn p)
+        public bool KnowsOfTrap(Pawn p)
         {
             if (p.Faction == null && (p.RaceProps.Animal || p.RaceProps.Insect) && TrapDef.animalTrap)
             {
@@ -69,7 +62,6 @@ namespace RimDungeon
             {
                 return true;
             }
-            Log.Message("Weird");
             return (p.Faction != null && !p.Faction.HostileTo(base.Faction)) || (p.Faction == null && p.RaceProps.Animal && !p.InAggroMentalState) || (p.guest != null && p.guest.Released) || (!p.IsPrisoner && base.Faction != null && p.HostFaction == base.Faction) || (p.RaceProps.Humanlike && p.IsFormingCaravan()) || (p.IsPrisoner && p.guest.ShouldWaitInsteadOfEscaping && base.Faction == p.HostFaction) || (p.Faction == null && p.RaceProps.Humanlike);
         }
 
@@ -96,14 +88,13 @@ namespace RimDungeon
         }
         public override void Tick()
         {
-            base.Draw();
+
             if (base.Spawned)
             {
                 List<Thing> thingList = base.Position.GetThingList(base.Map);
                 for (int i = 0; i < thingList.Count; i++)
                 {
-                    Pawn pawn = thingList[i] as Pawn;
-                    if (pawn != null && !this.touchingPawns.Contains(pawn))
+                    if (thingList[i] is Pawn pawn && !this.touchingPawns.Contains(pawn))
                     {
                         this.touchingPawns.Add(pawn);
                         this.CheckSpring(pawn);
@@ -120,9 +111,9 @@ namespace RimDungeon
             }
             base.Tick();
         }
-        protected override float SpringChance(Pawn p)
+        public float SpringChance(Pawn p)
         {
-            float num = 0f;
+            float num;
             if (!armed && this.TrapDef.rearmable) {
                 return 0f;
             }
@@ -145,7 +136,6 @@ namespace RimDungeon
         }
         public override ushort PathFindCostFor(Pawn p)
         {
-            Log.Message(p.ToString() + this.KnowsOfTrap(p));
             if (!this.KnowsOfTrap(p))
             {
                 return 0;
@@ -156,12 +146,12 @@ namespace RimDungeon
         {
             return (ushort)TrapDef.pathWalkCost;
         }
-        public new void Spring(Pawn p)
+        public void Spring(Pawn p)
         {
             bool spawned = base.Spawned;
             Map map = base.Map;
             this.SpringSub(p);
-            if (DestroyOnSpring)
+            if (this.def.building.trapDestroyOnSpring)
             {
                 if (!base.Destroyed)
                 {
@@ -178,6 +168,9 @@ namespace RimDungeon
                 this.CheckAutoRearm(this, map);
             }
         }
+
+        protected abstract void SpringSub(Pawn p);
+
         public override void Kill(DamageInfo? dinfo = null, Hediff exactCulprit = null)
         {
             bool spawned = base.Spawned;
