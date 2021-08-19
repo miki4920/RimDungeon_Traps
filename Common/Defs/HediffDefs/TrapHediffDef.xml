@@ -10,7 +10,7 @@
 		<stages>
 			<li>
 				<minSeverity>0</minSeverity>
-				<label>In Noose</label>
+				<label>Immobilised</label>
 				<capMods>
 					<li>
 						<capacity>Moving</capacity>
@@ -59,7 +59,7 @@
 				<capMods>
 					<li>
 						<capacity>Moving</capacity>
-						<offset>-0.75</offset>
+						<offset>-0.5</offset>
 					</li>
 				</capMods>
 			</li>
@@ -69,7 +69,7 @@
 				<capMods>
 					<li>
 						<capacity>Moving</capacity>
-						<offset>-0.90</offset>
+						<offset>-0.75</offset>
 					</li>
 				</capMods>
 			</li>

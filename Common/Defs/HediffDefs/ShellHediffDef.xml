@@ -3,11 +3,20 @@
 		<defName>Sleep</defName>
 		<label>sleep</label>
 		<labelNoun>sleep</labelNoun>
-		<description>This creature is affected by a substance putting them to sleep. Requires medical treatment to recover effectively.</description>
+		<description>This creature is under the effect of a sleep-inducing substance. Whilst natural improvement is possible, if slow, a high-quality treatment would make a recovery significantly faster.</description>
 		<hediffClass>HediffWithComps</hediffClass>
 		<tendable>true</tendable>
 		<maxSeverity>0.99</maxSeverity>
 		<lethalSeverity>1</lethalSeverity>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<baseTendDurationHours>48</baseTendDurationHours>
+				<severityPerDayTended>-3.0</severityPerDayTended>
+			</li>
+			<li Class="HediffCompProperties_Immunizable">
+				<severityPerDayNotImmune>-1.0</severityPerDayNotImmune>
+			</li>
+		</comps>
 		<stages>
 			<li>
 				<minSeverity>0.1</minSeverity>
@@ -50,7 +59,7 @@
 				</capMods>
 			</li>
 			<li>
-				<minSeverity>1</minSeverity>
+				<minSeverity>0.9</minSeverity>
 				<label>maximum</label>
 				<capMods>
 					<li>
@@ -60,21 +69,26 @@
 				</capMods>
 			</li>
 		</stages>
-		<comps>
-			<li Class="HediffCompProperties_TendDuration">
-				<baseTendDurationHours>48</baseTendDurationHours>
-				<severityPerDayTended>-1.0</severityPerDayTended>
-			</li>
-		</comps>
 	</HediffDef>
 	<HediffDef>
 		<defName>Insecticide</defName>
 		<label>insecticide</label>
 		<labelNoun>insecticide</labelNoun>
-		<description>This substance has been designed specifically to target insects. It permanently damages their respiratory system.</description>
+		<description>This substance has been designed to target insects. When injected or inhaled, it damages respiratory tissues, preventing oxygen exchange. After prolonged exposure, insects suffocate. It does not affect humanoids or animals.</description>
 		<hediffClass>HediffWithComps</hediffClass>
-		<maxSeverity>0.99</maxSeverity>
+		<maxSeverity>1.0</maxSeverity>
 		<lethalSeverity>1</lethalSeverity>
+		<comps>
+			<li Class="HediffCompProperties_Immunizable">
+				<severityPerDayNotImmune>-0.1</severityPerDayNotImmune>
+			</li>
+			<li Class="HediffCompProperties_CauseMentalState">
+				<animalMentalState>ManhunterPermanent</animalMentalState>
+				<animalMentalStateAlias>Manhunter</animalMentalStateAlias>
+				<humanMentalState>Berserk</humanMentalState>
+				<mtbDaysToCauseMentalState>0.001</mtbDaysToCauseMentalState>
+			</li>
+		</comps>
 		<stages>
 			<li>
 				<minSeverity>0.1</minSeverity>
@@ -131,21 +145,40 @@
 	<HediffDef>
 		<defName>Rage</defName>
 		<label>rage</label>
-		<description>A potent chemical extracted from local psychedelic drugs. Whilst under its effect, the creatures experiences strong hallucinations and considers all creatures as enemies.</description>
+		<description>This creature has been affected by the Rage hormone that is found in some psychedelic plants. It can also be extracted from the human heart. Whilst under the effect of this substance, the creature experiences vivid hallucinations, increased aggression and confusion, leading it to attack everyone around them.</description>
 		<hediffClass>HediffWithComps</hediffClass>
-		<defaultLabelColor>(0.9, 1.0, 0.35)</defaultLabelColor>
+		<defaultLabelColor>(1.0, 1.0, 0.35)</defaultLabelColor>
 		<maxSeverity>0.99</maxSeverity>
 		<lethalSeverity>1</lethalSeverity>
-		<comps>
-			<li Class="HediffCompProperties_CauseMentalState">
-				<animalMentalState>ManhunterPermanent</animalMentalState>
-				<animalMentalStateAlias>Manhunter</animalMentalStateAlias>
-				<humanMentalState>Berserk</humanMentalState>
-				<letterDef>ThreatSmall</letterDef>
-				<mtbDaysToCauseMentalState>0.001</mtbDaysToCauseMentalState>
+		<tendable>true</tendable>
+		<stages>
+			<li>
+				<label>initial</label>
+				<mentalStateGivers>
+					<li>
+						<mentalState>Berserk</mentalState>
+						<mtbDays>0.25</mtbDays>
+					</li>
+				</mentalStateGivers>
 			</li>
-			<li Class="HediffCompProperties_SelfHeal">
-				<healAmount>0.00005</healAmount>
+			<li>
+				<minSeverity>0.5</minSeverity>
+				<label>extreme</label>
+				<mentalStateGivers>
+					<li>
+						<mentalState>Berserk</mentalState>
+						<mtbDays>0.01</mtbDays>
+					</li>
+				</mentalStateGivers>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<baseTendDurationHours>48</baseTendDurationHours>
+				<severityPerDayTended>-18.0</severityPerDayTended>
+			</li>
+			<li Class="HediffCompProperties_Immunizable">
+				<severityPerDayNotImmune>-6.0</severityPerDayNotImmune>
 			</li>
 		</comps>
 	</HediffDef>
@@ -153,14 +186,18 @@
 		<defName>Enfeeble</defName>
 		<label>enfeeble</label>
 		<labelNoun>enfeeble</labelNoun>
-		<description>This substance has been designed enfeeble aggressors. It slows them down and reduces their ability to attack.</description>
+		<description>This substance limits how much energy the target can provide to their muscles. Due to that, their movement speed and manipulation are severely damaged.</description>
+		<tendable>true</tendable>
 		<hediffClass>HediffWithComps</hediffClass>
 		<maxSeverity>0.99</maxSeverity>
 		<lethalSeverity>1</lethalSeverity>
 		<comps>
 			<li Class="HediffCompProperties_TendDuration">
 				<baseTendDurationHours>48</baseTendDurationHours>
-				<severityPerDayTended>-6.0</severityPerDayTended>
+				<severityPerDayTended>-3.0</severityPerDayTended>
+			</li>
+			<li Class="HediffCompProperties_Immunizable">
+				<severityPerDayNotImmune>-1.0</severityPerDayNotImmune>
 			</li>
 		</comps>
 		<stages>
@@ -240,15 +277,20 @@
 		<defName>Neurotoxin</defName>
 		<label>neurotoxin</label>
 		<labelNoun>neurotoxin</labelNoun>
-		<description>This substance is designed to damage brain and eventually lead to its death.</description>
+		<description>This substance confuses the neural system, preventing it from targeting cancer cells. Due to that, a large number of tumours spread through the body in mere minutes after being affected.</description>
+		<tendable>true</tendable>
 		<hediffClass>HediffWithComps</hediffClass>
 		<maxSeverity>0.99</maxSeverity>
 		<lethalSeverity>1</lethalSeverity>
-				<comps>
-      <li Class="HediffCompProperties_Immunizable">
-        <severityPerDayNotImmune>-6.0</severityPerDayNotImmune>
-      </li>
-    </comps>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<baseTendDurationHours>48</baseTendDurationHours>
+				<severityPerDayTended>-18.0</severityPerDayTended>
+			</li>
+			<li Class="HediffCompProperties_Immunizable">
+				<severityPerDayNotImmune>-6.0</severityPerDayNotImmune>
+			</li>
+		</comps>
 		<stages>
 			<li>
 				<label>initial</label>
@@ -287,14 +329,14 @@
 				<hediffGivers>
 					<li Class="HediffGiver_Random">
 						<hediff>Dementia</hediff>
-						<mtbDays>0.1</mtbDays>
+						<mtbDays>0.01</mtbDays>
 						<partsToAffect>
 							<li>Brain</li>
 						</partsToAffect>
 					</li>
 					<li Class="HediffGiver_Random">
 						<hediff>Carcinoma</hediff>
-						<mtbDays>0.1</mtbDays>
+						<mtbDays>0.01</mtbDays>
 						<canAffectAnyLivePart>true</canAffectAnyLivePart>
 					</li>
 				</hediffGivers>
@@ -312,14 +354,14 @@
 				<hediffGivers>
 					<li Class="HediffGiver_Random">
 						<hediff>Dementia</hediff>
-						<mtbDays>0.05</mtbDays>
+						<mtbDays>0.01</mtbDays>
 						<partsToAffect>
 							<li>Brain</li>
 						</partsToAffect>
 					</li>
 					<li Class="HediffGiver_Random">
 						<hediff>Carcinoma</hediff>
-						<mtbDays>0.05</mtbDays>
+						<mtbDays>0.01</mtbDays>
 						<canAffectAnyLivePart>true</canAffectAnyLivePart>
 					</li>
 				</hediffGivers>
@@ -337,14 +379,14 @@
 				<hediffGivers>
 					<li Class="HediffGiver_Random">
 						<hediff>Dementia</hediff>
-						<mtbDays>0.01</mtbDays>
+						<mtbDays>0.001</mtbDays>
 						<partsToAffect>
 							<li>Brain</li>
 						</partsToAffect>
 					</li>
 					<li Class="HediffGiver_Random">
 						<hediff>Carcinoma</hediff>
-						<mtbDays>0.01</mtbDays>
+						<mtbDays>0.001</mtbDays>
 						<canAffectAnyLivePart>true</canAffectAnyLivePart>
 					</li>
 				</hediffGivers>
