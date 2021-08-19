@@ -2,7 +2,7 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>PoisonTrap</defName>
 		<label>poison trap</label>
-		<description>A trap consisting of a pressure-activated needle and a bottle of poison. Upon filling, it can deliver any substance straight into the body of its victim. Rearmable and reusable.</description>
+		<description>A trap made of a pressure-activated needle and a container for poisons. Upon filling, it can deliver any substance straight into the body of its victim. Effective against both humanoids and animals, although your colonists are unlikely to trigger it. Rearmable and reusable.</description>
 		<graphicData>
 			<texPath>Things/Building/Traps/Poison_Trap_Armed</texPath>
 		</graphicData>
@@ -12,10 +12,10 @@
 		</thingCategories>
 		<statBases>
 			<MaxHitPoints>400</MaxHitPoints>
-			<WorkToBuild>12000</WorkToBuild>
+			<WorkToBuild>3200</WorkToBuild>
 			<Flammability>1</Flammability>
 			<TrapMeleeDamage>1</TrapMeleeDamage>
-			<TrapSpringChance>0.9</TrapSpringChance>
+			<TrapSpringChance>0.75</TrapSpringChance>
 		</statBases>
 		<stuffCategories>
 			<li>Woody</li>
@@ -25,7 +25,9 @@
 		<modExtensions>
 			<li Class="RimDungeon.Trap_Def">
 				<numberOfAttacks>1</numberOfAttacks>
+				<wildAnimalSpringChance>0.75</wildAnimalSpringChance>
 				<rearmable>true</rearmable>
+				<animalTrap>true</animalTrap>
 				<armorPenetration>1</armorPenetration>
 			</li>
 		</modExtensions>

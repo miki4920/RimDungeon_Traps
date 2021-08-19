@@ -2,13 +2,13 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>Spikes</defName>
 		<label>spikes</label>
-		<description>Hidden spikes in the ground. When triggered, they thrust into the enemy, doing massive damage. Rearmable but expensive and time-consuming to build. It is unlikely to spring on colonists or animals.</description>
+		<description>Armour-piercing spikes hidden in the ground. When triggered, they thrust into the enemy, causing massive damage. Rearmable but expensive and time-consuming to build. It is unlikely to spring on colonists or animals.</description>
 		<graphicData>
 			<texPath>Things/Building/Traps/Spikes_Trap_Armed</texPath>
 		</graphicData>
 		<statBases>
 			<MaxHitPoints>100</MaxHitPoints>
-			<WorkToBuild>12000</WorkToBuild>
+			<WorkToBuild>3200</WorkToBuild>
 			<Flammability>0</Flammability>
 			<TrapMeleeDamage>80</TrapMeleeDamage>
 			<TrapSpringChance>0.75</TrapSpringChance>

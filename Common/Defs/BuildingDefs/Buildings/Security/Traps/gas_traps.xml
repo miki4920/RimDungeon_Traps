@@ -2,7 +2,7 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>GasTrap</defName>
 		<label>gas trap</label>
-		<description>A Trap that can be filled with gas emitting chemicals. Whilst each gas tank is single-use, the trap can be rearmed and reused.</description>
+		<description>A gas trap that is designed to be filled with gas-emitting chemicals. Whilst each gas tank is single-use, the trap can be rearmed and reused. When armed, it emits red light warning everyone of danger, making a non-manual spring impossible.</description>
 		<graphicData>
 			<texPath>Things/Building/Traps/Gas_Trap</texPath>
 		</graphicData>
@@ -12,7 +12,7 @@
 		</thingCategories>
 		<statBases>
 			<MaxHitPoints>20</MaxHitPoints>
-			<WorkToBuild>50</WorkToBuild>
+			<WorkToBuild>3200</WorkToBuild>
 			<Flammability>1.0</Flammability>
 			<TrapSpringChance>0</TrapSpringChance>
 		</statBases>
@@ -30,14 +30,19 @@
 				</filter>
 			</fixedStorageSettings>
 		</building>
+		<costList>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
 		<stuffCategories>
 			<li>Metallic</li>
 		</stuffCategories>
-		<costStuffCount>150</costStuffCount>
+		<costStuffCount>100</costStuffCount>
 		<modExtensions>
 			<li Class="RimDungeon.Trap_Def">
 				<manualSpring>true</manualSpring>
 				<rearmable>true</rearmable>
+				<sameFactionSpringChance>0</sameFactionSpringChance>
+				<wildAnimalSpringChance>0</wildAnimalSpringChance>
 			</li>
 		</modExtensions>
 		<comps>

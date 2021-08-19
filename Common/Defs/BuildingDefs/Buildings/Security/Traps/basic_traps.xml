@@ -2,7 +2,7 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>Caltrops</defName>
 		<label>caltrops</label>
-		<description>A bundle of spiked stars spread across a tile. Whilst they are far from deadly, they are painful enough so that most creatures thread through them carefully, slowing them down significantly.</description>
+		<description>A bundle of spiked stars spread across a tile. Whilst they do almost no damage, the spikes are painful enough so that most creatures thread through them carefully, slowing them down significantly.</description>
 		<graphicData>
 			<texPath>Things/Building/Traps/Caltrops_Trap</texPath>
 		</graphicData>
@@ -12,9 +12,9 @@
 		</thingCategories>
 		<statBases>
 			<MaxHitPoints>100</MaxHitPoints>
-			<WorkToBuild>4000</WorkToBuild>
+			<WorkToBuild>1600</WorkToBuild>
 			<Flammability>0.5</Flammability>
-			<TrapMeleeDamage>10</TrapMeleeDamage>
+			<TrapMeleeDamage>5</TrapMeleeDamage>
 			<TrapSpringChance>0.10</TrapSpringChance>
 		</statBases>
 		<stuffCategories>
@@ -26,6 +26,8 @@
 			<li Class="RimDungeon.Trap_Def">
 				<numberOfAttacks>1</numberOfAttacks>
 				<armorPenetration>0.01</armorPenetration>
+				<sameFactionSpringChance>0.10</sameFactionSpringChance>
+				<wildAnimalSpringChance>0.10</wildAnimalSpringChance>
 				<pathWalkCost>150</pathWalkCost>
 			</li>
 		</modExtensions>
@@ -41,7 +43,7 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>OilTrap</defName>
 		<label>oil trap</label>
-		<description>Wood Log soaked in oil and wrapped in clothing. It causes a small explosion when sprung. Cheap, unreliable and ineffective against fast-moving targets. This trap has been designed to wreck carnage in defended choke points. It can also be used to against slow enemies such as Centipede</description>
+		<description>Wood Log soaked in oil and wrapped in clothing. It causes a small explosion when sprung, damaging all creatures in that tile. Cheap, unreliable and ineffective against fast-moving targets. The purpose of this trap is to wreck carnage in choke points. It is also effective against slow enemies such as Centipede.</description>
 		<graphicData>
 			<texPath>Things/Building/Traps/Oil_Trap</texPath>
 		</graphicData>
@@ -67,7 +69,7 @@
 				<explosiveRadius>0.5</explosiveRadius>
 				<explosiveDamageType>Flame</explosiveDamageType>
 				<damageAmountBase>75</damageAmountBase>
-				<wickTicks>40</wickTicks>
+				<wickTicks>50</wickTicks>
 			</li>
 		</comps>
 		<modExtensions>
@@ -84,13 +86,13 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>Noose</defName>
 		<label>noose</label>
-		<description>A complicated mechanism armed with a tensed rope. Once an animal steps into it, the trap springs, immobilising even the mightiest creature for a long period. Designed to combat hostile animals, it is useless against humanoids and peaceful beasts.</description>
+		<description>A complicated mechanism armed with a tensed rope. Once an animal steps into it, the trap springs, immobilising even the mightiest creature for an extensive period. Designed to combat hostile animals, it is useless against humanoids.</description>
 		<graphicData>
 			<texPath>Things/Building/Traps/Noose_Trap_Armed</texPath>
 		</graphicData>
 		<statBases>
 			<MaxHitPoints>400</MaxHitPoints>
-			<WorkToBuild>4000</WorkToBuild>
+			<WorkToBuild>1600</WorkToBuild>
 			<Flammability>1</Flammability>
 			<TrapMeleeDamage>5</TrapMeleeDamage>
 			<TrapSpringChance>0.01</TrapSpringChance>
@@ -137,13 +139,13 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>BearTrap</defName>
 		<label>bear trap</label>
-		<description>Consisting of two deadly sets of metal teeth, this contraption springs upon any creature that steps into it, severely damaging their ability to move for an extended period. Combined with high damage, this trap is designed to kill small animals instantly and bleed out anything larger.</description>
+		<description>Consisting of two deadly sets of metal teeth, this contraption springs upon any creature that steps into it, severely damaging their ability to move for an extended period. Combined with high damage, this trap can handle every beast on Rim.</description>
 		<graphicData>
 			<texPath>Things/Building/Traps/Bear_Trap_Armed</texPath>
 		</graphicData>
 		<statBases>
 			<MaxHitPoints>400</MaxHitPoints>
-			<WorkToBuild>16000</WorkToBuild>
+			<WorkToBuild>3200</WorkToBuild>
 			<Flammability>0</Flammability>
 			<TrapMeleeDamage>50</TrapMeleeDamage>
 			<TrapSpringChance>0.25</TrapSpringChance>
@@ -192,18 +194,18 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>ColumnTrap</defName>
 		<label>column trap</label>
-		<description>A column rigged to fall upon touch. Whilst useless in most situations, this trap is deadly where an overhead mountain is present. Due to its high lethality and obviousness, your colonists would never trigger it.</description>
+		<description>A column rigged to fall upon touch. Whilst useless in most situations, this trap is deadly where an overhead mountain is present. It includes a manual trigger to maximise the number of crushed creatures.</description>
 		<graphicData>
 			<texPath>Things/Building/Traps/Column_Trap</texPath>
 		</graphicData>
 		<statBases>
 			<MaxHitPoints>160</MaxHitPoints>
-			<WorkToBuild>750</WorkToBuild>
+			<WorkToBuild>800</WorkToBuild>
 			<Mass>10</Mass>
 			<Flammability>1.0</Flammability>
 			<Beauty>5</Beauty>
 			<TrapMeleeDamage>0</TrapMeleeDamage>
-			<TrapSpringChance>0.75</TrapSpringChance>
+			<TrapSpringChance>0.01</TrapSpringChance>
 		</statBases>
 		<stuffCategories>
 			<li>Metallic</li>
@@ -216,8 +218,6 @@
 				<numberOfAttacks>1</numberOfAttacks>
 				<rearmable>false</rearmable>
 				<manualSpring>true</manualSpring>
-				<sameFactionSpringChance>0.01</sameFactionSpringChance>
-				<wildAnimalSpringChance>0.01</wildAnimalSpringChance>
 			</li>
 		</modExtensions>
 		<holdsRoof>true</holdsRoof>
@@ -230,7 +230,7 @@
 				<graphicClass>Graphic_Single</graphicClass>
 			</trapUnarmedGraphicData>
 		</building>
-		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+		<constructionSkillPrerequisite>7</constructionSkillPrerequisite>
 		<placeWorkers>
 			<li>PlaceWorker_NeverAdjacentTrap</li>
 		</placeWorkers>
