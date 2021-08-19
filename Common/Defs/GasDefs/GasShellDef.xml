@@ -6,9 +6,9 @@
 		<stackLimit>10</stackLimit>
 		<techLevel>Industrial</techLevel>
 		<statBases>
-		  <MaxHitPoints>25</MaxHitPoints>
-		  <MarketValue>25</MarketValue>
-		  <Mass>1.25</Mass>
+		  <MaxHitPoints>50</MaxHitPoints>
+		  <MarketValue>55</MarketValue>
+		  <Mass>10.00</Mass>
 		  <Flammability>0</Flammability>
 		  <DeteriorationRate>1.5</DeteriorationRate>
 		</statBases>
@@ -24,7 +24,7 @@
 			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 			<effectWorking>Cook</effectWorking>
 			<soundWorking>Recipe_Machining</soundWorking>
-			<workAmount>100</workAmount>
+			<workAmount>800</workAmount>
 			<targetCountAdjustment>5</targetCountAdjustment>
 			<workSkill>Crafting</workSkill>
 			<recipeUsers>
@@ -39,7 +39,7 @@
 	
 	<ThingDef ParentName="MakeableGasTankBase">
 		<defName>SmokeGasTank</defName>
-		<label>Smoke Gas Tank</label>
+		<label>Smoke gas tank</label>
 		<description>A container filled with gas that generates a cloud of long-lasting smoke when detonated, obscuring incoming shots and preventing turrets from locking on.</description>
 		<graphicData>
 			<texPath>Things/GasTanks/GasTankSmoke</texPath>
@@ -60,8 +60,8 @@
 	
 	<ThingDef ParentName="MakeableGasTankBase">
 		<defName>SleepGasTank</defName>
-		<label>Sleep Gas Tank</label>
-		<description>A container filled with gas that generates a cloud of gas designed to put living creatures to sleep when detonated. Especially effective against large groups of enemies. The gas does not affect insects.</description>
+		<label>Sleep gas tank</label>
+		<description>A container filled with gas generating a cloud of gas designed to put living creatures to sleep when detonated. Especially effective against large groups of enemies. This gas does not affect insects.</description>
 		<graphicData>
 			<texPath>Things/GasTanks/GasTankSleep</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -81,7 +81,7 @@
 	
 	<ThingDef ParentName="MakeableGasTankBase">
 		<defName>InsectGasTank</defName>
-		<label>Insect Gas Tank</label>
+		<label>Insect gas tank</label>
 		<description>A container filled with deadly, anti-insect gas. Upon detonation, it spreads in a huge area, slowly killing off all insectoid creatures. Whilst extremely effective, it requires Insect Jelly as its key component.</description>
 		<graphicData>
 			<texPath>Things/GasTanks/GasTankInsect</texPath>
@@ -102,10 +102,10 @@
 	
 	<ThingDef ParentName="MakeableGasTankBase">
 		<defName>WallGasTank</defName>
-		<label>Wall Gas Tank</label>
-		<description>A container filled with gas mixed with powdered plasteel. Upon detonation, it creates a super dense cloud that prevents all creatures from moving through it. Effective at sealing breaches or blocking pathways.</description>
+		<label>Wall gas tank</label>
+		<description>A container filled with plasteel-based gas. Upon detonation, it creates a super dense cloud that prevents all creatures from moving through it. Unfortunately, bullets enter at sufficient enough speed to get through it. Effective at sealing breaches or blocking pathways.</description>
 		<graphicData>
-			<texPath>Things/GasTanks/GasTankRage</texPath>
+			<texPath>Things/GasTanks/GasTankWall</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<modExtensions>
@@ -123,10 +123,10 @@
 	
 	<ThingDef ParentName="MakeableGasTankBase">
 		<defName>RageGasTank</defName>
-		<label>Rage Gas Tank</label>
-		<description>A container filled with gas mixed with psychedelic drug. Upon detonation, it causes all creatures in the area to go berserk.</description>
+		<label>Rage gas tank</label>
+		<description>This container contains gas that has been mixed with a hormone extracted from a heart of a humanoid. Upon detonation, it causes all humanoids and animals in the area to go berserk.</description>
 		<graphicData>
-			<texPath>Things/GasTanks/GasTankWall</texPath>
+			<texPath>Things/GasTanks/GasTankRage</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<modExtensions>
@@ -138,28 +138,28 @@
 		</modExtensions>
 		<costList>
 			<Steel>25</Steel>
-			<Plasteel>10</Plasteel>
+			<Heart>1</Heart>
 		</costList>
 	</ThingDef>
 	
 	<ThingDef ParentName="MakeableGasTankBase">
 		<defName>EnfeebleGasTank</defName>
-		<label>Enfeeble Gas Tank</label>
-		<description>A container filled with gas mixed with muscle-targetting drug. Upon detonation, it significantly decreases creature's ability to move and fight.</description>
+		<label>Enfeeble gas tank</label>
+		<description>A container filled with gas mixed with muscle-targeting drug. Upon detonation, it significantly decreases the creature's ability to move and fight.</description>
 		<graphicData>
 			<texPath>Things/GasTanks/GasTankEnfeeble</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<modExtensions>
 			<li Class="RimDungeon.Gas_Trap_Def">
-				<gas>RageGas</gas>
+				<gas>EnfeebleGas</gas>
 				<damageDef>Smoke</damageDef>
 				<radius>2.9</radius>
 			</li>
 		</modExtensions>
 		<costList>
 			<Steel>25</Steel>
-			<Plasteel>10</Plasteel>
+			<MedicineHerbal>5</MedicineHerbal>
 		</costList>
 	</ThingDef>
 </Defs>
