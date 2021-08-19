@@ -28,7 +28,7 @@
 		<defName>PoisonTraps</defName>
 		<label>poison traps</label>
 		<tab>RimDungeonTraps</tab>
-		<description>The local flora and fauna are fascinating. What if we could extract substances they produce and use them for our benefit? Mixed with certain additives, they would make for a major addition to our trap collection.</description>
+		<description>The local flora and fauna are fascinating. What if we could extract substances they produce and use them for our benefit? Mixed with certain additives, they would make for a great addition to our trap collection.</description>
 		<baseCost>250</baseCost>
 		<techLevel>Medieval</techLevel>
 		<researchViewX>2.00</researchViewX>
@@ -43,7 +43,7 @@
 		<defName>GasTraps</defName>
 		<label>gas traps</label>
 		<tab>RimDungeonTraps</tab>
-		<description>What if we could use poisons we currently produce and spread them over a large area? With such marvels, our enemies will have a choice to either stay away or be destroyed!</description>
+		<description>What if we could use the poisons we currently produce and spread them over a large area? With such marvels, our enemies will have a choice to either stay away or be destroyed!</description>
 		<baseCost>500</baseCost>
 		<techLevel>Industrial</techLevel>
 		<researchViewX>3.00</researchViewX>

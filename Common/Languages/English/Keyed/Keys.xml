@@ -5,7 +5,7 @@
   <CommandAutoRearm>Autorearm Trap</CommandAutoRearm>
   <CommandAutoRearmDesc>Automatically designates trap to be rearmed after it is sprung.</CommandAutoRearmDesc>
   <CommandRearm>Rearm Trap</CommandRearm>
-  <CommandRearmDesc>Rearm a sprung trap so it can be triggered again.</CommandRearmDesc>
+  <CommandRearmDesc>Rearm a sprung trap so that it can be triggered again.</CommandRearmDesc>
   <CommandRearmDebug>DEBUG:Rearm Trap</CommandRearmDebug>
   <CommandRearmDescDebug>Instantly rearm a sprung trap so it can be triggered again.</CommandRearmDescDebug>
   <CommandDisarmDebug>DEBUG:Disarm Trap</CommandDisarmDebug>
