@@ -4,27 +4,18 @@ Welcome to RimDungeon!
 RimDungeon is a collection of mods allowing you to play a dungeon keeper, instead of Rim coloniser.
 This specific mod adds a variety of traps, so you can embrace your truest kobold desires. Adding your own traps is easy due to a versatile framework available with the mod.
 But obviously you want to get to traps. At his point, following ones have been created.
-## Primitive Traps
-Primitive Traps are the most basic ones you will have access to. They require a very cheap research.
+
 ### Caltrops
 A bundle of spiked stars spread across a tile. Whilst they are far from deadly, they are painful enough so that most creatures thread through them carefully, slowing them down significantly.
 ![Caltrop Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Caltrops_Trap.gif)
 
 ### Oil Trap
 Wood Log soaked in oil and wrapped in clothing. Causes a small explosion of fire on trigger. Cheap, unreliable and ineffective against fast moving targets. Devastating against slow creatures.
+![Oil Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Oil_Trap.gif)
 
-No effect against fast enemies:
-![Fast Enemy Oil Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Oil_Fast_Trap.gif)
-
-Whereas a slow one is quite heavily damaged:
-![Slow Enemy Oil Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Oil_Slow_Trap.gif)
-
-## Animal Traps
-Those traps are focused more around killing and weakening animals. Whilst they can be used against humans, it's rather ineffective.
 ### Bear Trap
 Whilst usually used against bears, this trap can be effectively used against a variety of animals, or even humans. It does a decent amount of piercing damage, and gives a long-term movement penalty but requires metal to make.
 ![Bear Trap Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Bear_Trap.gif)
-
 
 ## Noose Trap
 A noose trap. Whilst damage might be enough to kill small animals, its main benefit is ability to immobilise target for a long time in a noose. Humans are unlikely to trigger it.
@@ -40,26 +31,18 @@ Five spikes under tension, connected to a touch-activated trigger. When the vict
 Spikes hidden in the ground. When triggered, spikes thrust into the enemy, doing massive, armour piercing damage. Rearmable but is expensive and takes a long time to build. It is unlikely to trigger on colonists or animals.
 ![Spikes_Trap_Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Spikes_Trap.gif)
 
-### Poison Trap
-WARNING: This is a extremely deadly poison trap, disguised as a plant. The poison works on touch, is single use, but is guaranteed to kill any affected creature within a very short time period.
-![Poison_Trap_Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Poison_Trap.gif)
-
 ### Column Trap
 A faulty column, rigged to fall apart when an enemy touches it. The column can also be destroyed manually.
 ![Column_Trap_Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Column_Trap.gif)
 
-### Smoke Gas Trap
-A Trap filled with chemicals to create smoke upon activation. Can be activated remotely to help both attacking and defending forces.
-![Smoke_Trap_Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Smoke_Trap.gif)
-
-### Sleeping Gas Trap
-A Trap filled with chemicals to create sleeping gas upon activation. Useful in defending choke points or in dealing with infestations.
+### Sleep Poison Trap
+A Poison trap filled with sleep inducing chemicals.
 ![Sleep_Trap_Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Sleep_Trap.gif)
 
-### Insect Gas Trap
-A Trap filled with chemicals to create insect-killing gas upon activation. Huge area of effect and has no effect on colonists.
-![Sleep_Trap_Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Insect_Trap.gif)
+### Rage Poison Trap
+A Poison trap filled with rage gas.
+![Rage_Trap_Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Rage_Trap.gif)
 
-### Wall Gas Trap
-A Trap filled with super-heavy gas. Moving through it is impossible. Perfect for quickly walling an area in an emergency.
-![Wall_Trap_Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Wall_Trap.gif)
+### Gas Trap
+A trap that can be filled with a variety of deadly gases.
+![Gas_Trap_Gif](https://github.com/miki4920/RimDungeon_Traps/blob/main/Wiki/Gas_Trap.gif)
