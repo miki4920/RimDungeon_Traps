@@ -26,7 +26,6 @@
 			<li Class="RimDungeon.Trap_Def">
 				<numberOfAttacks>1</numberOfAttacks>
 				<armorPenetration>0.01</armorPenetration>
-				<sameFactionSpringChance>0.10</sameFactionSpringChance>
 				<wildAnimalSpringChance>0.10</wildAnimalSpringChance>
 				<pathWalkCost>150</pathWalkCost>
 			</li>
@@ -74,7 +73,6 @@
 		</comps>
 		<modExtensions>
 			<li Class="RimDungeon.Trap_Def">
-				<sameFactionSpringChance>0.1</sameFactionSpringChance>
 				<wildAnimalSpringChance>0.1</wildAnimalSpringChance>
 			</li>
 		</modExtensions>
@@ -163,7 +161,6 @@
 				<numberOfAttacks>1</numberOfAttacks>
 				<rearmable>true</rearmable>
 				<animalTrap>true</animalTrap>
-				<sameFactionSpringChance>0.1</sameFactionSpringChance>
 				<wildAnimalSpringChance>0.75</wildAnimalSpringChance>
 				<armorPenetration>0.5</armorPenetration>
 			</li>
