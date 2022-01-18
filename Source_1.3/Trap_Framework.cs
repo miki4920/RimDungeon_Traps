@@ -13,10 +13,12 @@ namespace RimDungeon
         public Trap_Def TrapDef => base.def.GetModExtension<Trap_Def>();
         public bool armed;
 
+
         public bool autoRebuild;
         public bool autoRearm;
 
         public List<Pawn> touchingPawns = new List<Pawn>();
+        public Trap_Settings settings = LoadedModManager.GetMod<RimDungeon_Traps>().GetSettings<Trap_Settings>();
 
         public bool CanSetAutoRebuild
         {
@@ -121,12 +123,12 @@ namespace RimDungeon
             if (p.Faction == null && p.RaceProps.Animal)
             {
 
-                num = TrapDef.wildAnimalSpringChance;
+                num = TrapDef.wildAnimalSpringChance * (settings.affectAnimals ? 1: 0);
 
             }
             else if (p.Faction == base.Faction || !p.Faction.HostileTo(base.Faction))
             {
-                num = TrapDef.sameFactionSpringChance;
+                num = TrapDef.sameFactionSpringChance * (settings.affectFriendly ? 1: 0);
             }
             else
             {
@@ -144,7 +146,7 @@ namespace RimDungeon
         }
         public override ushort PathWalkCostFor(Pawn p)
         {
-            return (ushort)TrapDef.pathWalkCost;
+            return (ushort)((ushort)TrapDef.pathWalkCost * (settings.slowDown ? 1 : 0) + 1);
         }
         public void Spring(Pawn p)
         {
