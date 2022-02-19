@@ -123,12 +123,12 @@ namespace RimDungeon
             if (p.Faction == null && p.RaceProps.Animal)
             {
 
-                num = TrapDef.wildAnimalSpringChance * (settings.affectAnimals ? 1: 0);
+                num = settings.affectAnimals;
 
             }
             else if (p.Faction == base.Faction || !p.Faction.HostileTo(base.Faction))
             {
-                num = TrapDef.sameFactionSpringChance * (settings.affectFriendly ? 1: 0);
+                num = settings.affectFriendly;
             }
             else
             {

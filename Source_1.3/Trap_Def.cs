@@ -1,17 +1,19 @@
-﻿using Verse;
+﻿using System;
+using Verse;
 using UnityEngine;
+using System.Runtime;
 
 namespace RimDungeon
 {
     public class Trap_Settings : ModSettings
     {
-        public bool affectFriendly = true;
-        public bool affectAnimals = true;
+        public float affectFriendly = 0.01f;
+        public float affectAnimals = 0.5f;
         public bool slowDown = true;
         public override void ExposeData()
         {
-            Scribe_Values.Look(ref affectFriendly, "affectFriendly", true);
-            Scribe_Values.Look(ref affectAnimals, "affectAnimals", true);
+            Scribe_Values.Look(ref affectFriendly, "affectFriendly", 0.01f);
+            Scribe_Values.Look(ref affectAnimals, "affectAnimals", 0.5f);
             Scribe_Values.Look(ref slowDown, "slowDown", true);
             base.ExposeData();
         }
@@ -28,8 +30,10 @@ namespace RimDungeon
         {
             Listing_Standard listingStandard = new Listing_Standard();
             listingStandard.Begin(inRect);
-            listingStandard.CheckboxLabeled("Traps are affecting friendly pawns and animals: ", ref settings.affectFriendly, "Change whether traps can trigger on creatures belonging to your faction.");
-            listingStandard.CheckboxLabeled("Traps are affecting wild animals: ", ref settings.affectAnimals, "Change whether traps can affect wild animals. Warning, turning this off makes animal traps useless.");
+            listingStandard.Label(String.Format("Percentage Chance of Your Colonist (Or Your Animal) Triggering a Trap: {0}",(int) (settings.affectFriendly*100)));
+            settings.affectFriendly = listingStandard.Slider(settings.affectFriendly, 0, 1.00f);
+            listingStandard.Label(String.Format("Percentage Chance of Neutral Animal Triggering a Trap: {0}", (int) (settings.affectAnimals*100)));
+            settings.affectAnimals = listingStandard.Slider(settings.affectAnimals, 0, 1.00f);
             listingStandard.CheckboxLabeled("Traps slow down movement: ", ref settings.slowDown, "Change whether traps slow down movement. Warning, this makes caltrops significantly weaker.");
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);
