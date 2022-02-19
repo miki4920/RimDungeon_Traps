@@ -56,7 +56,7 @@ namespace RimDungeon
 
         public bool KnowsOfTrap(Pawn p)
         {
-            if (p.Faction == null && (p.RaceProps.Animal || p.RaceProps.Insect) && TrapDef.animalTrap)
+            if (p.Faction == null && (p.RaceProps.Animal || p.RaceProps.Insect) && TrapDef.trapType == "Animal")
             {
                 return false;
             }
@@ -122,17 +122,51 @@ namespace RimDungeon
 
             if (p.Faction == null && p.RaceProps.Animal)
             {
-
-                num = settings.affectAnimals;
+                if (this.TrapDef.trapType == "Animal")
+                {
+                    num = this.settings.affectAnimalsAnimalTrap;
+                }
+                else
+                {
+                    num = 0;
+                }
 
             }
             else if (p.Faction == base.Faction || !p.Faction.HostileTo(base.Faction))
             {
-                num = settings.affectFriendly;
+                switch (this.TrapDef.trapType)
+                {
+                    case("Basic"):
+                        num = this.settings.affectFriendlyBasicTrap;
+                        break;
+                    case("Animal"):
+                        num = this.settings.affectFriendlyAnimalTrap;
+                        break;
+                    case("Advanced"):
+                        num = this.settings.affectFriendlyAdvancedTrap;
+                        break;
+                    default:
+                        num = 0;
+                        break;
+                }
             }
             else
             {
-                num = this.GetStatValue(StatDefOf.TrapSpringChance, true) * p.GetStatValue(StatDefOf.PawnTrapSpringChance, true);
+                switch (this.TrapDef.trapType)
+                {
+                    case("Basic"):
+                        num = this.settings.affectEnemyBasicTrap * p.GetStatValue(StatDefOf.PawnTrapSpringChance, true);
+                        break;
+                    case("Animal"):
+                        num = this.settings.affectEnemyAnimalTrap * p.GetStatValue(StatDefOf.PawnTrapSpringChance, true);
+                        break;
+                    case("Advanced"):
+                        num = this.settings.affectEnemyAdvancedTrap * p.GetStatValue(StatDefOf.PawnTrapSpringChance, true);
+                        break;
+                    default:
+                        num = 0;
+                        break;
+                }
             }
             return Mathf.Clamp01(num);
         }
