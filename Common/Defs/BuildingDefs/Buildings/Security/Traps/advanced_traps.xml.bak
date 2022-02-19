@@ -11,6 +11,7 @@
 			<WorkToBuild>3200</WorkToBuild>
 			<Flammability>0</Flammability>
 			<TrapMeleeDamage>80</TrapMeleeDamage>
+			<TrapSpringChance>0.75</TrapSpringChance>
 		</statBases>
 		<stuffCategories>
 			<li>Metallic</li>
@@ -23,7 +24,6 @@
 				<numberOfAttacks>3</numberOfAttacks>
 				<rearmable>true</rearmable>
 				<armorPenetration>1</armorPenetration>
-				<trapType>Advanced</trapType>
 			</li>
 		</modExtensions>
 		<building>

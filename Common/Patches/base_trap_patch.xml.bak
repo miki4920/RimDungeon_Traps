@@ -38,6 +38,13 @@
 			<TrapMeleeDamage>40</TrapMeleeDamage>
 		</value>
 	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<success>Normal</success>
+		<xpath>Defs/ThingDef[defName="TrapSpike"]/statBases/TrapSpringChance</xpath>
+		<value>
+			<TrapSpringChance>0.75</TrapSpringChance>
+		</value>
+	</Operation>
 	<Operation Class="PatchOperationAdd">
 		<success>Normal</success>
 		<xpath>Defs/ThingDef[defName="TrapSpike"]/building</xpath>

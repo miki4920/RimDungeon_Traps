@@ -2,7 +2,7 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>PoisonTrap</defName>
 		<label>poison trap</label>
-		<description>A trap made of a pressure-activated needle and a container for poisons. Upon filling, it can deliver any substance straight into the body of its victim. Effective against humanoids, although your colonists cannot trigger it. Rearmable and reusable.</description>
+		<description>A trap made of a pressure-activated needle and a container for poisons. Upon filling, it can deliver any substance straight into the body of its victim. Effective against humanoids, although your colonists are unlikely to trigger it. Rearmable and reusable.</description>
 		<graphicData>
 			<texPath>Things/Building/Traps/Poison_Trap_Armed</texPath>
 		</graphicData>

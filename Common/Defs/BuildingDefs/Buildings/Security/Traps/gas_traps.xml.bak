@@ -14,6 +14,7 @@
 			<MaxHitPoints>20</MaxHitPoints>
 			<WorkToBuild>3200</WorkToBuild>
 			<Flammability>1.0</Flammability>
+			<TrapSpringChance>0</TrapSpringChance>
 		</statBases>
 		<building>
 			<trapDestroyOnSpring>false</trapDestroyOnSpring>
@@ -40,7 +41,8 @@
 			<li Class="RimDungeon.Trap_Def">
 				<manualSpring>true</manualSpring>
 				<rearmable>true</rearmable>
-				<trapType>Gas</trapType>
+				<sameFactionSpringChance>0</sameFactionSpringChance>
+				<wildAnimalSpringChance>0</wildAnimalSpringChance>
 			</li>
 		</modExtensions>
 		<comps>

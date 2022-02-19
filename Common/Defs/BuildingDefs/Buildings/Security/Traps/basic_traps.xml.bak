@@ -14,7 +14,8 @@
 			<MaxHitPoints>100</MaxHitPoints>
 			<WorkToBuild>1600</WorkToBuild>
 			<Flammability>0.5</Flammability>
-			<TrapMeleeDamage>1</TrapMeleeDamage>
+			<TrapMeleeDamage>5</TrapMeleeDamage>
+			<TrapSpringChance>0.10</TrapSpringChance>
 		</statBases>
 		<stuffCategories>
 			<li>Metallic</li>
@@ -25,8 +26,8 @@
 			<li Class="RimDungeon.Trap_Def">
 				<numberOfAttacks>1</numberOfAttacks>
 				<armorPenetration>0.01</armorPenetration>
+				<wildAnimalSpringChance>0.10</wildAnimalSpringChance>
 				<pathWalkCost>150</pathWalkCost>
-				<trapType>Basic</trapType>
 			</li>
 		</modExtensions>
 		<building>
@@ -49,6 +50,7 @@
 			<MaxHitPoints>20</MaxHitPoints>
 			<WorkToBuild>800</WorkToBuild>
 			<Flammability>1.0</Flammability>
+			<TrapSpringChance>0.5</TrapSpringChance>
 		</statBases>
 		<costList>
 			<WoodLog>10</WoodLog>
@@ -71,7 +73,7 @@
 		</comps>
 		<modExtensions>
 			<li Class="RimDungeon.Trap_Def">
-				<trapType>Basic</trapType>
+				<wildAnimalSpringChance>0.1</wildAnimalSpringChance>
 			</li>
 		</modExtensions>
 		<researchPrerequisites>
@@ -91,6 +93,7 @@
 			<WorkToBuild>1600</WorkToBuild>
 			<Flammability>1</Flammability>
 			<TrapMeleeDamage>5</TrapMeleeDamage>
+			<TrapSpringChance>0.01</TrapSpringChance>
 		</statBases>
 		<costList>
 			<WoodLog>50</WoodLog>
@@ -104,7 +107,8 @@
 			<li Class="RimDungeon.Trap_Def">
 				<numberOfAttacks>1</numberOfAttacks>
 				<rearmable>true</rearmable>
-				<trapType>Animal</trapType>
+				<animalTrap>true</animalTrap>
+				<wildAnimalSpringChance>0.9</wildAnimalSpringChance>
 				<armorPenetration>0.1</armorPenetration>
 			</li>
 			<li Class="RimDungeon.Hediff_Trap_Def">
@@ -142,6 +146,7 @@
 			<WorkToBuild>3200</WorkToBuild>
 			<Flammability>0</Flammability>
 			<TrapMeleeDamage>50</TrapMeleeDamage>
+			<TrapSpringChance>0.25</TrapSpringChance>
 		</statBases>
 		<stuffCategories>
 			<li>Metallic</li>
@@ -155,7 +160,8 @@
 			<li Class="RimDungeon.Trap_Def">
 				<numberOfAttacks>1</numberOfAttacks>
 				<rearmable>true</rearmable>
-				<trapType>Animal</trapType>
+				<animalTrap>true</animalTrap>
+				<wildAnimalSpringChance>0.75</wildAnimalSpringChance>
 				<armorPenetration>0.5</armorPenetration>
 			</li>
 			<li Class="RimDungeon.Hediff_Trap_Def">
@@ -196,6 +202,7 @@
 			<Flammability>1.0</Flammability>
 			<Beauty>5</Beauty>
 			<TrapMeleeDamage>0</TrapMeleeDamage>
+			<TrapSpringChance>0.01</TrapSpringChance>
 		</statBases>
 		<stuffCategories>
 			<li>Metallic</li>
@@ -208,7 +215,6 @@
 				<numberOfAttacks>1</numberOfAttacks>
 				<rearmable>false</rearmable>
 				<manualSpring>true</manualSpring>
-				<trapType>Basic</trapType>
 			</li>
 		</modExtensions>
 		<holdsRoof>true</holdsRoof>
