@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RimDungeon_Traps", "RimDungeon_Traps.csproj", "{A330E211-984B-4527-8570-BC542B006DA8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RimDungeon_Traps", "RimDungeon_Traps.csproj", "{B2EED731-A7B5-4154-94E2-C6FE243C7320}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +8,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A330E211-984B-4527-8570-BC542B006DA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A330E211-984B-4527-8570-BC542B006DA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A330E211-984B-4527-8570-BC542B006DA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A330E211-984B-4527-8570-BC542B006DA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2EED731-A7B5-4154-94E2-C6FE243C7320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2EED731-A7B5-4154-94E2-C6FE243C7320}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2EED731-A7B5-4154-94E2-C6FE243C7320}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2EED731-A7B5-4154-94E2-C6FE243C7320}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2EED731-A7B5-4154-94E2-C6FE243C7320}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

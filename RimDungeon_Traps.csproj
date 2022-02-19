@@ -1,18 +1,121 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{B2EED731-A7B5-4154-94E2-C6FE243C7320}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>RimDungeon_Traps</RootNamespace>
+        <AssemblyName>RimDungeon_Traps</AssemblyName>
+        <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     </PropertyGroup>
-
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>none</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>1.3\Assemblies</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
     <ItemGroup>
-      <Reference Include="Assembly-CSharp, Version=1.3.8005.21796, Culture=neutral, PublicKeyToken=null">
-        <HintPath>..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
-      </Reference>
-      <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-        <HintPath>..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-      </Reference>
+        <Reference Include="Assembly-CSharp, Version=1.3.8005.21796, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Xml" />
+        <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
     </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Source_1.3\AI\JobDriver_RearmTrap.cs" />
+        <Compile Include="Source_1.3\AI\WorkGiver_RearmTrap.cs" />
+        <Compile Include="Source_1.3\Comps\CompArmedEmitter.cs" />
+        <Compile Include="Source_1.3\Comps\CompProperties_ArmedEmitter.cs" />
+        <Compile Include="Source_1.3\DefsOf\DesignationDefOf.cs" />
+        <Compile Include="Source_1.3\DefsOf\JobDefOf.cs" />
+        <Compile Include="Source_1.3\Designators\Designator_RearmTrap.cs" />
+        <Compile Include="Source_1.3\Trap_Def.cs" />
+        <Compile Include="Source_1.3\Trap_Framework.cs" />
+        <Compile Include="Source_1.3\Trap_Gas.cs" />
+        <Compile Include="Source_1.3\Trap_Hediff.cs" />
+        <Compile Include="Source_1.3\Trap_Spring.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="1.3\Assemblies\Rimdungeon_Traps.dll" />
+      <Content Include="About\About.xml" />
+      <Content Include="About\Preview.png" />
+      <Content Include="About\PublishedFileId.txt" />
+      <Content Include="Common\Defs\BuildingDefs\Buildings\Security\Traps\advanced_traps.xml" />
+      <Content Include="Common\Defs\BuildingDefs\Buildings\Security\Traps\basic_traps.xml" />
+      <Content Include="Common\Defs\BuildingDefs\Buildings\Security\Traps\gas_traps.xml" />
+      <Content Include="Common\Defs\BuildingDefs\Buildings\Security\Traps\poison_traps.xml" />
+      <Content Include="Common\Defs\BuildingDefs\Buildings\Security\Traps\trap_designator.xml" />
+      <Content Include="Common\Defs\BuildingDefs\Buildings\Security\Traps\trap_framework.xml" />
+      <Content Include="Common\Defs\EffectDefs\Fleck_Visual.xml" />
+      <Content Include="Common\Defs\GasDefs\GasDef.xml" />
+      <Content Include="Common\Defs\GasDefs\GasShellDef.xml" />
+      <Content Include="Common\Defs\HediffDefs\ShellHediffDef.xml" />
+      <Content Include="Common\Defs\HediffDefs\TrapHediffDef.xml" />
+      <Content Include="Common\Defs\PoisonDefs\PoisonDef.xml" />
+      <Content Include="Common\Defs\ResearchProjectDefs\Research_Tabs.xml" />
+      <Content Include="Common\Defs\ResearchProjectDefs\Research_Traps.xml" />
+      <Content Include="Common\Defs\ThingCategoryDefs\ThingCategories.xml" />
+      <Content Include="Common\Languages\English\Keyed\Keys.xml" />
+      <Content Include="Common\Patches\base_trap_patch.xml" />
+      <Content Include="Common\Textures\Icons\GasTanks.png" />
+      <Content Include="Common\Textures\Icons\Poisons.png" />
+      <Content Include="Common\Textures\Things\Building\Traps\Bear_Trap_Armed.png" />
+      <Content Include="Common\Textures\Things\Building\Traps\Bear_Trap_Unarmed.png" />
+      <Content Include="Common\Textures\Things\Building\Traps\Caltrops_Trap.png" />
+      <Content Include="Common\Textures\Things\Building\Traps\Column_Trap.png" />
+      <Content Include="Common\Textures\Things\Building\Traps\Gas_Trap.png" />
+      <Content Include="Common\Textures\Things\Building\Traps\Noose_Trap_Armed.png" />
+      <Content Include="Common\Textures\Things\Building\Traps\Noose_Trap_Unarmed.png" />
+      <Content Include="Common\Textures\Things\Building\Traps\Oil_Trap.png" />
+      <Content Include="Common\Textures\Things\Building\Traps\Poison_Trap_Armed.png" />
+      <Content Include="Common\Textures\Things\Building\Traps\Poison_Trap_Unarmed.png" />
+      <Content Include="Common\Textures\Things\Building\Traps\Spikes_Trap_Armed.png" />
+      <Content Include="Common\Textures\Things\Building\Traps\Spikes_Trap_Unarmed.png" />
+      <Content Include="Common\Textures\Things\Building\Traps\TrapSpike_Unarmed.png" />
+      <Content Include="Common\Textures\Things\GasTanks\GasTankEnfeeble.png" />
+      <Content Include="Common\Textures\Things\GasTanks\GasTankInsect.png" />
+      <Content Include="Common\Textures\Things\GasTanks\GasTankRage.png" />
+      <Content Include="Common\Textures\Things\GasTanks\GasTankSleep.png" />
+      <Content Include="Common\Textures\Things\GasTanks\GasTankSmoke.png" />
+      <Content Include="Common\Textures\Things\GasTanks\GasTankWall.png" />
+      <Content Include="Common\Textures\Things\PoisonBottles\PoisonBottleEnfeeble.png" />
+      <Content Include="Common\Textures\Things\PoisonBottles\PoisonBottleInsect.png" />
+      <Content Include="Common\Textures\Things\PoisonBottles\PoisonBottleNeurotoxin.png" />
+      <Content Include="Common\Textures\Things\PoisonBottles\PoisonBottleRage.png" />
+      <Content Include="Common\Textures\Things\PoisonBottles\PoisonBottleSleep.png" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
 
 </Project>
