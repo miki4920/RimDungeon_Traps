@@ -62,7 +62,7 @@ namespace RimDungeon
             listingStandard.Label("Adjust Percentage Chances of Triggering Advanced Traps:\n-Spikes\n-Poison Trap\n-Spike Trap");
             listingStandard.Label(String.Format("Percentage Chance of a Friendly Colonist Triggering an Advanced Trap: {0}", (int) (100*settings.affectFriendlyAdvancedTrap)));
             settings.affectFriendlyAdvancedTrap = listingStandard.Slider(settings.affectFriendlyAdvancedTrap, 0, 1.00f);
-            listingStandard.Label(String.Format("Percentage Chance of an Enemy Triggering a Simple Trap: {0}", (int) (100*settings.affectEnemyAdvancedTrap)));
+            listingStandard.Label(String.Format("Percentage Chance of an Enemy Triggering an Advanced Trap: {0}", (int) (100*settings.affectEnemyAdvancedTrap)));
             settings.affectEnemyAdvancedTrap = listingStandard.Slider(settings.affectEnemyAdvancedTrap, 0, 1.00f);
             
             listingStandard.CheckboxLabeled("Traps slow down movement: ", ref settings.slowDown, "Change whether traps slow down movement. Warning, this makes caltrops significantly weaker.");
