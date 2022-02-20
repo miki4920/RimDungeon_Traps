@@ -115,7 +115,8 @@ namespace RimDungeon
         }
         public float SpringChance(Pawn p)
         {
-            float num;
+            // TODO: Fix trap chances
+            float num = 0;
             if (!armed && this.TrapDef.rearmable) {
                 return 0f;
             }
@@ -150,7 +151,7 @@ namespace RimDungeon
                         break;
                 }
             }
-            else
+            else if (p.Faction.HostileTo(base.Faction))
             {
                 switch (this.TrapDef.trapType)
                 {
