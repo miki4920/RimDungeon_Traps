@@ -11,7 +11,7 @@ namespace RimDungeon
         public float affectEnemyBasicTrap = 0.75f;
         
         public float affectFriendlyAnimalTrap = 0.01f;
-        public float affectAnimalsAnimalTrap = 0.75f;
+        public float affectAnimalsAnimalTrap = 1f;
         public float affectEnemyAnimalTrap = 0.25f;
         
         public float affectFriendlyAdvancedTrap = 0;
@@ -24,7 +24,7 @@ namespace RimDungeon
             Scribe_Values.Look(ref affectEnemyBasicTrap, "affectEnemyBasicTrap", 0.75f);
             
             Scribe_Values.Look(ref affectFriendlyAnimalTrap, "affectFriendlyAnimalTrap", 0.01f);
-            Scribe_Values.Look(ref affectAnimalsAnimalTrap, "affectAnimalsAnimalTrap", 0.75f);
+            Scribe_Values.Look(ref affectAnimalsAnimalTrap, "affectAnimalsAnimalTrap", 1f);
             Scribe_Values.Look(ref affectEnemyAnimalTrap, "affectEnemyAnimalTrap", 0.25f);
             
             Scribe_Values.Look(ref affectFriendlyAdvancedTrap, "affectFriendlyAdvancedTrap", 0);
