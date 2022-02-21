@@ -115,25 +115,15 @@ namespace RimDungeon
         }
         public float SpringChance(Pawn p)
         {
-            // TODO: Fix trap chances
             float num = 0;
             if (!armed && this.TrapDef.rearmable) {
                 return 0f;
             }
-
-            if (p.Faction == null && p.RaceProps.Animal)
+            if (p.RaceProps.Animal && !p.HostileTo(this.Faction) && this.TrapDef.trapType == "Animal")
             {
-                if (this.TrapDef.trapType == "Animal")
-                {
-                    num = this.settings.affectAnimalsAnimalTrap;
-                }
-                else
-                {
-                    num = 0;
-                }
-
+                num = this.settings.affectAnimalsAnimalTrap;
             }
-            else if (p.Faction == base.Faction || !p.Faction.HostileTo(base.Faction))
+            else if (p.Faction == base.Faction || !p.HostileTo(base.Faction) && p.Faction != null)
             {
                 switch (this.TrapDef.trapType)
                 {
@@ -151,7 +141,7 @@ namespace RimDungeon
                         break;
                 }
             }
-            else if (p.Faction.HostileTo(base.Faction))
+            else if (p.HostileTo(base.Faction))
             {
                 switch (this.TrapDef.trapType)
                 {
@@ -358,7 +348,7 @@ namespace RimDungeon
                     }
                 };
             }
-            if (this.CanExtractShell)
+            if (this.CanExtractShell && this.armed)
             {
                 yield return new Command_Action
                 {
