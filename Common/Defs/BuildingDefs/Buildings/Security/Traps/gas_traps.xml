@@ -47,7 +47,7 @@
 			<li Class="CompProperties_ChangeableProjectile"/>
 			<li Class="RimDungeon.CompProperties_ArmedEmitter">
 				<fleck>ArmedTrap</fleck>
-				<emissionInterval>100</emissionInterval>
+				<emissionInterval>200</emissionInterval>
 				<saveKeysPrefix>flash</saveKeysPrefix>
 			</li>
 		</comps>
