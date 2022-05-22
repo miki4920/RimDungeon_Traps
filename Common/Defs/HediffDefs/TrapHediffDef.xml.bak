@@ -84,7 +84,7 @@
 		<defName>Disarmed</defName>
 		<label>disarmed</label>
 		<labelNoun>disarmed</labelNoun>
-		<description>This creature has lost an ability to hold anything in its hands.</description>
+		<description>This creature has lost an ability to hold anything in its hands for a long time</description>
 		<hediffClass>HediffWithComps</hediffClass>
 		<lethalSeverity>1</lethalSeverity>
 		<maxSeverity>0.99</maxSeverity>

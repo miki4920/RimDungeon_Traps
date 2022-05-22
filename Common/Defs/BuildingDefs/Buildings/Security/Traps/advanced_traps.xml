@@ -39,4 +39,58 @@
 			<li>AdvancedTraps</li>
 		</researchPrerequisites>
 	</ThingDef>
+	
+	<ThingDef ParentName="BaseDungeonTrap">
+		<defName>DisarmingTrap</defName>
+		<label>disarming trap</label>
+		<description>This trap rips the weapon from victim's hands, making them drop it. Does little damage and is Rearmable. It is unlikely to spring on colonists or animals.</description>
+		<graphicData>
+			<texPath>Things/Building/Traps/Disarming_Trap</texPath>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>1600</WorkToBuild>
+			<Flammability>0</Flammability>
+			<TrapMeleeDamage>10</TrapMeleeDamage>
+		</statBases>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Woody</li>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<modExtensions>
+			<li Class="RimDungeon.Trap_Def">
+				<numberOfAttacks>1</numberOfAttacks>
+				<rearmable>true</rearmable>
+				<trapType>Advanced</trapType>
+				<armorPenetration>0.5</armorPenetration>
+			</li>
+			<li Class="RimDungeon.Hediff_Trap_Def">
+				<hediff>Disarmed</hediff>
+				<severity>1.0</severity>
+				<chance>1.0</chance>
+				<affectsAll>true</affectsAll>
+			</li>
+		</modExtensions>
+		<comps>
+			<li Class="RimDungeon.CompProperties_ArmedEmitter">
+				<fleck>ArmedTrapElectricalSpark</fleck>
+				<emissionInterval>200</emissionInterval>
+				<saveKeysPrefix>flash</saveKeysPrefix>
+			</li>
+		</comps>
+		<building>
+			<trapDestroyOnSpring>false</trapDestroyOnSpring>
+			<trapDamageCategory>Sharp</trapDamageCategory>
+			<trapUnarmedGraphicData>
+				<texPath>Things/Building/Traps/Disarming_Trap</texPath>
+				<graphicClass>Graphic_Single</graphicClass>
+			</trapUnarmedGraphicData>
+		</building>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+		<researchPrerequisites>
+			<li>AdvancedTraps</li>
+		</researchPrerequisites>
+	</ThingDef>
 </Defs>
