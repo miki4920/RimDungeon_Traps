@@ -119,7 +119,44 @@ namespace RimDungeon
             if (!armed && this.TrapDef.rearmable) {
                 return 0f;
             }
-            if (p.RaceProps.Animal && !p.HostileTo(this.Faction) && this.TrapDef.trapType == "Animal")
+
+            if (this.def.HasModExtension<Hediff_Trap_Def>())
+            {
+                Hediff_Trap_Def hediff = def.GetModExtension<Hediff_Trap_Def>();
+                if (!Trap_Hediff.CanApplyHediff(hediff, p))
+                {
+                    return 0f;
+                }
+            }
+            if(this.def.HasComp(typeof(CompChangeableProjectile)))
+            {
+                CompChangeableProjectile comp = this.GetComp<CompChangeableProjectile>();
+                ThingWithComps projectile = (ThingWithComps) ThingMaker.MakeThing(comp.LoadedShell, null);
+                Hediff_Trap_Def hediff = projectile.def.GetModExtension<Hediff_Trap_Def>();
+                if (!projectile.def.HasModExtension<Gas_Trap_Def>() && !Trap_Hediff.CanApplyHediff(hediff, p))
+                {
+                    return 0f;
+                }
+            }
+            if (p.HostileTo(base.Faction) || p.RaceProps.Insect)
+            {
+                switch (this.TrapDef.trapType)
+                {
+                    case("Basic"):
+                        num = this.settings.affectEnemyBasicTrap * p.GetStatValue(StatDefOf.PawnTrapSpringChance, true);
+                        break;
+                    case("Animal"):
+                        num = this.settings.affectEnemyAnimalTrap * p.GetStatValue(StatDefOf.PawnTrapSpringChance, true);
+                        break;
+                    case("Advanced"):
+                        num = this.settings.affectEnemyAdvancedTrap * p.GetStatValue(StatDefOf.PawnTrapSpringChance, true);
+                        break;
+                    default:
+                        num = 0;
+                        break;
+                }
+            }
+            else if (p.RaceProps.Animal && !p.HostileTo(this.Faction) && this.TrapDef.trapType == "Animal")
             {
                 num = this.settings.affectAnimalsAnimalTrap;
             }
@@ -141,24 +178,7 @@ namespace RimDungeon
                         break;
                 }
             }
-            else if (p.HostileTo(base.Faction))
-            {
-                switch (this.TrapDef.trapType)
-                {
-                    case("Basic"):
-                        num = this.settings.affectEnemyBasicTrap * p.GetStatValue(StatDefOf.PawnTrapSpringChance, true);
-                        break;
-                    case("Animal"):
-                        num = this.settings.affectEnemyAnimalTrap * p.GetStatValue(StatDefOf.PawnTrapSpringChance, true);
-                        break;
-                    case("Advanced"):
-                        num = this.settings.affectEnemyAdvancedTrap * p.GetStatValue(StatDefOf.PawnTrapSpringChance, true);
-                        break;
-                    default:
-                        num = 0;
-                        break;
-                }
-            }
+            
             return Mathf.Clamp01(num);
         }
         public override ushort PathFindCostFor(Pawn p)
