@@ -43,7 +43,7 @@
 	<ThingDef ParentName="BaseDungeonTrap">
 		<defName>DisarmingTrap</defName>
 		<label>disarming trap</label>
-		<description>This trap rips the weapon from victim's hands, making them drop it. Does little damage and is Rearmable. It is unlikely to spring on colonists or animals.</description>
+		<description>This rearmable electricity-based trap rips the weapon from victim's hands, making them drop it. It will not trigger when person does not wield a weapon. It is unlikely to spring on colonists or animals.</description>
 		<graphicData>
 			<texPath>Things/Building/Traps/Disarming_Trap</texPath>
 		</graphicData>
@@ -55,10 +55,9 @@
 		</statBases>
 		<stuffCategories>
 			<li>Metallic</li>
-			<li>Woody</li>
 			<li>Stony</li>
 		</stuffCategories>
-		<costStuffCount>150</costStuffCount>
+		<costStuffCount>300</costStuffCount>
 		<modExtensions>
 			<li Class="RimDungeon.Trap_Def">
 				<numberOfAttacks>1</numberOfAttacks>
@@ -70,7 +69,7 @@
 				<hediff>Disarmed</hediff>
 				<severity>1.0</severity>
 				<chance>1.0</chance>
-				<affectsAll>true</affectsAll>
+				<affectItemWieldersOnly>true</affectItemWieldersOnly>
 			</li>
 		</modExtensions>
 		<comps>
