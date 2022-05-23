@@ -97,6 +97,7 @@ namespace RimDungeon
         public bool affectsLiving = false;
         public bool affectsMech = false;
         public bool affectsInsect = false;
+        public bool affectItemWieldersOnly = false;
     }
     public class Gas_Trap_Def : DefModExtension
     {
