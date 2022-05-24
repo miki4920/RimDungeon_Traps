@@ -12,11 +12,8 @@ namespace RimDungeon
     {
         public Trap_Def TrapDef => base.def.GetModExtension<Trap_Def>();
         public bool armed;
-
-
         public bool autoRebuild;
         public bool autoRearm;
-
         public List<Pawn> touchingPawns = new List<Pawn>();
         public Trap_Settings settings = LoadedModManager.GetMod<RimDungeon_Traps>().GetSettings<Trap_Settings>();
 
